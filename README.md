@@ -1,5 +1,15 @@
 # PFC Scientific Visualization
 
+Offline scientific Viewer and analysis for real PFC2D/PFC3D data (light theme,
+local assets, no raw-data copying):
+
+| PFC2D — rock UCS | PFC3D — balls in box |
+|---|---|
+| ![PFC2D light-theme viewer](assets/showcase/viewer_2d_light.png) | ![PFC3D light-theme viewer](assets/showcase/viewer_3d_light.png) |
+
+Both images are exports from real standardized Runs processed by this Skill,
+not mock renders.
+
 An installable scientific post-processing Skill for verified PFC2D/PFC3D
 standardized data. It consumes the immutable
 `pfc.standardized-experiment@1.0.0` contract produced by `pfc-headless` and
