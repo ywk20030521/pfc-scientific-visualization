@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "data_boundary": "REAL_PFC",
+  "case_id": 17,
+  "run_id": "run_case17_confined_break_6k_r1",
+  "started_utc": "2026-11-24T13:00:19.522+00:00",
+  "config": {
+    "case_id": 17,
+    "run_id": "run_case17_confined_break_6k_r1",
+    "project_dir": "D:/Python/itasca-mcp/pfc10_practice/subprojects/case06_rock_ucs/source",
+    "restore_initial": false,
+    "setup": [
+      "model new",
+      "model large-strain on",
+      "model title 'Confined breakable specimen: 6k graded balls, settled bond network'",
+      "model domain extent -1.0 1.0 -1.0 1.0 -1.5 1.5",
+      "wall generate id 101 name 'bottom' polygon -0.25,-0.25,-0.5 0.25,-0.25,-0.5 0.25,0.25,-0.5 -0.25,0.25,-0.5",
+      "wall generate id 102 name 'top' polygon -0.25,-0.25,0.5 0.25,-0.25,0.5 0.25,0.25,0.5 -0.25,0.25,0.5",
+      "wall generate id 103 name 'left' polygon -0.25,-0.25,-0.5 -0.25,0.25,-0.5 -0.25,0.25,0.5 -0.25,-0.25,0.5",
+      "wall generate id 104 name 'right' polygon 0.25,-0.25,-0.5 0.25,0.25,-0.5 0.25,0.25,0.5 0.25,-0.25,0.5",
+      "wall generate id 105 name 'front' polygon -0.25,-0.25,-0.5 0.25,-0.25,-0.5 0.25,-0.25,0.5 -0.25,-0.25,0.5",
+      "wall generate id 106 name 'back' polygon -0.25,0.25,-0.5 0.25,0.25,-0.5 0.25,0.25,0.5 -0.25,0.25,0.5",
+      "contact cmat default model linearpbond property kn 1.0e8 ks 1.0e8 pb_kn 1.0e8 pb_ks 1.0e8 pb_ten 5.0e5 pb_coh 1.5e6 pb_fa 35.0",
+      "ball distribute porosity 0.30 radius 0.014 0.020 box -0.22 0.22 -0.22 0.22 -0.5 0.5",
+      "ball attribute density 2500.0 damp 0.8",
+      "model cycle 500",
+      "model calm",
+      "contact method bond gap 0.0012",
+      "model calm"
+    ],
+    "solve": "wall attribute velocity-z -0.05 range id 102\nwall attribute velocity-z 0.01 range id 101\nmodel solve time 0.01\nwall attribute velocity-z -0.10 range id 102\nwall attribute velocity-z 0.02 range id 101\nmodel solve time 0.02",
+    "post_solve": [],
+    "save": "model save 'case17_confined_break_6k_final'",
+    "sample_stride_cycles": 500,
+    "capture_contacts": false,
+    "history_names": [],
+    "history_meanings": {},
+    "fracture_observer": true,
+    "expected_initial": {},
+    "source_files": {},
+    "load_axis": "z",
+    "top_wall_id": 102,
+    "bottom_wall_id": 101,
+    "design_note": "Parameter scan on ~6400 balls showed pb_ten 5e6-4e7 produced no visible bond break within 10k cycles under rigid lateral confinement, while pb_ten 5e5 produced ~130 breaks and stable loading. This run prioritizes observable progressive fracture and contained grains; it is not a validated 150 MPa granite calibration.",
+    "collection_plan": {
+      "plan_version": "1.0.0",
+      "mode": "cycle",
+      "interval": 500.0,
+      "channels": [
+        {
+          "id": "wall.geometry",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "ball.position",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "ball.radius",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "fracture.event",
+          "enabled": true,
+          "required": false
+        }
+      ],
+      "events": [
+        "fracture"
+      ],
+      "dimension": 3
+    },
+    "sample_mode": "cycle",
+    "sample_interval": 500.0,
+    "field_status_plan": {
+      "wall.geometry": "REAL_PFC",
+      "ball.position": "REAL_PFC",
+      "ball.radius": "REAL_PFC",
+      "fracture.event": "REAL_PFC"
+    },
+    "headless": {
+      "project_id": "pfc10_practice_20261121",
+      "case_id": 17,
+      "run_id": "run_case17_confined_break_6k_r1",
+      "parameters": {},
+      "source_case_config": "cases/case_17/case_config.json"
+    },
+    "run_dir": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data",
+    "execution_mode": "CONSOLE"
+  },
+  "status": "COMPLETE",
+  "errors": [],
+  "source_hashes": {},
+  "pre_snapshot": {
+    "pid": 26952,
+    "cwd": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\instances\\pfc3d_9001case17",
+    "python": "3.10.5",
+    "cycle": 500,
+    "mechanical_time_total": 0.0007382702900855921,
+    "balls": 6379,
+    "walls": 6,
+    "contacts": 19157,
+    "fractures": 0,
+    "fracture_module_available": true
+  },
+  "post_snapshot": {
+    "pid": 26952,
+    "cwd": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\instances\\pfc3d_9001case17",
+    "python": "3.10.5",
+    "cycle": 9330,
+    "mechanical_time_total": 0.030741512493660982,
+    "balls": 6379,
+    "walls": 6,
+    "contacts": 18748,
+    "fractures": 0,
+    "fracture_module_available": true
+  },
+  "capture": {
+    "callback_calls": 8830,
+    "frame_count": 19,
+    "fracture_event_count": 3721,
+    "mechanical_time_run": 0.03000324220357539,
+    "sample_stride_cycles": 500,
+    "sample_mode": "cycle",
+    "sample_value": 500.0,
+    "sample_interval_mode": "Cycle-stride sampling",
+    "capture_contacts": false,
+    "field_status": {
+      "particle_position": "REAL_PFC",
+      "particle_radius": "REAL_PFC",
+      "particle_velocity": "NOT_SELECTED",
+      "particle_spin": "NOT_SELECTED",
+      "wall_vertices": "REAL_PFC",
+      "contact_network": "NOT_CAPTURED",
+      "fracture_events": "REAL_PFC",
+      "fracture_endpoint_ball_ids": "REAL_PFC"
+    },
+    "collection_plan": {
+      "plan_version": "1.0.0",
+      "mode": "cycle",
+      "interval": 500.0,
+      "channels": [
+        {
+          "id": "wall.geometry",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "ball.position",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "ball.radius",
+          "enabled": true,
+          "required": true
+        },
+        {
+          "id": "fracture.event",
+          "enabled": true,
+          "required": false
+        }
+      ],
+      "events": [
+        "fracture"
+      ],
+      "dimension": 3
+    }
+  },
+  "save_executed": true,
+  "solve_segmentation": {
+    "segmented": false,
+    "segments": 0,
+    "cycles": 0,
+    "max_cycles_per_segment": 0,
+    "reason": "solve_segment_cycles not set"
+  },
+  "solve_elapsed_seconds": 109.33412420000059,
+  "native_history_row_count": 0,
+  "fracture_catalog_row_count": 3721,
+  "fracture_catalog_status": "GENERATED",
+  "ended_utc": "2026-11-24T13:02:15.209+00:00",
+  "engine": {
+    "executable": "D:\\Itasca\\PFC900\\exe64\\pfc3d9_console.exe",
+    "python": "3.10.5",
+    "runtime_mode": "CONSOLE"
+  },
+  "files": [
+    {
+      "path": "fractures_final.json",
+      "size_bytes": 1435738,
+      "sha256": "6fb5b4fe5cfd024b92b484ca212defb8447085287e5d672d357ac68d879adae6"
+    },
+    {
+      "path": "native_histories.csv",
+      "size_bytes": 60,
+      "sha256": "9a648d79f03369bd3f7623bfc9756f124f827b90d5f9d1f076ac30b9690d3333"
+    },
+    {
+      "path": "raw/ball_frames.csv",
+      "size_bytes": 12313710,
+      "sha256": "a977a15a835d2b369b4a79bdad6e57ab1514bf89ec516a686aa8d6b58d78f1e7"
+    },
+    {
+      "path": "raw/contact_frames.csv",
+      "size_bytes": 77,
+      "sha256": "f6b5899a389ecd47254c6a39fc2d24b232666c8e2f6596bccb6321063f8fe8b1"
+    },
+    {
+      "path": "raw/fracture_events.csv",
+      "size_bytes": 416681,
+      "sha256": "99026852dbc1f74e7ae88f8e313ae2d9570abb223af45d17cc73e7d812eafabe"
+    },
+    {
+      "path": "raw/frame_index.csv",
+      "size_bytes": 1659,
+      "sha256": "5b9fb8b109275ef54358caffafa3e47a53077d6fb1c8f2452c66586b62434d39"
+    },
+    {
+      "path": "raw/wall_vertices.csv",
+      "size_bytes": 10118,
+      "sha256": "fec52f2102d8b2ba910204b790f5c7f342e473c8d03a03a2a33ab0857515d685"
+    },
+    {
+      "path": "static.json",
+      "size_bytes": 1276546,
+      "sha256": "5d8d2093e9a8ef7a11cabce4a6bfb345b3b6ef87440e5542af53940d8b021773"
+    }
+  ]
+}

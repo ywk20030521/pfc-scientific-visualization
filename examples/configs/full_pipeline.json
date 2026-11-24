@@ -1,0 +1,9 @@
+{
+  "input": "examples/standardized_data/Mock_Experiment",
+  "output": "examples/viewer/Mock_Experiment_Analysis",
+  "title": "Mock PFC Scientific Visualization",
+  "max_frames": 128,
+  "expected_data_boundary": "MOCK",
+  "source_contract": "pfc.standardized-experiment@1.0.0",
+  "note": "The input is owned by pfc-headless and is consumed read-only."
+}

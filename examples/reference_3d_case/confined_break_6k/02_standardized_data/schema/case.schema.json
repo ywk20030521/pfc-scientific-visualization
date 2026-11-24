@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-headless/case.schema.json",
+  "title": "PFC Headless Case",
+  "type": "object",
+  "required": ["schema_version", "case_id", "case_name", "engine_dimension", "config_path", "model_path", "script_path", "parameters", "data_collection_config", "created_utc"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "case_id": {"type": "integer", "minimum": 0},
+    "case_name": {"type": "string", "minLength": 1},
+    "engine_dimension": {"enum": [2, 3]},
+    "config_path": {"type": "string", "minLength": 1},
+    "model_path": {"type": ["string", "null"]},
+    "script_path": {"type": ["string", "null"]},
+    "parameters": {"type": "object"},
+    "collection_plan": {
+      "type": ["object", "null"],
+      "properties": {
+        "plan_version": {"const": "1.0.0"},
+        "mode": {"enum": ["cycle", "time", "event"]},
+        "interval": {"type": "number", "minimum": 0},
+        "channels": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {"type": "string", "minLength": 1},
+              {
+                "type": "object",
+                "required": ["id"],
+                "properties": {
+                  "id": {"type": "string", "minLength": 1},
+                  "enabled": {"type": "boolean"},
+                  "required": {"type": "boolean"}
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        },
+        "events": {"type": "array", "items": {"type": "string", "minLength": 1}},
+        "dimension": {"enum": [2, 3]}
+      },
+      "additionalProperties": false
+    },
+    "data_collection_config": {
+      "type": "object",
+      "required": ["mode", "interval", "capture_contacts"],
+      "properties": {
+        "mode": {"enum": ["cycle", "time", "event"]},
+        "interval": {"type": "number", "minimum": 0},
+        "capture_contacts": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "created_utc": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

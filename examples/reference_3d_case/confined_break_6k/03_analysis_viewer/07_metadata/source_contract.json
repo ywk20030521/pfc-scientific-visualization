@@ -1,0 +1,25 @@
+{
+  "status": "VERIFIED_READ_ONLY",
+  "owner": "pfc-headless",
+  "root": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1",
+  "contract": {
+    "name": "pfc.standardized-experiment",
+    "version": "1.0.0",
+    "read_only": true
+  },
+  "manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b",
+  "experiment_id": "run_case17_confined_break_6k_r1",
+  "case_count": 1,
+  "cases": [
+    {
+      "case_id": 17,
+      "arrays_path": "cases/case_17/arrays.npz",
+      "arrays_sha256": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7",
+      "frame_count": 19
+    }
+  ],
+  "consumer_policy": {
+    "read_only": true,
+    "may_write_inside_contract": false
+  }
+}

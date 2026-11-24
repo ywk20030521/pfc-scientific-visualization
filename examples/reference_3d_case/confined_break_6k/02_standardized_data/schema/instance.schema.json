@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-headless/instance.schema.json",
+  "title": "PFC Headless Engine Instance",
+  "type": "object",
+  "required": ["schema_version", "instance_id", "engine_type", "executable_path", "pid", "bridge_port", "state", "bootstrap_path", "identity_verified", "health_verified", "execution_verified", "started_utc", "stopped_utc"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "instance_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"},
+    "engine_type": {"enum": ["PFC2D_CONSOLE", "PFC3D_CONSOLE"]},
+    "executable_path": {"type": "string", "minLength": 1},
+    "pid": {"type": ["integer", "null"], "minimum": 1},
+    "bridge_port": {"type": "integer", "minimum": 1024, "maximum": 65535},
+    "state": {"enum": ["STARTING", "ATTACHED", "READY", "BUSY", "STOPPING", "STOPPED", "FAILED"]},
+    "bootstrap_path": {"type": "string", "minLength": 1},
+    "identity_verified": {"type": "boolean"},
+    "health_verified": {"type": "boolean"},
+    "execution_verified": {"type": "boolean"},
+    "mcp_verified": {"type": "boolean"},
+    "identity_fingerprint": {"type": ["string", "null"]},
+    "mcp_connection_id": {"type": ["string", "null"]},
+    "readiness_nonce": {"type": ["string", "null"]},
+    "mcp_verified_utc": {"type": ["string", "null"]},
+    "mcp_evidence_expires_utc": {"type": ["string", "null"]},
+    "evidence_status": {"type": "string"},
+    "started_utc": {"type": ["string", "null"]},
+    "stopped_utc": {"type": ["string", "null"]}
+  },
+  "additionalProperties": true
+}

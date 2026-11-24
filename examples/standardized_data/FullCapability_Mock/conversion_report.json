@@ -1,0 +1,7 @@
+{
+  "status": "GENERATED",
+  "experiment_id": "FullCapability_Mock",
+  "case_count": 1,
+  "data_boundary": "MOCK",
+  "truth_boundary": "MOCK / DEMO only."
+}

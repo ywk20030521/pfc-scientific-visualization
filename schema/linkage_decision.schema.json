@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/linkage_decision.schema.json",
+  "title": "PFC 2D/3D Linkage Decision",
+  "type": "object",
+  "required": ["id", "implemented", "status", "scientific_need", "interaction_value", "decision_reason"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "implemented": {"type": "boolean"},
+    "status": {"enum": ["SUPPORTED", "PARTIAL", "NOT_IMPLEMENTED", "NOT_SUPPORTED", "NOT_VERIFIED"]},
+    "scientific_need": {"enum": ["high", "medium", "low"]},
+    "interaction_value": {"enum": ["high", "medium", "low"]},
+    "technical_complexity": {"enum": ["high", "medium", "low", "none"]},
+    "coordinate_conversion_complexity": {"enum": ["high", "medium", "low", "none"]},
+    "data_sync_complexity": {"enum": ["high", "medium", "low", "none"]},
+    "performance_cost": {"enum": ["high", "medium", "low", "none"]},
+    "maintenance_cost": {"enum": ["high", "medium", "low", "none"]},
+    "decision_reason": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": true
+}

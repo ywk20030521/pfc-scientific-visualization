@@ -1,0 +1,174 @@
+{
+  "status": "GENERATED",
+  "layers": [
+    "ANALYSIS_DATA",
+    "DISPLAY_DATA"
+  ],
+  "records": [
+    {
+      "layer": "ANALYSIS_DATA",
+      "layer_id": "analysis_data:case_17",
+      "case_id": 17,
+      "status": "GENERATED",
+      "parent_layers": [
+        "pfc-headless:fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b:case_17"
+      ],
+      "artifacts": [
+        {
+          "path": "03_analysis/case_17/analysis_arrays.npz",
+          "sha256": "3dfd40a755267b0110e46e3e5c393c9b8e04674f8cf3f6fdc471fc077b1f61ff",
+          "size_bytes": 16633597
+        },
+        {
+          "path": "03_analysis/case_17/analysis.json",
+          "sha256": "12c4aaa8f4e595d0fb958307e5b1f1a346717f2c7395ddba6b3586323fb79555",
+          "size_bytes": 234200
+        }
+      ],
+      "operations": [
+        {
+          "method": "||x_i(t)-x_i(t_first_observed)||",
+          "outputs": [
+            "ball.displacement"
+          ],
+          "unit": "m",
+          "source": "DERIVED"
+        },
+        {
+          "method": "(x(t2)-x(t1))/(t2-t1)",
+          "outputs": [
+            "ball.velocity"
+          ],
+          "unit": "m/s",
+          "source": "DERIVED"
+        },
+        {
+          "method": "(v(t2)-v(t1))/(t2-t1)",
+          "outputs": [
+            "ball.acceleration"
+          ],
+          "unit": "m/s^2",
+          "source": "DERIVED"
+        },
+        {
+          "method": "count(real fracture event with cycle <= frame cycle)",
+          "outputs": [
+            "fracture.cumulative"
+          ],
+          "unit": "event",
+          "source": "DERIVED"
+        },
+        {
+          "method": "(H0-H)/H0",
+          "outputs": [
+            "sample.axial_strain"
+          ],
+          "unit": "1",
+          "source": "DERIVED"
+        },
+        {
+          "method": "0.5*(|F_top|+|F_bottom|)",
+          "outputs": [
+            "sample.mean_axial_load"
+          ],
+          "unit": "N",
+          "source": "DERIVED"
+        },
+        {
+          "method": "mean_axial_load/A0",
+          "outputs": [
+            "sample.axial_stress"
+          ],
+          "unit": "Pa",
+          "source": "DERIVED"
+        }
+      ],
+      "display": null,
+      "provenance": {
+        "source": "DERIVED",
+        "input_files": [
+          {
+            "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1\\experiment.json",
+            "sha256": "ee2ffcf4a16b5594ef3a11675077978857a10f8e8e4e4c6c707793258780038c",
+            "size_bytes": 19656
+          },
+          {
+            "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1\\cases\\case_17\\arrays.npz",
+            "sha256": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7",
+            "size_bytes": 8247436
+          }
+        ],
+        "parent_results": [],
+        "formula": null,
+        "method": "Formula-gated analysis over standardized arrays.",
+        "applicability": "Only fields with complete declared inputs are derived.",
+        "notes": [],
+        "generated_utc": "2026-11-24T13:03:28+00:00"
+      },
+      "generated_utc": "2026-11-24T13:03:28+00:00"
+    },
+    {
+      "layer": "DISPLAY_DATA",
+      "layer_id": "display_data:case_17",
+      "case_id": 17,
+      "status": "GENERATED",
+      "parent_layers": [
+        "analysis_data:case_17"
+      ],
+      "artifacts": [
+        {
+          "path": "03_analysis/chart_specs.json",
+          "sha256": "f3a502cdd1d5d2c3a019add0d7d7b99b8e9eea001438751be2367892eff74bf6",
+          "size_bytes": 172720
+        },
+        {
+          "path": "03_analysis/display_data.json",
+          "sha256": "1bd17c6af6dc0471d6fb5180693d32030446c4c9b7b47371f1334b010d03a9ec",
+          "size_bytes": 19866
+        }
+      ],
+      "operations": [
+        {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "inputs": "analysis values by immutable array reference",
+          "outputs": "display strings and axis/tooltip formatting metadata",
+          "note": "Display values are never used as analysis inputs."
+        }
+      ],
+      "display": {
+        "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+        "significant_digits": 4,
+        "tooltip_digits": 8,
+        "rules": "Display strings and unit scaling are metadata; chart values retain the declared numerical transform and never feed analysis."
+      },
+      "provenance": {
+        "source": "CONFIG",
+        "input_files": [],
+        "parent_results": [],
+        "formula": null,
+        "method": null,
+        "applicability": null,
+        "notes": [],
+        "generated_utc": "2026-11-24T13:03:28+00:00"
+      },
+      "generated_utc": "2026-11-24T13:03:28+00:00"
+    }
+  ],
+  "external_parent": {
+    "owner": "pfc-headless",
+    "contract": {
+      "name": "pfc.standardized-experiment",
+      "version": "1.0.0",
+      "read_only": true
+    },
+    "manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b",
+    "read_only": true
+  },
+  "policy": {
+    "standardized_input_immutable": true,
+    "raw_owned_by_pfc_headless": true,
+    "derived_requires_formula_and_inputs": true,
+    "display_never_used_as_analysis_input": true
+  },
+  "verification": "NOT_VERIFIED"
+}

@@ -1,0 +1,143 @@
+{
+  "status": "GENERATED",
+  "verification": "NOT_VERIFIED",
+  "items": [
+    {
+      "id": "source_standardized_contract",
+      "status": "VERIFIED_READ_ONLY",
+      "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1",
+      "owner": "pfc-headless",
+      "manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b"
+    },
+    {
+      "id": "analysis_data",
+      "status": "GENERATED",
+      "path": "03_analysis/"
+    },
+    {
+      "id": "offline_viewer",
+      "status": "GENERATED",
+      "path": "04_viewer/scientific_viewer.html",
+      "verification": "NOT_VERIFIED"
+    },
+    {
+      "id": "charts",
+      "status": "GENERATED",
+      "path": "03_analysis/chart_specs.json",
+      "rejected": [
+        {
+          "id": "case_17:line_load_time",
+          "case_id": 17,
+          "chart_name": "line_load_time",
+          "status": "NOT_CAPTURED",
+          "reason": "No valid PFC2D line-load channel exists; the temporal line-load chart is omitted.",
+          "chart_id": "case_17:line_load_time",
+          "chart_type": "line",
+          "source_variables": [
+            "mechanical_time_total",
+            "sample.axial_load_per_unit_thickness"
+          ],
+          "source_data": {
+            "channels": [
+              "mechanical_time_total",
+              "sample.axial_load_per_unit_thickness"
+            ],
+            "status": "NOT_CAPTURED"
+          },
+          "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+          "unit": "kN/m",
+          "selection_reason": null,
+          "omission_reason": "No valid PFC2D line-load channel exists; the temporal line-load chart is omitted.",
+          "data_quality": {
+            "status": "NOT_CAPTURED",
+            "missing_values_treated_as_zero": false,
+            "constant_channel_rejected": false
+          },
+          "publication_priority": "EXCLUDED"
+        },
+        {
+          "id": "case_17:line_load_strain",
+          "case_id": 17,
+          "chart_name": "line_load_strain",
+          "status": "NOT_CAPTURED",
+          "reason": "Both valid PFC2D line load and strain are required for the mechanical-response path.",
+          "chart_id": "case_17:line_load_strain",
+          "chart_type": "line",
+          "source_variables": [
+            "sample.axial_strain",
+            "sample.axial_load_per_unit_thickness"
+          ],
+          "source_data": {
+            "channels": [
+              "sample.axial_strain",
+              "sample.axial_load_per_unit_thickness"
+            ],
+            "status": "NOT_CAPTURED"
+          },
+          "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+          "unit": "kN/m",
+          "selection_reason": null,
+          "omission_reason": "Both valid PFC2D line load and strain are required for the mechanical-response path.",
+          "data_quality": {
+            "status": "NOT_CAPTURED",
+            "missing_values_treated_as_zero": false,
+            "constant_channel_rejected": false
+          },
+          "publication_priority": "EXCLUDED"
+        },
+        {
+          "id": "experiment:case_comparison",
+          "case_id": null,
+          "chart_name": "case_comparison",
+          "status": "NOT_GENERATED",
+          "reason": "A comparison requires at least two cases.",
+          "chart_id": "experiment:case_comparison",
+          "chart_type": "not-generated",
+          "source_variables": [],
+          "source_data": {
+            "channels": [],
+            "status": "NOT_GENERATED"
+          },
+          "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+          "unit": null,
+          "selection_reason": null,
+          "omission_reason": "A comparison requires at least two cases.",
+          "data_quality": {
+            "status": "NOT_GENERATED",
+            "missing_values_treated_as_zero": false,
+            "constant_channel_rejected": false
+          },
+          "publication_priority": "EXCLUDED"
+        }
+      ]
+    },
+    {
+      "id": "publication_figure_plan",
+      "status": "GENERATED",
+      "path": "06_publication_figures/figure_plan.json",
+      "verification": "NOT_VERIFIED"
+    },
+    {
+      "id": "publication_composed_svg",
+      "status": "NOT_GENERATED",
+      "reason": "Viewer SVG exports are required."
+    },
+    {
+      "id": "publication_pdf",
+      "status": "NOT_SUPPORTED",
+      "reason": "Use a local vector converter on composed SVG; no PDF backend is bundled."
+    },
+    {
+      "id": "experiment_report",
+      "status": "GENERATED",
+      "path": "report/experiment_report.md",
+      "verification": "NOT_VERIFIED"
+    }
+  ],
+  "unverified": [
+    "browser rendering and interaction",
+    "PNG/SVG export",
+    "test suite execution",
+    "performance measurement"
+  ]
+}

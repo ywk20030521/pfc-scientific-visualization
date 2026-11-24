@@ -1,0 +1,35 @@
+[
+  {
+    "event_id": 1,
+    "event_type": "bond_break",
+    "cycle": 500,
+    "mechanical_time_total": 0.01,
+    "position": [
+      0.5,
+      0.45,
+      0.55
+    ],
+    "properties": {
+      "mode": 1,
+      "contact_id": 77,
+      "failure_strength": 3.5,
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "diameter": 0.25
+    },
+    "source": "CONFIG",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  }
+]

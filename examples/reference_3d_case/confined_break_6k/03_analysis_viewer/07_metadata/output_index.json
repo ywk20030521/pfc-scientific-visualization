@@ -1,0 +1,1032 @@
+{
+  "title": "run_case17_confined_break_6k_r1",
+  "generated_utc": "2026-11-24T13:03:35+00:00",
+  "data_boundary": "REAL_PFC",
+  "status_model": {
+    "GENERATED": "file was actually produced",
+    "NOT_GENERATED": "not produced",
+    "NOT_CAPTURED": "source experiment did not capture it",
+    "NOT_SUPPORTED": "system cannot generate it",
+    "INVALID": "data/result failed an integrity check",
+    "NOT_VERIFIED": "implemented or generated without acceptance testing"
+  },
+  "actual_generation": {
+    "generated": [
+      "03_analysis/analysis.json",
+      "03_analysis/case_17/analysis.json",
+      "03_analysis/case_17/analysis_arrays.npz",
+      "03_analysis/chart_decision_record.json",
+      "03_analysis/chart_decisions.json",
+      "03_analysis/chart_specs.json",
+      "03_analysis/data_layers.json",
+      "03_analysis/display_data.json",
+      "04_viewer/data/.pfc-generated",
+      "04_viewer/data/cases/case_17/charts.js",
+      "04_viewer/data/cases/case_17/chunks/chunk_000.js",
+      "04_viewer/data/cases/case_17/chunks/chunk_001.js",
+      "04_viewer/data/cases/case_17/chunks/chunk_002.js",
+      "04_viewer/data/cases/case_17/histories/bucket_000.js",
+      "04_viewer/data/cases/case_17/histories/bucket_001.js",
+      "04_viewer/data/cases/case_17/histories/bucket_002.js",
+      "04_viewer/data/cases/case_17/histories/bucket_003.js",
+      "04_viewer/data/cases/case_17/histories/bucket_004.js",
+      "04_viewer/data/cases/case_17/histories/bucket_005.js",
+      "04_viewer/data/cases/case_17/histories/bucket_006.js",
+      "04_viewer/data/cases/case_17/histories/bucket_007.js",
+      "04_viewer/data/cases/case_17/histories/bucket_008.js",
+      "04_viewer/data/cases/case_17/histories/bucket_009.js",
+      "04_viewer/data/cases/case_17/histories/bucket_010.js",
+      "04_viewer/data/cases/case_17/histories/bucket_011.js",
+      "04_viewer/data/cases/case_17/histories/bucket_012.js",
+      "04_viewer/data/cases/case_17/histories/bucket_013.js",
+      "04_viewer/data/cases/case_17/histories/bucket_014.js",
+      "04_viewer/data/cases/case_17/histories/bucket_015.js",
+      "04_viewer/data/cases/case_17/histories/bucket_016.js",
+      "04_viewer/data/cases/case_17/histories/bucket_017.js",
+      "04_viewer/data/cases/case_17/histories/bucket_018.js",
+      "04_viewer/data/cases/case_17/histories/bucket_019.js",
+      "04_viewer/data/cases/case_17/histories/bucket_020.js",
+      "04_viewer/data/cases/case_17/histories/bucket_021.js",
+      "04_viewer/data/cases/case_17/histories/bucket_022.js",
+      "04_viewer/data/cases/case_17/histories/bucket_023.js",
+      "04_viewer/data/cases/case_17/histories/bucket_024.js",
+      "04_viewer/data/cases/case_17/histories/bucket_025.js",
+      "04_viewer/data/cases/case_17/histories/bucket_026.js",
+      "04_viewer/data/cases/case_17/histories/bucket_027.js",
+      "04_viewer/data/cases/case_17/histories/bucket_028.js",
+      "04_viewer/data/cases/case_17/histories/bucket_029.js",
+      "04_viewer/data/cases/case_17/histories/bucket_030.js",
+      "04_viewer/data/cases/case_17/histories/bucket_031.js",
+      "04_viewer/data/cases/case_17/histories/bucket_032.js",
+      "04_viewer/data/cases/case_17/histories/bucket_033.js",
+      "04_viewer/data/cases/case_17/histories/bucket_034.js",
+      "04_viewer/data/cases/case_17/histories/bucket_035.js",
+      "04_viewer/data/cases/case_17/histories/bucket_036.js",
+      "04_viewer/data/cases/case_17/histories/bucket_037.js",
+      "04_viewer/data/cases/case_17/histories/bucket_038.js",
+      "04_viewer/data/cases/case_17/histories/bucket_039.js",
+      "04_viewer/data/cases/case_17/histories/bucket_040.js",
+      "04_viewer/data/cases/case_17/histories/bucket_041.js",
+      "04_viewer/data/cases/case_17/histories/bucket_042.js",
+      "04_viewer/data/cases/case_17/histories/bucket_043.js",
+      "04_viewer/data/cases/case_17/histories/bucket_044.js",
+      "04_viewer/data/cases/case_17/histories/bucket_045.js",
+      "04_viewer/data/cases/case_17/histories/bucket_046.js",
+      "04_viewer/data/cases/case_17/histories/bucket_047.js",
+      "04_viewer/data/cases/case_17/histories/bucket_048.js",
+      "04_viewer/data/cases/case_17/histories/bucket_049.js",
+      "04_viewer/data/cases/case_17/histories/bucket_050.js",
+      "04_viewer/data/cases/case_17/histories/bucket_051.js",
+      "04_viewer/data/cases/case_17/histories/bucket_052.js",
+      "04_viewer/data/cases/case_17/histories/bucket_053.js",
+      "04_viewer/data/cases/case_17/histories/bucket_054.js",
+      "04_viewer/data/cases/case_17/histories/bucket_055.js",
+      "04_viewer/data/cases/case_17/histories/bucket_056.js",
+      "04_viewer/data/cases/case_17/histories/bucket_057.js",
+      "04_viewer/data/cases/case_17/histories/bucket_058.js",
+      "04_viewer/data/cases/case_17/histories/bucket_059.js",
+      "04_viewer/data/cases/case_17/histories/bucket_060.js",
+      "04_viewer/data/cases/case_17/histories/bucket_061.js",
+      "04_viewer/data/cases/case_17/histories/bucket_062.js",
+      "04_viewer/data/cases/case_17/histories/bucket_063.js",
+      "04_viewer/data/cases/case_17/histories/bucket_064.js",
+      "04_viewer/data/cases/case_17/histories/bucket_065.js",
+      "04_viewer/data/cases/case_17/histories/bucket_066.js",
+      "04_viewer/data/cases/case_17/histories/bucket_067.js",
+      "04_viewer/data/cases/case_17/histories/bucket_068.js",
+      "04_viewer/data/cases/case_17/histories/bucket_069.js",
+      "04_viewer/data/cases/case_17/histories/bucket_070.js",
+      "04_viewer/data/cases/case_17/histories/bucket_071.js",
+      "04_viewer/data/cases/case_17/histories/bucket_072.js",
+      "04_viewer/data/cases/case_17/histories/bucket_073.js",
+      "04_viewer/data/cases/case_17/histories/bucket_074.js",
+      "04_viewer/data/cases/case_17/histories/bucket_075.js",
+      "04_viewer/data/cases/case_17/histories/bucket_076.js",
+      "04_viewer/data/cases/case_17/histories/bucket_077.js",
+      "04_viewer/data/cases/case_17/histories/bucket_078.js",
+      "04_viewer/data/cases/case_17/histories/bucket_079.js",
+      "04_viewer/data/cases/case_17/histories/bucket_080.js",
+      "04_viewer/data/cases/case_17/histories/bucket_081.js",
+      "04_viewer/data/cases/case_17/histories/bucket_082.js",
+      "04_viewer/data/cases/case_17/histories/bucket_083.js",
+      "04_viewer/data/cases/case_17/histories/bucket_084.js",
+      "04_viewer/data/cases/case_17/histories/bucket_085.js",
+      "04_viewer/data/cases/case_17/histories/bucket_086.js",
+      "04_viewer/data/cases/case_17/histories/bucket_087.js",
+      "04_viewer/data/cases/case_17/histories/bucket_088.js",
+      "04_viewer/data/cases/case_17/histories/bucket_089.js",
+      "04_viewer/data/cases/case_17/histories/bucket_090.js",
+      "04_viewer/data/cases/case_17/histories/bucket_091.js",
+      "04_viewer/data/cases/case_17/histories/bucket_092.js",
+      "04_viewer/data/cases/case_17/histories/bucket_093.js",
+      "04_viewer/data/cases/case_17/histories/bucket_094.js",
+      "04_viewer/data/cases/case_17/histories/bucket_095.js",
+      "04_viewer/data/cases/case_17/histories/bucket_096.js",
+      "04_viewer/data/cases/case_17/histories/bucket_097.js",
+      "04_viewer/data/cases/case_17/histories/bucket_098.js",
+      "04_viewer/data/cases/case_17/histories/bucket_099.js",
+      "04_viewer/data/cases/case_17/histories/bucket_100.js",
+      "04_viewer/data/cases/case_17/histories/bucket_101.js",
+      "04_viewer/data/cases/case_17/histories/bucket_102.js",
+      "04_viewer/data/cases/case_17/histories/bucket_103.js",
+      "04_viewer/data/cases/case_17/histories/bucket_104.js",
+      "04_viewer/data/cases/case_17/histories/bucket_105.js",
+      "04_viewer/data/cases/case_17/histories/bucket_106.js",
+      "04_viewer/data/cases/case_17/histories/bucket_107.js",
+      "04_viewer/data/cases/case_17/histories/bucket_108.js",
+      "04_viewer/data/cases/case_17/histories/bucket_109.js",
+      "04_viewer/data/cases/case_17/histories/bucket_110.js",
+      "04_viewer/data/cases/case_17/histories/bucket_111.js",
+      "04_viewer/data/cases/case_17/histories/bucket_112.js",
+      "04_viewer/data/cases/case_17/histories/bucket_113.js",
+      "04_viewer/data/cases/case_17/histories/bucket_114.js",
+      "04_viewer/data/cases/case_17/histories/bucket_115.js",
+      "04_viewer/data/cases/case_17/histories/bucket_116.js",
+      "04_viewer/data/cases/case_17/histories/bucket_117.js",
+      "04_viewer/data/cases/case_17/histories/bucket_118.js",
+      "04_viewer/data/cases/case_17/histories/bucket_119.js",
+      "04_viewer/data/cases/case_17/histories/bucket_120.js",
+      "04_viewer/data/cases/case_17/histories/bucket_121.js",
+      "04_viewer/data/cases/case_17/histories/bucket_122.js",
+      "04_viewer/data/cases/case_17/histories/bucket_123.js",
+      "04_viewer/data/cases/case_17/histories/bucket_124.js",
+      "04_viewer/data/cases/case_17/histories/bucket_125.js",
+      "04_viewer/data/cases/case_17/histories/bucket_126.js",
+      "04_viewer/data/cases/case_17/histories/bucket_127.js",
+      "04_viewer/data/cases/case_17/meta.js",
+      "04_viewer/data/catalog.js",
+      "04_viewer/data/payload_manifest.json",
+      "04_viewer/data/static.js",
+      "04_viewer/data/view-filter.js",
+      "04_viewer/linkage_decisions.json",
+      "04_viewer/publication_export_spec.json",
+      "04_viewer/scientific_viewer.html",
+      "04_viewer/viewer/.pfc-generated",
+      "04_viewer/viewer/scientific-viewer.css",
+      "04_viewer/viewer/scientific-viewer.js",
+      "04_viewer/viewer/vendor/echarts.min.js",
+      "04_viewer/viewer/vendor/OrbitControls.js",
+      "04_viewer/viewer/vendor/three.min.js",
+      "04_viewer/viewer/visual-semantics.js",
+      "04_viewer/viewer_build_timing.json",
+      "04_viewer/viewer_manifest.json",
+      "04_viewer/viewer_output_contract.json",
+      "05_charts/chart_specs.json",
+      "06_publication_figures/figure_plan.json",
+      "06_publication_figures/figure_plans/case_17.json",
+      "06_publication_figures/figure_plans/case_17.specs.json",
+      "07_metadata/experiment_capabilities.json",
+      "07_metadata/output_contract.json",
+      "07_metadata/pipeline_manifest.json",
+      "07_metadata/source_contract.json",
+      "report/experiment_report.md"
+    ],
+    "not_generated": []
+  },
+  "verification": {
+    "status": "NOT_VERIFIED",
+    "reason": "This delivery package was assembled without running PFC, browser, integration, or test programs."
+  },
+  "files": [
+    {
+      "path": "03_analysis/analysis.json",
+      "size_bytes": 467717,
+      "sha256": "c48efc03e7cea21b970358900cf804a9191ade55e3464df45bfe2fefa79f243e"
+    },
+    {
+      "path": "03_analysis/case_17/analysis.json",
+      "size_bytes": 234200,
+      "sha256": "12c4aaa8f4e595d0fb958307e5b1f1a346717f2c7395ddba6b3586323fb79555"
+    },
+    {
+      "path": "03_analysis/case_17/analysis_arrays.npz",
+      "size_bytes": 16633597,
+      "sha256": "3dfd40a755267b0110e46e3e5c393c9b8e04674f8cf3f6fdc471fc077b1f61ff"
+    },
+    {
+      "path": "03_analysis/chart_decision_record.json",
+      "size_bytes": 1458,
+      "sha256": "045ad140bb85733c125e5fcef0b885026b5ac97626847de919c2a96987bfcf9d"
+    },
+    {
+      "path": "03_analysis/chart_decisions.json",
+      "size_bytes": 193262,
+      "sha256": "d22c675981a4908f82eef325d509605253929a657ae53aa2a6738d996315a825"
+    },
+    {
+      "path": "03_analysis/chart_specs.json",
+      "size_bytes": 172720,
+      "sha256": "f3a502cdd1d5d2c3a019add0d7d7b99b8e9eea001438751be2367892eff74bf6"
+    },
+    {
+      "path": "03_analysis/data_layers.json",
+      "size_bytes": 5292,
+      "sha256": "7d1379b981e203975815eff9d1e0fab0e008cafcf0c0b8466403d27f6ea3a2b4"
+    },
+    {
+      "path": "03_analysis/display_data.json",
+      "size_bytes": 19866,
+      "sha256": "1bd17c6af6dc0471d6fb5180693d32030446c4c9b7b47371f1334b010d03a9ec"
+    },
+    {
+      "path": "04_viewer/data/.pfc-generated",
+      "size_bytes": 6,
+      "sha256": "c4a2383a03bdb6739d16a0e24058e4b9c7da4e63d203e0be2f448868cc03c530"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/charts.js",
+      "size_bytes": 118939,
+      "sha256": "553170bab0833726d80d3a338b24f57d8defa6ac31c251b7e66fba43fd2d99d2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/chunks/chunk_000.js",
+      "size_bytes": 2456543,
+      "sha256": "476aa2f179ded1b62a694591441a2851f07571a561a048c438f8740e3fe5b6ef"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/chunks/chunk_001.js",
+      "size_bytes": 2456544,
+      "sha256": "39dd714b1c4eb48bf04283b3c4b89d11eb575c92dee91dc3200263302297b028"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/chunks/chunk_002.js",
+      "size_bytes": 921277,
+      "sha256": "8dafd7b615f173c5e4b7ea9d630ee1a4fb1c95481ec7beac9e62b94bba983ccf"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_000.js",
+      "size_bytes": 41458,
+      "sha256": "9ae2811742d25832707cd46fdaae88d52bfe4d5bb8359ad10b8293e28b3abc2f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_001.js",
+      "size_bytes": 42300,
+      "sha256": "c73acec8a5c5c20d909d2027c8585943886049f61f7476ba8a074a7be3b176ac"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_002.js",
+      "size_bytes": 42300,
+      "sha256": "84b7d36fbc941034559e51235e776bf00e8f029b225a0fa0aa001ffdc58106af"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_003.js",
+      "size_bytes": 42300,
+      "sha256": "503c199d3179a4f0da842433fc8cd83a1bad1ab20d9aded03b50f6e6be2f4be7"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_004.js",
+      "size_bytes": 42300,
+      "sha256": "3e1e670fdfd4fda86dab714487d53b4a22ec5e020c2faaaffe61bc8f85fca7af"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_005.js",
+      "size_bytes": 42300,
+      "sha256": "38c37460264755fafb3bc03b197b0cb970546f519e549048bd6f7ddff1a87c7d"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_006.js",
+      "size_bytes": 42300,
+      "sha256": "ef3641220a108d586b41c865ca0017b06a6eb344e4c71a64f9f215e34ad9a8d2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_007.js",
+      "size_bytes": 42300,
+      "sha256": "bb79865a51217dbca80fe8ffa5010a1f6d69eb3b9138bd01795e1b10ccc2184f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_008.js",
+      "size_bytes": 42300,
+      "sha256": "5e3e2f531e75d9b6624f4a80d6cc355adcccf36959319fcdd117887b84ef0bf0"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_009.js",
+      "size_bytes": 42300,
+      "sha256": "0c79cc52ab9cd9fb454b9bf09bf441c7a217801a1599ba41f126ebd7537a19c7"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_010.js",
+      "size_bytes": 42302,
+      "sha256": "bc4c47b906267a3f5dc503fbdb06ef1bc7c26e1eb1737783aadb317e7592b463"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_011.js",
+      "size_bytes": 42302,
+      "sha256": "e1bd64ec1765820105fb5495680f134e0e1d6740f1e821c3534c65a56b666108"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_012.js",
+      "size_bytes": 42302,
+      "sha256": "262b6319fb034fac1095c0710f8dc5fd6c3ab970c999fde89b33f7debcde0fb8"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_013.js",
+      "size_bytes": 42302,
+      "sha256": "f59908f1065a603878a57002df3cb2d01245e8ad9cb1cb079a67118d9b908d77"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_014.js",
+      "size_bytes": 42302,
+      "sha256": "15a8d203bd01b0709e61137751a06a0eaf3d5970973ce749b28a77288e4dd4c1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_015.js",
+      "size_bytes": 42302,
+      "sha256": "864f2bc4d6c373a792499559f88d0ba057812780a36a080ecc60ecf2f9bda152"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_016.js",
+      "size_bytes": 42302,
+      "sha256": "e97a6724d384ebddf31ee735a9180f1690d3da07be9ead06d7ec8bfe1eb0d381"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_017.js",
+      "size_bytes": 42302,
+      "sha256": "b7464ed09e651317b206fb440e6241d4756cc68ec221706319fcad22f945c241"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_018.js",
+      "size_bytes": 42302,
+      "sha256": "a079d1429be6f34c2a118900a5eb0f5a8f02b23e001139bf764b7f98d238a08e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_019.js",
+      "size_bytes": 42302,
+      "sha256": "9f59f142380c2690747e701734ae490fa249289c93c8a52c827716a2b150645a"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_020.js",
+      "size_bytes": 42302,
+      "sha256": "16d218d4bbb767e58c183ffdca8e863addb6402b69a9aff76820c8033b5b358a"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_021.js",
+      "size_bytes": 42302,
+      "sha256": "3c3f6ca15c78e28c48fc126c54752f7940a75d93c28b346db2e428df1f920f24"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_022.js",
+      "size_bytes": 42302,
+      "sha256": "4319f7b62894070ea3261f4262452fcc98dbe578221971ced591f82cd01b0210"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_023.js",
+      "size_bytes": 42302,
+      "sha256": "0925b0cc5046da83d184ec6fa1bb6dacbf0e2f275f81b7f4bdc685919ab0720e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_024.js",
+      "size_bytes": 42302,
+      "sha256": "e6c7b038fd495e0bf34b165cbae728b173b1e3c9eeba5fb276b76f1f3d4ce8bc"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_025.js",
+      "size_bytes": 42302,
+      "sha256": "58b62571a8ea9834a4995ae1f43d5625f1fff772aa46fd2c85653ce44076afb1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_026.js",
+      "size_bytes": 42302,
+      "sha256": "f02460cfd0eea52467a1cfe2a2b192878599665a08413ff4833cb24e7d927ee5"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_027.js",
+      "size_bytes": 42302,
+      "sha256": "1151a3b89e25150dde5f18d50409c39e85d89dc78f26fd06cd8e153a4f2635fb"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_028.js",
+      "size_bytes": 42302,
+      "sha256": "602f5d82a8ef2a308f9a92d217b336f2d6b466df02a1cec0859bfede28cec278"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_029.js",
+      "size_bytes": 42302,
+      "sha256": "95b0614f265e3ebc2c0b62ad70047d2bdd887256c2a219aa34bbe5587588094d"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_030.js",
+      "size_bytes": 42302,
+      "sha256": "80bac928efde76c496decafa5113e19b344df556ac62f3d0d6c5d8345080e2ac"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_031.js",
+      "size_bytes": 42302,
+      "sha256": "de39732416c611c7b9c8c1ede70b9e14a2bff03d6e09ed8881d9b91c7f4916ff"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_032.js",
+      "size_bytes": 42302,
+      "sha256": "c468b73447b932d7d3652990d6c03c9d735c467846e61b238b8e7333eec68fd7"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_033.js",
+      "size_bytes": 42302,
+      "sha256": "ff16fa10ecdfc17bbaabfa445ac4bc691e0ea7f28641eb261f7652eb9727e8b4"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_034.js",
+      "size_bytes": 42302,
+      "sha256": "29543044a69bbb257bc0936af0f7f375233e0bc3f4214fa90ac4170875ab3ae2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_035.js",
+      "size_bytes": 42302,
+      "sha256": "6153e01e3047f4ec06742ace4a094a0331b08dfd181f499329230f70df220854"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_036.js",
+      "size_bytes": 42302,
+      "sha256": "008915e1f7cfb4d94ebfd01a28778dedceb6fe7706336f3eca01ba1388e4c17f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_037.js",
+      "size_bytes": 42302,
+      "sha256": "b87364e7cee349500f117770c79d684b53c6991371151a0a36880079cf101c36"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_038.js",
+      "size_bytes": 42302,
+      "sha256": "d6a93815bfda3ce844d147f393d793f0e151911b4b99e5036ec6e7828ef0f8eb"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_039.js",
+      "size_bytes": 42302,
+      "sha256": "9ad86fca9f94cd66f61ca05d9a35a9ea2047f3430dff29a44ea19c5021cc74d1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_040.js",
+      "size_bytes": 42302,
+      "sha256": "0e5d5fe063d820b005ba615498e22e20a03930416336013c2e25884ff9a8bcdf"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_041.js",
+      "size_bytes": 42302,
+      "sha256": "c6ac56017f5fec04718c815b2233a826b4e7b0f58bb633d659721ba5e37593a4"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_042.js",
+      "size_bytes": 42302,
+      "sha256": "594206542700c09c34d76f23fd9f251156ac3706e15fbe12d00b9a34da0c51bf"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_043.js",
+      "size_bytes": 42302,
+      "sha256": "3162878181b4e9bab01d6eb64a6accf23cc67b564d1c5378fb783885f5487607"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_044.js",
+      "size_bytes": 42302,
+      "sha256": "811662ad36581e744d3a6783343dd85ef7b385a61b4a71a2b335d1c966709250"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_045.js",
+      "size_bytes": 42302,
+      "sha256": "f27bfe5d71a6d017a9149bd9d85a241d53e88918c94a3fac257495659382ae27"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_046.js",
+      "size_bytes": 42302,
+      "sha256": "4a3757858f68a7339a08caef00e1cd57a072a0c5d8732b1f34dc34bc7dbbf02c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_047.js",
+      "size_bytes": 42302,
+      "sha256": "b16e518ce821168c6687c0aa070f133f41d1ac71dc9f9502dea7a8513148022b"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_048.js",
+      "size_bytes": 42302,
+      "sha256": "8a416e510d129066cf508b5a3c746e64b10954f3df2fc556ed59f1e14c69853a"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_049.js",
+      "size_bytes": 42302,
+      "sha256": "c35ff518d8e8f85519ee42f41b7c725c3d678a6a7763324b18035a4b2dad5178"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_050.js",
+      "size_bytes": 42302,
+      "sha256": "ffbbb2be6a055e81ceaa014083883885ba72a4ebb32f27be4be1c85555ed3fa2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_051.js",
+      "size_bytes": 42302,
+      "sha256": "79a00379c9668e06d6c52e8466345119d29ef01b823fe3b03ffd6b61f7483681"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_052.js",
+      "size_bytes": 42302,
+      "sha256": "a6f0898837349aed44e81466d0202b115e669a8d474f7f73284e241bddb1ec85"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_053.js",
+      "size_bytes": 42302,
+      "sha256": "acc35899270b237e34f8091efdcd7caed56f838cd5a7a1744139c50e62dee618"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_054.js",
+      "size_bytes": 42302,
+      "sha256": "26f6f4ebd47d4ce8c22dbefdae6783d2a777e8cefec265beaa122d32d25c32a9"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_055.js",
+      "size_bytes": 42302,
+      "sha256": "461e589bd2ad4b94db205768c2252cdea0994f3bd76316ba695591c0df82aae2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_056.js",
+      "size_bytes": 42302,
+      "sha256": "3bccf48947260f708f49b802e51b6b15f5531a33c740b214b07626858b8c8bcd"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_057.js",
+      "size_bytes": 42302,
+      "sha256": "a963f7466c683021661a748fb6678fd0da9269a66cf28d1576a4e67073f4462f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_058.js",
+      "size_bytes": 42302,
+      "sha256": "1925da311d87b0d3511065ed4bdb6ebdfa6fc5ccf5f111a65e30683fe2636fad"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_059.js",
+      "size_bytes": 42302,
+      "sha256": "9d87d3bd4898f99dd47dbc31598e3b5fd12ff1a0174479c1f26ed4ff8a9a695f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_060.js",
+      "size_bytes": 42302,
+      "sha256": "bc793a8abeb486303606e7a67ccfdbed5d3fbeedb8cda23fd375a8b7639bbd0e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_061.js",
+      "size_bytes": 42302,
+      "sha256": "fe8ae4404538e265385ea1639dee0d365390481a365243c949a554cde6026782"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_062.js",
+      "size_bytes": 42302,
+      "sha256": "97aa8cf0cdb4046f1781d449f6e331e9746edde3d73fa95c34c28652156bf067"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_063.js",
+      "size_bytes": 42302,
+      "sha256": "5382b3ca1d21887dcd8dd9557433ef40643aa47ef2261a60b16351ddce7736a4"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_064.js",
+      "size_bytes": 42302,
+      "sha256": "5a315d6235abddcef5aa62206284c31f7dd5f68d173c1b18f64eccfc9a025a6e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_065.js",
+      "size_bytes": 42302,
+      "sha256": "b79f1b52971fb64a30edc4a9fa51525951f712f03f8e1c32274a4940e7c16729"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_066.js",
+      "size_bytes": 42302,
+      "sha256": "d021545f9e2a99bb9cbb15ac6302fead52e3446753ee76add42e08bc583810df"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_067.js",
+      "size_bytes": 42302,
+      "sha256": "c548745d90965d4f00d8954a01a99f264db1c2691a6ade89badaa25d0f70b54f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_068.js",
+      "size_bytes": 42302,
+      "sha256": "3f193bffa3a3d7ceb2201d41d2549502018f22ef180cb2cc7983d9cd494c6d3c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_069.js",
+      "size_bytes": 42302,
+      "sha256": "8446e231c11d419b635895103d32b50a3b5d1570dd7f911c3938a63e308e119e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_070.js",
+      "size_bytes": 42302,
+      "sha256": "be7b6bb02d2b545c7d81d1ce3ba2a7769b95f9b3186b7ba93947b27e4a75b7e1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_071.js",
+      "size_bytes": 42302,
+      "sha256": "a9210f9468af7e2dac575bc6c84e2fe03f7e2ac656b1b98b8149038fb21f68bb"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_072.js",
+      "size_bytes": 42302,
+      "sha256": "573ed751f09ae4fd56f19c01c309eac4a628c2224915ab8a2e75fec4897be1a1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_073.js",
+      "size_bytes": 42302,
+      "sha256": "978571d994b279581cc3ac83a64e3bf0abfb242eb3c6ce217eb5a10b04e440a9"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_074.js",
+      "size_bytes": 42302,
+      "sha256": "26b68cdfcf81677db27306ad732bdcc0234e5b2fa4b02f36060e2ac102285ee8"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_075.js",
+      "size_bytes": 42302,
+      "sha256": "14e4d60d1b2418614fd5c30f2ce54e2522b671c9a422e1917cd08a93b933f2da"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_076.js",
+      "size_bytes": 42302,
+      "sha256": "06e08b6f150def38677d28c81230c4f7b1e67836ed77f47e4f1759e52692aba1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_077.js",
+      "size_bytes": 42302,
+      "sha256": "c932fc0964cb23e7ccff5068f8fd2e92a28a22c6f93f50f7a15771828773f252"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_078.js",
+      "size_bytes": 42302,
+      "sha256": "69bb5359544b2e99132933325c27a9db0db4283824d64129ad2f1e900893cf3c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_079.js",
+      "size_bytes": 42302,
+      "sha256": "08d02b4498ed8e485027cf009db5a3a9ff5a512f9e42f4112e7715d70d74295b"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_080.js",
+      "size_bytes": 42302,
+      "sha256": "77362b6c35eceb5293969874475bda7da521434238f6eb9afaaf3944e1dc65af"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_081.js",
+      "size_bytes": 42302,
+      "sha256": "23ebe479ef3fc94b6f88a9c6525b5ceb67a53d766ce2614de1d5dc667b6f5c3d"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_082.js",
+      "size_bytes": 42302,
+      "sha256": "6f65e4e7b61e283bba2274178fc7795d5c67708adbf6fa77d02cba891a5a751c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_083.js",
+      "size_bytes": 42302,
+      "sha256": "5b3ed33b3b49f4375d2e5ffae0630f9771e0e848162f8dbabd746ffb09cc57d2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_084.js",
+      "size_bytes": 42302,
+      "sha256": "2bceaee1a007adcf3d40b30672bcca74bb33aee555e279680d417790115fddaf"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_085.js",
+      "size_bytes": 42302,
+      "sha256": "0153bdef038cdf4949d29b8e80d54253825c14ece7f1a4627758fa742518677c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_086.js",
+      "size_bytes": 42302,
+      "sha256": "f0ee3670fd072eb672b09f02c26acaee45854265c4980d7c9b93afe4661edc5c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_087.js",
+      "size_bytes": 42302,
+      "sha256": "8c4ccb7da427e67e4412864ffc471579b062f57ff035b0f81a07725f3ffa703a"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_088.js",
+      "size_bytes": 42302,
+      "sha256": "f1e9bf36a652338fa631a90f4cbfc3360674ec2ff23efc8d791abd457d3d993f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_089.js",
+      "size_bytes": 42302,
+      "sha256": "fb6b4f89574d25b254879b57258979b3c1655aaf1b9189f586fee24c546d6bec"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_090.js",
+      "size_bytes": 42302,
+      "sha256": "d9f8eea9eeb2df71f68c6aba43bfaf84cfb6620ecbcefaf2e2b5c63ce66e2ef7"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_091.js",
+      "size_bytes": 42302,
+      "sha256": "3b9c28bf552dd37573024387df6574416942cb11baac4d842fec87cde960a757"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_092.js",
+      "size_bytes": 42302,
+      "sha256": "1a6c284848d14d0e7bccf9aa5ab3bfdd2499b8266ba987902aefac0e09045f6c"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_093.js",
+      "size_bytes": 42302,
+      "sha256": "abd42c1251e0ac547e092fba850454352c96c5b0e23e7fde741793906ad89f71"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_094.js",
+      "size_bytes": 42302,
+      "sha256": "716079e32f5984ce3fcbfe633678aa41b54c427cea5eb817e228319857fdbee6"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_095.js",
+      "size_bytes": 42302,
+      "sha256": "fb253ab45d0b964a3d6b7915e908efba85ecd80dbff56484fbaee58ce3a0868b"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_096.js",
+      "size_bytes": 42302,
+      "sha256": "36d7be1e58f71ab67cfbcf4a985b83b99c91e8f6ab7a501fc280fcf91de027b8"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_097.js",
+      "size_bytes": 42302,
+      "sha256": "7a1719fd5c5480b668cd043da7dfe571fa898cb0dc8c68adb9754cc8d1b95b09"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_098.js",
+      "size_bytes": 42302,
+      "sha256": "1ab88ebca060db6c5118c38dde986008aba9fb0cc0ae2131167926a9d3fc8ca2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_099.js",
+      "size_bytes": 42302,
+      "sha256": "9285caf2c3227113c1dfc230982cb45b8de2c27100eb7c3812b152ffb169f018"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_100.js",
+      "size_bytes": 42304,
+      "sha256": "4def0c19e22c70ea6086d2853b937c159bf83d91df181cd3ee4fe68064991c5e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_101.js",
+      "size_bytes": 42304,
+      "sha256": "e1a96eb7e16ae46b6a1c0dac50286d00bb0611864db85f7732fea71acc2d461e"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_102.js",
+      "size_bytes": 42304,
+      "sha256": "f3b1c04fbf4d951b22e533ee338b39c8c3c14c46686f06979906ee90bfd8c580"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_103.js",
+      "size_bytes": 42304,
+      "sha256": "4f26da23ce0a009fcc4133feb64b8ec1b690d2fb65e12b9dc536ea2360ef2932"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_104.js",
+      "size_bytes": 42305,
+      "sha256": "9ede5cce3a8166e43a6e466dbfd0cc4c28a41da69945d79103e078a1e3a8f2a1"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_105.js",
+      "size_bytes": 42305,
+      "sha256": "4b3c60ef2eea3eea9bfcf4503d73b56932ad91602c77ccd37fe57ecb7c430fc9"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_106.js",
+      "size_bytes": 42305,
+      "sha256": "a529e44eb017c366efca4c36e74f4b805327baa813f7a21de5824ea32e0bc7c6"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_107.js",
+      "size_bytes": 42305,
+      "sha256": "8b3e83c220bd56b0169f203dc8a23dc9c5ab40e74c04ccc819a4c22540a8ff6b"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_108.js",
+      "size_bytes": 41460,
+      "sha256": "c1311b4868a147ea16be782c971267d763da43c0e321449cd2847faef329f388"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_109.js",
+      "size_bytes": 41460,
+      "sha256": "cff2612788f1da4613f12366407c77f310468e527ce73dce51927c709317a0a3"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_110.js",
+      "size_bytes": 41460,
+      "sha256": "bd760592e4b135068c58a628997269cafacc1459a729d92e6da504e427723473"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_111.js",
+      "size_bytes": 41460,
+      "sha256": "9b68f2dfcd3cbd7828535678b2d7dec143fbb5cbd87dc65eae40c45b776ebe45"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_112.js",
+      "size_bytes": 41460,
+      "sha256": "1c5b6ff69a86c48a125c98a452c0c323db398b5843b48f13285dfe8ef3d618f2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_113.js",
+      "size_bytes": 41460,
+      "sha256": "29c4b4025ac103e8f277c25b7b9c0502725b092917fc535326ca5b9fae565589"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_114.js",
+      "size_bytes": 41460,
+      "sha256": "626ff766a89bc4d24e03715c45e760ec95bfe9d92977b64de82a5dad6f047d8a"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_115.js",
+      "size_bytes": 41460,
+      "sha256": "4287ba43db727e6968da68eb9797bc1c6d9168d525a0263baed064aedb47b760"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_116.js",
+      "size_bytes": 41460,
+      "sha256": "ab775be204a9b625fc7f4c602e2beece3ee55aa71c16367c99db988b72c0d349"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_117.js",
+      "size_bytes": 41460,
+      "sha256": "df699ede92d0370a046e3cf2c19c062e37372e784d0b4a709208b7dccb6b3b8d"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_118.js",
+      "size_bytes": 41460,
+      "sha256": "1fd44dc519ffe185e2824e7b3dfdfc1a091ed9ea393d471cbe7c91a4602eea43"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_119.js",
+      "size_bytes": 41460,
+      "sha256": "e8f610816391e3459e1f45130b12c2374b885ac762239ab302653c4c1c31bfb0"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_120.js",
+      "size_bytes": 41460,
+      "sha256": "dfafa4ff8276ee1592e259865b6faf6e7ed3a252d51b1308270f3ea6d3eebdc2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_121.js",
+      "size_bytes": 41460,
+      "sha256": "01a4165ad3acb80002a45e722a594b75732e01d9fbc848321185341f4bef4557"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_122.js",
+      "size_bytes": 41460,
+      "sha256": "ca5c9e8ce97a47bc2f987f4e24e27ebfd1f6881b87f1a69f4be4142d03ab551f"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_123.js",
+      "size_bytes": 41460,
+      "sha256": "f19fc0b46fe91d250498b0f1ab352b2f64999e40b2cc963c199ed0b36cb8594d"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_124.js",
+      "size_bytes": 41460,
+      "sha256": "e679fdad47d67650b68491041caebbc2c8072cf2809324500502db99011a28e8"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_125.js",
+      "size_bytes": 41460,
+      "sha256": "ea4c1af986983b4f4450d1dce11e7e81315476345f5ac0653104e2665b987182"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_126.js",
+      "size_bytes": 41460,
+      "sha256": "abe8d655f7b96040c4f64abf783c41dd748d79d31b9d55dc3d8aa34c204ef2b2"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/histories/bucket_127.js",
+      "size_bytes": 41460,
+      "sha256": "7613b674c4800279cf71e4e1f91ac2cb6dfa879b3fdfb69334e6201f83cd8121"
+    },
+    {
+      "path": "04_viewer/data/cases/case_17/meta.js",
+      "size_bytes": 461221,
+      "sha256": "625d592b705b6bbb8828b967f7136e364e19174e36c416ca721755a9629c7045"
+    },
+    {
+      "path": "04_viewer/data/catalog.js",
+      "size_bytes": 1843,
+      "sha256": "685bc10b279e3c2741ac815c6f9d9593762f03601bf216655c8b77b3cb0ab559"
+    },
+    {
+      "path": "04_viewer/data/payload_manifest.json",
+      "size_bytes": 1941,
+      "sha256": "24ef741b2b5f9420238ff884440e0be06de48131cd72c6ff95a719daf7aa4efa"
+    },
+    {
+      "path": "04_viewer/data/static.js",
+      "size_bytes": 1134403,
+      "sha256": "0b7a4a9cb3ae4f6893df91a9bc6eec5ab98d4aef1af4f7c59578f1d0b6b950d1"
+    },
+    {
+      "path": "04_viewer/data/view-filter.js",
+      "size_bytes": 38,
+      "sha256": "15abb59ddff0aa92078a60f76a0ce85353a3ee229fc62057d8f473c84352d804"
+    },
+    {
+      "path": "04_viewer/linkage_decisions.json",
+      "size_bytes": 4148,
+      "sha256": "66d0d7a4437f3586632fd44aa5be22e25f80ded3d33b03247ae52f8c53a0247e"
+    },
+    {
+      "path": "04_viewer/publication_export_spec.json",
+      "size_bytes": 511,
+      "sha256": "cd36c698c2aff74d08fc14babee20f04a03e27ddefcfa890d8368e6ce610e6af"
+    },
+    {
+      "path": "04_viewer/scientific_viewer.html",
+      "size_bytes": 12388,
+      "sha256": "774a84c2edc552edfec811f086fd2627e347dbc0a95719bfba7d2d7ffed9997b"
+    },
+    {
+      "path": "04_viewer/viewer/.pfc-generated",
+      "size_bytes": 6,
+      "sha256": "c4a2383a03bdb6739d16a0e24058e4b9c7da4e63d203e0be2f448868cc03c530"
+    },
+    {
+      "path": "04_viewer/viewer/scientific-viewer.css",
+      "size_bytes": 15684,
+      "sha256": "0b300af4b4a3fa01b45cfcab6b632387b305094184c389cdbaff498c4b0c298d"
+    },
+    {
+      "path": "04_viewer/viewer/scientific-viewer.js",
+      "size_bytes": 170469,
+      "sha256": "244d8ddd7b5a1c8045f3090b01a88271d4ff4e7494d1168464176ec785ecb611"
+    },
+    {
+      "path": "04_viewer/viewer/vendor/echarts.min.js",
+      "size_bytes": 1030855,
+      "sha256": "e84270bd0cd5bdf60fefc26d00c2a391cb2e81f4d26a7a9ee16185a54773a3cf"
+    },
+    {
+      "path": "04_viewer/viewer/vendor/OrbitControls.js",
+      "size_bytes": 85,
+      "sha256": "c8a4e49ac322485714fa41d3a5c503d3027ff31fc5d1a76f3b5defb2d38c1221"
+    },
+    {
+      "path": "04_viewer/viewer/vendor/three.min.js",
+      "size_bytes": 677144,
+      "sha256": "24c21997b85e0a405a20320ff28bfa7111480b7d676ad2efb48d71108b105b09"
+    },
+    {
+      "path": "04_viewer/viewer/visual-semantics.js",
+      "size_bytes": 5687,
+      "sha256": "12cdb42de577669c0872def4453ed9a7dab23b066606fe6280953a069e7836a9"
+    },
+    {
+      "path": "04_viewer/viewer_build_timing.json",
+      "size_bytes": 190,
+      "sha256": "33c0e7f7be6c080acd86b6fca1e7e77675745f55710f427df4a9d8989b480e6c"
+    },
+    {
+      "path": "04_viewer/viewer_manifest.json",
+      "size_bytes": 4055,
+      "sha256": "d9cc39558dbebb5287fbf2c6bb78bdce4085b3459a6b98c973e3d38cb39867cc"
+    },
+    {
+      "path": "04_viewer/viewer_output_contract.json",
+      "size_bytes": 667,
+      "sha256": "b87dc8e4504249aa34470f20098654dfd1ecfdf8c91bf69be7af4bbcbb3c1789"
+    },
+    {
+      "path": "05_charts/chart_specs.json",
+      "size_bytes": 172720,
+      "sha256": "f3a502cdd1d5d2c3a019add0d7d7b99b8e9eea001438751be2367892eff74bf6"
+    },
+    {
+      "path": "06_publication_figures/figure_plan.json",
+      "size_bytes": 10950,
+      "sha256": "51b67422497d40206e441ec3594aaf2f585193de11b80e1e6fdc3bf6fbeef3c7"
+    },
+    {
+      "path": "06_publication_figures/figure_plans/case_17.json",
+      "size_bytes": 9633,
+      "sha256": "482937216d87f9ba3102114d7d39725a7dd3705017ee984c80e3ff3b98e80c7a"
+    },
+    {
+      "path": "06_publication_figures/figure_plans/case_17.specs.json",
+      "size_bytes": 42652,
+      "sha256": "25f1b1133fcb8447367710ae65a038336cc89ffb1421bd5a206476e8c0481078"
+    },
+    {
+      "path": "07_metadata/experiment_capabilities.json",
+      "size_bytes": 1184,
+      "sha256": "5f4d7813d9c95223fd4871e179298bdcff81b791d2b3f35976d88080f51d7374"
+    },
+    {
+      "path": "07_metadata/output_contract.json",
+      "size_bytes": 4969,
+      "sha256": "c230c9440886a2b46fbc4770fe9548743a4968e5da2d28bf8471f3a7552c6ea6"
+    },
+    {
+      "path": "07_metadata/pipeline_manifest.json",
+      "size_bytes": 53774,
+      "sha256": "fffb992b1bb490bead75dd7e38227f2908cc39ab222387f1342200cdbd0a8016"
+    },
+    {
+      "path": "07_metadata/source_contract.json",
+      "size_bytes": 748,
+      "sha256": "5b890ed1e42518e30e629c8ea0b0d27f474ec6e212881b3b4a1d82a84c597a24"
+    },
+    {
+      "path": "report/experiment_report.md",
+      "size_bytes": 2534,
+      "sha256": "c2fced7d4a3f6ff3e9560ab808e4d89cbb04c121085c03a7f77591e18c6f6dbc"
+    }
+  ]
+}

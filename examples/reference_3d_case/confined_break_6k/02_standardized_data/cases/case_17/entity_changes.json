@@ -1,0 +1,179 @@
+{
+  "status": "GENERATED",
+  "policy": "ID sets come from each real frame; no fixed entity count is assumed.",
+  "frames": [
+    {
+      "frame_index": 0,
+      "cycle": 500,
+      "mechanical_time_total": 0.00073827,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 1,
+      "cycle": 1000,
+      "mechanical_time_total": 0.00244022,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 2,
+      "cycle": 1500,
+      "mechanical_time_total": 0.0041332,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 3,
+      "cycle": 2000,
+      "mechanical_time_total": 0.00582808,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 4,
+      "cycle": 2500,
+      "mechanical_time_total": 0.00752775,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 5,
+      "cycle": 3000,
+      "mechanical_time_total": 0.00923136,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 6,
+      "cycle": 3500,
+      "mechanical_time_total": 0.0109346,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 7,
+      "cycle": 4000,
+      "mechanical_time_total": 0.0126395,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 8,
+      "cycle": 4500,
+      "mechanical_time_total": 0.0143437,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 9,
+      "cycle": 5000,
+      "mechanical_time_total": 0.0160478,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 10,
+      "cycle": 5500,
+      "mechanical_time_total": 0.0177503,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 11,
+      "cycle": 6000,
+      "mechanical_time_total": 0.0194502,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 12,
+      "cycle": 6500,
+      "mechanical_time_total": 0.0211477,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 13,
+      "cycle": 7000,
+      "mechanical_time_total": 0.022844,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 14,
+      "cycle": 7500,
+      "mechanical_time_total": 0.0245399,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 15,
+      "cycle": 8000,
+      "mechanical_time_total": 0.0262352,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 16,
+      "cycle": 8500,
+      "mechanical_time_total": 0.0279298,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 17,
+      "cycle": 9000,
+      "mechanical_time_total": 0.0296239,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    },
+    {
+      "frame_index": 18,
+      "cycle": 9330,
+      "mechanical_time_total": 0.0307415,
+      "ball_count": 6379,
+      "added_ids": [],
+      "removed_ids": [],
+      "radius_changes": {}
+    }
+  ],
+  "added_id_count": 0,
+  "removed_id_count": 0
+}

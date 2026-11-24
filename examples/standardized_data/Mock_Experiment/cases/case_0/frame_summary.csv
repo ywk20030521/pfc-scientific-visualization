@@ -1,0 +1,5 @@
+cycle,mechanical_time_total,ball_count,wall_vertex_count,top_force_n,bottom_force_n,platen_distance_m
+1,0.0,3,8,0.0,0.0,2.4
+500,0.01,4,8,120.0,118.0,2.36
+1000,0.02,3,8,180.0,178.0,2.31
+1500,0.03,3,8,220.0,218.0,2.26

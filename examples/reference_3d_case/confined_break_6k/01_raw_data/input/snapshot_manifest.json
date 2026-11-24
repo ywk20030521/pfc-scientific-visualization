@@ -1,0 +1,85 @@
+{
+  "case_id": 17,
+  "collection_plan": {
+    "channels": [
+      {
+        "enabled": true,
+        "id": "wall.geometry",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "ball.position",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "ball.radius",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "fracture.event",
+        "required": false
+      }
+    ],
+    "dimension": 3,
+    "events": [
+      "fracture"
+    ],
+    "interval": 500.0,
+    "mode": "cycle",
+    "plan_version": "1.0.0"
+  },
+  "created_utc": "2026-11-24T13:00:14+00:00",
+  "data_collection_config": {
+    "capture_contacts": false,
+    "collection_plan": {
+      "channels": [
+        {
+          "enabled": true,
+          "id": "wall.geometry",
+          "required": true
+        },
+        {
+          "enabled": true,
+          "id": "ball.position",
+          "required": true
+        },
+        {
+          "enabled": true,
+          "id": "ball.radius",
+          "required": true
+        },
+        {
+          "enabled": true,
+          "id": "fracture.event",
+          "required": false
+        }
+      ],
+      "dimension": 3,
+      "events": [
+        "fracture"
+      ],
+      "interval": 500.0,
+      "mode": "cycle",
+      "plan_version": "1.0.0"
+    },
+    "fracture_observer": true,
+    "history_names": [],
+    "interval": 500.0,
+    "mode": "cycle"
+  },
+  "files": [
+    {
+      "kind": "case_config",
+      "sha256": "853d7c9013f77ee1ef8304e741b9dcf42484ee7f28bb8ed333cf85736774847b",
+      "size_bytes": 3336,
+      "snapshot": "config.json",
+      "source": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\cases\\case_17\\case_config.json"
+    }
+  ],
+  "missing_inputs": [],
+  "parameters": {},
+  "run_id": "run_case17_confined_break_6k_r1"
+}

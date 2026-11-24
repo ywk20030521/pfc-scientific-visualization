@@ -1,0 +1,16 @@
+{
+  "line": {"roles": ["trend", "path"], "minimum_points": 2},
+  "area": {"roles": ["trend", "magnitude"], "minimum_points": 2},
+  "scatter": {"roles": ["relationship"], "minimum_points": 3},
+  "bar": {"roles": ["category_comparison"], "minimum_points": 1},
+  "grouped-bar": {"roles": ["multi_case_comparison"], "minimum_points": 1},
+  "stacked-bar": {"roles": ["composition", "category_comparison"], "minimum_points": 1},
+  "histogram": {"roles": ["distribution"], "minimum_points": 5},
+  "boxplot": {"roles": ["distribution", "case_comparison"], "minimum_points": 5},
+  "heatmap": {"roles": ["spatial_distribution", "time_distribution"], "minimum_points": 1},
+  "correlation": {"roles": ["multivariate_relationship"], "minimum_points": 3},
+  "rose": {"roles": ["direction_distribution"], "minimum_points": 1},
+  "radar": {"roles": ["multivariate_index"], "minimum_points": 3},
+  "dual-line": {"roles": ["temporal_relationship"], "minimum_points": 2},
+  "polar": {"roles": ["direction_distribution"], "minimum_points": 1}
+}

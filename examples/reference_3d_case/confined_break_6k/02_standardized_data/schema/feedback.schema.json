@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-headless/feedback.schema.json",
+  "title": "PFC Headless Analysis Feedback",
+  "type": "object",
+  "required": ["schema_version", "feedback_id", "run_id", "source", "referenced_artifacts", "findings", "missing_data", "recommended_sampling", "recommended_parameters", "recommended_actions", "status", "review", "produced_utc"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "feedback_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "source": {"type": "string", "minLength": 1},
+    "referenced_artifacts": {"type": "array", "items": {"type": "string"}},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "statement"],
+        "properties": {
+          "finding_id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "missing_data": {"type": "array", "items": {"type": "string"}},
+    "recommended_sampling": {
+      "type": "object",
+      "properties": {
+        "mode": {"enum": ["cycle", "time", "event"]},
+        "interval": {"type": "number", "minimum": 0},
+        "capture_contacts": {"type": "boolean"},
+        "collection_plan": {"type": ["object", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "recommended_parameters": {"type": "object"},
+    "recommended_time_range": {"type": ["array", "null"], "minItems": 2, "maxItems": 2},
+    "recommended_actions": {"type": "array", "items": {"type": "string"}},
+    "contract": {"type": "string", "minLength": 1},
+    "source_contract": {
+      "type": "object",
+      "properties": {
+        "manifest_sha256": {"type": "string", "minLength": 64},
+        "experiment_id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "status": {"enum": ["RECEIVED", "PENDING_APPROVAL", "APPROVED", "PROPOSED", "RUNNING", "VALIDATED", "FAILED", "REJECTED", "USED"]},
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["run_id", "status"],
+        "properties": {
+          "run_id": {"type": "string", "minLength": 1},
+          "status": {"type": "string", "minLength": 1},
+          "created_utc": {"type": "string", "minLength": 1},
+          "started_utc": {"type": ["string", "null"]},
+          "ended_utc": {"type": ["string", "null"]},
+          "error": {"type": ["object", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "active_attempt_run_id": {"type": ["string", "null"]},
+    "review": {"type": ["object", "null"]},
+    "produced_utc": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

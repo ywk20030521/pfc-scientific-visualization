@@ -1,0 +1,54 @@
+{
+  "background": "#FFFFFF",
+  "font_family": [
+    "Arial",
+    "Helvetica",
+    "PingFang SC",
+    "Microsoft YaHei",
+    "sans-serif"
+  ],
+  "colors": {
+    "primary": "#3C5488",
+    "wall_surface": "#2F6FD0",
+    "wall_edge": "#2F6FD0",
+    "fracture": "#E64B35",
+    "slate": "#8491B4",
+    "tan": "#B09C85",
+    "accent": "#F39B7F",
+    "particle_low": "#5B9BD5",
+    "particle_high": "#E46A3C",
+    "missing": "#B4BAC6"
+  },
+  "axis": {
+    "line_color": "#333333",
+    "line_width_px": 0.8,
+    "tick_length_px": 3,
+    "label_color": "#6C6C68",
+    "grid_lines": false
+  },
+  "panel_label": {
+    "case": "lower",
+    "weight": 700,
+    "format": "(a)"
+  },
+  "typography": {
+    "axis_label_px": 9,
+    "legend_px": 9,
+    "chart_title_px": 11,
+    "tooltip_px": 10
+  },
+  "numeric_display": {
+    "scientific_below": 0.001,
+    "scientific_at_or_above": 100000,
+    "axis_significant_digits": 4,
+    "tooltip_significant_digits": 8,
+    "missing_text": "—"
+  },
+  "composition": {
+    "background": "#FFFFFF",
+    "panel_gap_ratio": 0.012,
+    "page_margin_ratio": 0.018,
+    "default_aspect_ratio": 1.45,
+    "blank_placeholder_policy": "FORBIDDEN"
+  }
+}

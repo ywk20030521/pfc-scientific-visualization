@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-analysis-findings.schema.json",
+  "title": "PFC Analysis Findings",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract",
+    "feedback_id",
+    "run_id",
+    "source",
+    "referenced_artifacts",
+    "findings",
+    "missing_data",
+    "recommended_sampling",
+    "recommended_parameters",
+    "recommended_actions",
+    "status",
+    "attempts",
+    "active_attempt_run_id",
+    "review",
+    "produced_utc"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "contract": {"const": "pfc.analysis-findings@1.0.0"},
+    "feedback_id": {"type": "string", "minLength": 1},
+    "run_id": {"type": "string", "minLength": 1},
+    "source": {"const": "pfc-scientific-visualization"},
+    "referenced_artifacts": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "statement"],
+        "properties": {
+          "finding_id": {"type": "string", "minLength": 1},
+          "statement": {"type": "string", "minLength": 1},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "missing_data": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "recommended_sampling": {
+      "type": "object",
+      "properties": {
+        "mode": {"enum": ["cycle", "time", "event"]},
+        "interval": {"type": "number", "minimum": 0},
+        "capture_contacts": {"type": "boolean"},
+        "collection_plan": {"type": ["object", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "recommended_parameters": {"type": "object"},
+    "recommended_actions": {"type": "array", "items": {"type": "string"}},
+    "status": {"const": "RECEIVED"},
+    "attempts": {"type": "array"},
+    "active_attempt_run_id": {"type": "null"},
+    "review": {"type": "null"},
+    "produced_utc": {"type": "string", "minLength": 1},
+    "source_contract": {
+      "type": "object",
+      "required": ["manifest_sha256", "experiment_id"],
+      "properties": {
+        "manifest_sha256": {"type": "string", "minLength": 1},
+        "experiment_id": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

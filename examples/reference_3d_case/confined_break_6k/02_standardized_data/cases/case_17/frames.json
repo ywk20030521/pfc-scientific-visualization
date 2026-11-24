@@ -1,0 +1,553 @@
+[
+  {
+    "frame_id": 1,
+    "cycle": 500,
+    "mechanical_time_total": 0.00073827,
+    "entity_offsets": {
+      "ball": [
+        0,
+        6379
+      ],
+      "wall": [
+        0,
+        24
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 2,
+    "cycle": 1000,
+    "mechanical_time_total": 0.00244022,
+    "entity_offsets": {
+      "ball": [
+        6379,
+        12758
+      ],
+      "wall": [
+        24,
+        48
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 3,
+    "cycle": 1500,
+    "mechanical_time_total": 0.0041332,
+    "entity_offsets": {
+      "ball": [
+        12758,
+        19137
+      ],
+      "wall": [
+        48,
+        72
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 4,
+    "cycle": 2000,
+    "mechanical_time_total": 0.00582808,
+    "entity_offsets": {
+      "ball": [
+        19137,
+        25516
+      ],
+      "wall": [
+        72,
+        96
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 5,
+    "cycle": 2500,
+    "mechanical_time_total": 0.00752775,
+    "entity_offsets": {
+      "ball": [
+        25516,
+        31895
+      ],
+      "wall": [
+        96,
+        120
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 6,
+    "cycle": 3000,
+    "mechanical_time_total": 0.00923136,
+    "entity_offsets": {
+      "ball": [
+        31895,
+        38274
+      ],
+      "wall": [
+        120,
+        144
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 7,
+    "cycle": 3500,
+    "mechanical_time_total": 0.0109346,
+    "entity_offsets": {
+      "ball": [
+        38274,
+        44653
+      ],
+      "wall": [
+        144,
+        168
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 8,
+    "cycle": 4000,
+    "mechanical_time_total": 0.0126395,
+    "entity_offsets": {
+      "ball": [
+        44653,
+        51032
+      ],
+      "wall": [
+        168,
+        192
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 9,
+    "cycle": 4500,
+    "mechanical_time_total": 0.0143437,
+    "entity_offsets": {
+      "ball": [
+        51032,
+        57411
+      ],
+      "wall": [
+        192,
+        216
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 10,
+    "cycle": 5000,
+    "mechanical_time_total": 0.0160478,
+    "entity_offsets": {
+      "ball": [
+        57411,
+        63790
+      ],
+      "wall": [
+        216,
+        240
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 11,
+    "cycle": 5500,
+    "mechanical_time_total": 0.0177503,
+    "entity_offsets": {
+      "ball": [
+        63790,
+        70169
+      ],
+      "wall": [
+        240,
+        264
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 12,
+    "cycle": 6000,
+    "mechanical_time_total": 0.0194502,
+    "entity_offsets": {
+      "ball": [
+        70169,
+        76548
+      ],
+      "wall": [
+        264,
+        288
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 13,
+    "cycle": 6500,
+    "mechanical_time_total": 0.0211477,
+    "entity_offsets": {
+      "ball": [
+        76548,
+        82927
+      ],
+      "wall": [
+        288,
+        312
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 14,
+    "cycle": 7000,
+    "mechanical_time_total": 0.022844,
+    "entity_offsets": {
+      "ball": [
+        82927,
+        89306
+      ],
+      "wall": [
+        312,
+        336
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 15,
+    "cycle": 7500,
+    "mechanical_time_total": 0.0245399,
+    "entity_offsets": {
+      "ball": [
+        89306,
+        95685
+      ],
+      "wall": [
+        336,
+        360
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 16,
+    "cycle": 8000,
+    "mechanical_time_total": 0.0262352,
+    "entity_offsets": {
+      "ball": [
+        95685,
+        102064
+      ],
+      "wall": [
+        360,
+        384
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 17,
+    "cycle": 8500,
+    "mechanical_time_total": 0.0279298,
+    "entity_offsets": {
+      "ball": [
+        102064,
+        108443
+      ],
+      "wall": [
+        384,
+        408
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 18,
+    "cycle": 9000,
+    "mechanical_time_total": 0.0296239,
+    "entity_offsets": {
+      "ball": [
+        108443,
+        114822
+      ],
+      "wall": [
+        408,
+        432
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  },
+  {
+    "frame_id": 19,
+    "cycle": 9330,
+    "mechanical_time_total": 0.0307415,
+    "entity_offsets": {
+      "ball": [
+        114822,
+        121201
+      ],
+      "wall": [
+        432,
+        456
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "REAL_PFC",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:05+00:00"
+    }
+  }
+]

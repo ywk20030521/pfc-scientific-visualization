@@ -1,0 +1,54 @@
+{
+  "status": "GENERATED",
+  "case_id": 17,
+  "physics_context": {
+    "experiment_type": "unspecified",
+    "primary_process": "unspecified",
+    "research_questions": [],
+    "source": "not_inferred"
+  },
+  "data_inventory": [
+    "ball_position",
+    "ball_radius",
+    "wall_geometry",
+    "fracture_event",
+    "contact_network",
+    "bond_network",
+    "particle_displacement",
+    "particle_speed",
+    "particle_acceleration",
+    "nominal_stress",
+    "line_load"
+  ],
+  "selected_charts": [
+    "case_17:stress_strain",
+    "case_17:stress_time",
+    "case_17:speed_time",
+    "case_17:acceleration_time",
+    "case_17:motion_cracks",
+    "case_17:motion",
+    "case_17:displacement_hist",
+    "case_17:particle_size",
+    "case_17:fracture_rose",
+    "case_17:particle_density",
+    "case_17:correlation"
+  ],
+  "rejected_charts": [
+    "case_17:line_load_time",
+    "case_17:line_load_strain",
+    "experiment:case_comparison"
+  ],
+  "redundancy_analysis": [],
+  "coverage_analysis": {
+    "experiment_type": "unspecified",
+    "preferred_chart_ids": [],
+    "covered": [],
+    "gaps": [],
+    "coverage_ratio": null,
+    "note": "Gaps reflect missing data/derivation, not a defect, when the chart was explicitly rejected with a data-quality reason."
+  },
+  "limitations": [
+    "Physics context is inferred from case name unless explicitly declared.",
+    "Coverage reflects chart intent only; all selected charts passed real-data gates."
+  ]
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "frame_id": 1,
+    "cycle": 1,
+    "mechanical_time_total": 0.0,
+    "entity_offsets": {
+      "ball": [
+        0,
+        3
+      ],
+      "wall": [
+        0,
+        8
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "frame_id": 2,
+    "cycle": 500,
+    "mechanical_time_total": 0.01,
+    "entity_offsets": {
+      "ball": [
+        3,
+        7
+      ],
+      "wall": [
+        8,
+        16
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "frame_id": 3,
+    "cycle": 1000,
+    "mechanical_time_total": 0.02,
+    "entity_offsets": {
+      "ball": [
+        7,
+        10
+      ],
+      "wall": [
+        16,
+        24
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "frame_id": 4,
+    "cycle": 1500,
+    "mechanical_time_total": 0.03,
+    "entity_offsets": {
+      "ball": [
+        10,
+        13
+      ],
+      "wall": [
+        24,
+        32
+      ]
+    },
+    "event_ids": [],
+    "capture_status": "VALID",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [
+        "case conversion_report.json"
+      ],
+      "formula": null,
+      "method": "frame membership preserved through explicit slice offsets",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  }
+]

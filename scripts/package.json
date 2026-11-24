@@ -1,0 +1,8 @@
+{
+  "name": "pfc-scientific-visualization-verifiers",
+  "private": true,
+  "description": "Dependencies for the optional browser acceptance scripts.",
+  "dependencies": {
+    "playwright": "^1.45.0"
+  }
+}

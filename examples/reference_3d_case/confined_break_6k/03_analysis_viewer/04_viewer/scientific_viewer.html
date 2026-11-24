@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>run_case17_confined_break_6k_r1</title>
+  <link rel="stylesheet" href="viewer/scientific-viewer.css">
+</head>
+<body>
+  <div id="shell">
+    <main id="stage" aria-label="三维颗粒实验视图">
+      <div id="scene"></div>
+      <header id="stageHead">
+        <h1 id="viewerTitle">PFC Scientific Viewer</h1>
+        <div id="runBadge">正在读取真实数据目录…</div>
+        <button id="notesButton" type="button" aria-expanded="false" aria-controls="notes">数据边界</button>
+        <section id="notes" role="dialog" aria-labelledby="notesTitle" tabindex="-1" hidden>
+          <h2 id="notesTitle">真实性与支持范围</h2>
+          <div id="notesBody"></div>
+        </section>
+      </header>
+      <div id="loading" role="status" aria-live="polite">正在加载当前实测帧…</div>
+
+      <figure id="topInset" class="scene-inset top-inset" aria-label="当前帧俯视缩略图">
+        <figcaption id="topInsetCaption">俯视 · 当前帧</figcaption>
+        <canvas id="topInsetCanvas" width="132" height="132"></canvas>
+      </figure>
+      <figure id="sectionInset" class="scene-inset section-inset" aria-label="当前帧剖面缩略图">
+        <figcaption id="sectionInsetCaption">剖面 · 当前帧</figcaption>
+        <canvas id="sectionInsetCanvas" width="176" height="112"></canvas>
+      </figure>
+
+      <footer id="sceneLegend" aria-label="场景图例">
+        <span><i class="line tension"></i>拉伸裂纹</span>
+        <span><i class="line shear"></i>剪切裂纹</span>
+        <span><i class="ramp"></i><span id="rampLabel">累计位移</span><span id="rampRange"></span></span>
+        <span><i class="missing"></i>未采集 / 缺失</span>
+      </footer>
+      <div id="scaleBar" aria-hidden="true">
+        <div id="scaleLine"></div>
+        <span id="scaleText">—</span>
+      </div>
+
+      <button id="dockToggle" type="button" aria-expanded="false" aria-controls="controlDock">控制面板 ▴</button>
+      <section id="controlDock" class="collapsed" aria-label="三维视图控制">
+        <div class="dock-body">
+          <section class="dock-group" aria-label="场景控制">
+            <div class="dock-group-title">场景控制</div>
+            <header class="panel-head">
+              <div>
+                <h2>视图设置</h2>
+                <p id="caseSubtitle">真实采样帧 · 帧间不插值</p>
+              </div>
+              <button id="resetCamera" type="button">重置视角</button>
+            </header>
+            <div id="summaryInline" class="summary-inline">
+              <div class="summary-inline-title">模拟摘要</div>
+              <div class="summary-inline-body">
+                <table class="summary-table"><tbody id="summaryBody"></tbody></table>
+              </div>
+            </div>
+          </section>
+
+          <section class="dock-group" aria-label="帧播放">
+            <div class="dock-group-title">帧播放</div>
+            <div class="control-row">
+              <label class="sr-only" for="caseSelect">实验 Case</label>
+              <select id="caseSelect"></select>
+              <button id="playButton" class="primary" type="button">▶ 播放</button>
+              <button id="prevFrame" type="button" aria-label="上一实测帧">◀</button>
+              <button id="nextFrame" type="button" aria-label="下一实测帧">▶</button>
+              <select id="playbackSpeed" aria-label="播放速度">
+                <option value="4">慢</option>
+                <option value="8" selected>中</option>
+                <option value="16">快</option>
+              </select>
+            </div>
+            <div class="timeline-block">
+              <input id="timeline" type="range" min="0" max="1" step="1" value="0" aria-label="实测帧时间轴">
+              <div class="timeline-labels">
+                <span id="frameLabel">—</span>
+                <span id="cycleLabel">—</span>
+              </div>
+              <div class="locate-row">
+                <label for="cycleInput">Cycle</label>
+                <input id="cycleInput" type="number" step="1" inputmode="numeric" aria-label="精确 Cycle">
+                <button id="locateCycle" type="button">定位</button>
+                <label for="ballInput">Ball ID</label>
+                <input id="ballInput" type="number" step="1" inputmode="numeric" aria-label="真实 Ball ID">
+                <button id="locateBall" type="button">追踪</button>
+                <button id="clearSelection" type="button">清除</button>
+              </div>
+            </div>
+          </section>
+
+          <section class="dock-group" aria-label="当前帧状态">
+            <div class="dock-group-title">当前帧状态</div>
+            <div class="metric-strip">
+              <div><span>轴向应力</span><b id="metricStress">—</b></div>
+              <div><span>轴向应变</span><b id="metricStrain">—</b></div>
+              <div><span>平均载荷</span><b id="metricLoad">—</b></div>
+              <div><span>轴向缩短</span><b id="metricShortening">—</b></div>
+              <div><span>当前 Ball</span><b id="metricBalls">—</b></div>
+              <div><span>累计裂纹</span><b id="metricCracks">—</b></div>
+            </div>
+            <section id="selectionSummary" class="selection-summary" aria-live="polite">
+              <span>未选择颗粒</span>
+              <small>点击三维颗粒，或拖动当前分布图选择区间</small>
+            </section>
+          </section>
+
+          <section class="dock-group" aria-label="三维显示选项">
+            <div class="dock-group-title">显示 / 着色</div>
+            <div class="view-options">
+              <label><input id="showParticles" type="checkbox" checked>颗粒</label>
+              <label id="wallControl"><input id="showWalls" type="checkbox" checked>墙体轮廓</label>
+              <label><input id="showCracks" type="checkbox" checked>裂纹</label>
+              <label id="contactLayerControl" hidden title="未采集"><input id="showContacts" type="checkbox" checked disabled>接触</label>
+              <label id="bondLayerControl" hidden title="未采集"><input id="showBonds" type="checkbox" disabled>键</label>
+              <label><input id="showAxes" type="checkbox" checked>坐标轴</label>
+              <label><input id="showBounds" type="checkbox">边界框</label>
+              <label><input id="showTrajectory" type="checkbox" checked>轨迹</label>
+              <label class="dim3-only"><input id="showClip" type="checkbox">剖切</label>
+              <label class="dim3-only"><input id="showInsets" type="checkbox" checked>二维缩略图</label>
+              <label for="colorMetric">颗粒着色</label>
+              <select id="colorMetric">
+                <option value="displacement">累计位移</option>
+                <option value="speed">速度</option>
+                <option value="acceleration">加速度</option>
+                <option value="contactForce">接触力</option>
+              </select>
+              <label for="colorPalette">色阶</label>
+              <select id="colorPalette">
+                <option value="nature" selected>Nature 浅色</option>
+                <option value="contrast">高对比</option>
+              </select>
+            </div>
+            <div class="control-row compact dim3-only">
+              <label for="clipAxis">剖切轴</label>
+              <select id="clipAxis">
+                <option value="x">x</option>
+                <option value="y">y</option>
+                <option value="z" selected>z</option>
+              </select>
+              <input id="clipPosition" type="range" min="0" max="100" value="50" aria-label="剖切位置">
+            </div>
+          </section>
+
+          <section class="dock-group" aria-label="论文图片导出">
+            <div class="dock-group-title">视角与导出</div>
+            <div class="export-block">
+              <label for="viewPreset">视角</label>
+              <select id="viewPreset">
+                <option value="fit" selected>自适应</option>
+                <option value="isometric">等轴测</option>
+                <option value="front">正视</option>
+                <option value="top">俯视</option>
+                <option value="side">侧视</option>
+              </select>
+              <label for="cameraMode">相机</label>
+              <select id="cameraMode">
+                <option value="adaptive">自适应</option>
+                <option value="perspective">透视</option>
+                <option value="orthographic">正交</option>
+              </select>
+              <label for="exportBackground">背景</label>
+              <select id="exportBackground">
+                <option value="white" selected>白色</option>
+                <option value="transparent">透明</option>
+              </select>
+              <label for="exportWidth">宽度</label>
+              <input id="exportWidth" type="number" min="800" max="12000" step="100" value="3200">
+              <button id="exportScene" type="button">当前帧 PNG</button>
+              <button id="exportFrame" type="button">指定帧 PNG</button>
+              <button id="exportCharts" type="button">图表 SVG</button>
+              <button id="exportPanels" type="button">组合 PNG</button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <aside id="panel" aria-label="图表展示区">
+      <header class="rail-head">
+        <h2>图表分析</h2>
+        <p>实测帧驱动 · 仅图表展示</p>
+      </header>
+      <section id="historyPanel" class="chart-panel wide" aria-label="选中颗粒历史" hidden>
+        <header>
+          <h3>颗粒历史</h3>
+          <span id="historyStatus">—</span>
+        </header>
+        <div id="historyChart" class="chart"></div>
+      </section>
+      <section id="chartGrid" aria-label="数据驱动科研图表"></section>
+    </aside>
+  </div>
+
+  <div id="errorBox" role="alert" hidden></div>
+  <script src="viewer/vendor/three.min.js"></script>
+  <script src="viewer/vendor/OrbitControls.js"></script>
+  <script src="viewer/vendor/echarts.min.js"></script>
+  <script>
+    window.PFC_VIEWER_DATA = {
+      catalog: null,
+      static: null,
+      caseMeta: Object.create(null),
+      caseCharts: Object.create(null),
+      globalCharts: null,
+      pendingChunks: Object.create(null),
+      pendingHistories: Object.create(null),
+      registerCatalog(value) { this.catalog = value; },
+      registerStatic(value) { this.static = value; },
+      registerCaseMeta(caseId, value) { this.caseMeta[caseId] = value; },
+      registerCharts(caseId, value) { this.caseCharts[caseId] = value; },
+      registerGlobalCharts(value) { this.globalCharts = value; },
+      registerChunk(caseId, chunkIndex, value) {
+        const byCase = this.pendingChunks[caseId] || (this.pendingChunks[caseId] = Object.create(null));
+        byCase[chunkIndex] = value;
+      },
+      registerHistory(caseId, bucket, value) {
+        const byCase = this.pendingHistories[caseId] || (this.pendingHistories[caseId] = Object.create(null));
+        byCase[bucket] = value;
+      }
+    };
+  </script>
+  <script>
+    (function () {
+      var toggle = document.getElementById('dockToggle');
+      var dock = document.getElementById('controlDock');
+      function setDock(open) {
+        dock.classList.toggle('collapsed', !open);
+        document.body.dataset.dock = open ? 'open' : 'collapsed';
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.textContent = open ? '收起面板 ▾' : '控制面板 ▴';
+        window.dispatchEvent(new Event('resize'));
+      }
+      toggle.addEventListener('click', function () {
+        setDock(dock.classList.contains('collapsed'));
+      });
+      document.body.dataset.dock = 'collapsed';
+    })();
+  </script>
+  <script src="data/catalog.js"></script>
+  <script src="data/static.js"></script>
+  <script src="data/view-filter.js"></script>
+  <script src="viewer/visual-semantics.js"></script>
+  <script src="viewer/scientific-viewer.js"></script>
+</body>
+</html>

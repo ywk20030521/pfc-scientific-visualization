@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/pfc-scientific-visualization/viewer-state.schema.json",
+  "title": "Scientific Viewer State",
+  "type": "object",
+  "required": [
+    "currentCase",
+    "currentFrame",
+    "currentCycle",
+    "currentTime",
+    "selectedBallIds",
+    "selectedMetric",
+    "selectedRange",
+    "colorMetric"
+  ],
+  "properties": {
+    "currentCase": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "currentFrame": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "currentCycle": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "currentTime": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "selectedBallIds": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      },
+      "uniqueItems": true
+    },
+    "selectedMetric": {
+      "enum": [
+        "displacement",
+        "speed",
+        "acceleration",
+        "contactForce"
+      ]
+    },
+    "selectedRange": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number"
+          }
+        }
+      ]
+    },
+    "colorMetric": {
+      "enum": [
+        "displacement",
+        "speed",
+        "acceleration",
+        "contactForce"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/case.schema.json",
+  "title": "PFC Experiment Case",
+  "type": "object",
+  "required": ["schema_version", "case_id", "label", "run_id", "dimension", "frame_count", "arrays_path", "channels", "entity_groups", "provenance"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "case_id": {"type": "integer", "minimum": 0},
+    "label": {"type": "string"},
+    "run_id": {"type": "string"},
+    "dimension": {"enum": [2, 3]},
+    "source_format": {"type": "string"},
+    "frame_count": {"type": "integer", "minimum": 1},
+    "arrays_path": {"type": "string"},
+    "channels": {"type": "array", "items": {"$ref": "channel.schema.json"}},
+    "entity_groups": {"type": "array", "items": {"type": "object"}},
+    "metadata": {"type": "object"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

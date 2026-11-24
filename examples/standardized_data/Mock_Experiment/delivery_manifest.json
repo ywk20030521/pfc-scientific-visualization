@@ -1,0 +1,121 @@
+{
+  "contract": {
+    "name": "pfc.standardized-experiment",
+    "version": "1.0.0",
+    "schema_version": "1.0.0",
+    "immutable": true,
+    "scope": "STANDARDIZED_EXPERIMENT_DATA"
+  },
+  "producer": {
+    "skill": "pfc-headless",
+    "entrypoint": "standardize_experiment"
+  },
+  "experiment": {
+    "path": "experiment.json",
+    "sha256": "f75f9ce30b2f8ca302e96a9d41de6edf67d63a8a59c1dad706b281133687e791",
+    "size_bytes": 12756
+  },
+  "raw_input": {
+    "root": "D:\\Python\\itasca-mcp\\PFC Visualization Skill\\pfc-headless\\examples\\sample_data\\Mock_Experiment",
+    "read_only": true,
+    "embedded_in_contract": false,
+    "input_file_count": 5
+  },
+  "cases": [
+    {
+      "case_id": 0,
+      "conversion_report": "cases/case_0/conversion_report.json",
+      "arrays": "cases/case_0/arrays.npz",
+      "arrays_sha256": "f09613db4e5cbcfda3c0ad54b77e218dc465fdb75bdd593a6f707e83d6aba1ad"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "cases/case_0/arrays.npz",
+      "sha256": "f09613db4e5cbcfda3c0ad54b77e218dc465fdb75bdd593a6f707e83d6aba1ad",
+      "size_bytes": 4715
+    },
+    {
+      "path": "cases/case_0/case.json",
+      "sha256": "d2a70a9952f6af0d8f3af1d0f6498a1a48d2633ca2a53f566a22af14a5fca463",
+      "size_bytes": 9183
+    },
+    {
+      "path": "cases/case_0/channels.json",
+      "sha256": "9763b2ab7ae8e608a888733eb83f6754d5fb7a0dc950a542444f0cd33cdc3401",
+      "size_bytes": 5291
+    },
+    {
+      "path": "cases/case_0/conversion_report.json",
+      "sha256": "6ff6f6f77318e105ecc9430b37f5374f8e16299ea8a1d1247ec9cd8ca5bf7dd9",
+      "size_bytes": 4995
+    },
+    {
+      "path": "cases/case_0/entity_changes.json",
+      "sha256": "b6830ae3fcb8f415cdb297edefafd9bf11fed8ef6151f4bc8d7ac03ae8b4436b",
+      "size_bytes": 983
+    },
+    {
+      "path": "cases/case_0/events.json",
+      "sha256": "50823199f917ca2b5d56798c52ff48eb8bc04d2f7050b8b6ef4219eaac7d7bf3",
+      "size_bytes": 635
+    },
+    {
+      "path": "cases/case_0/frame_summary.csv",
+      "sha256": "c43fd0cdde1ef74f25d663f45f20b0595548eafdc172010b18153824656f112a",
+      "size_bytes": 216
+    },
+    {
+      "path": "cases/case_0/frames.json",
+      "sha256": "6d5096355251fba6c00baf348a56bbb742edb395553f5b0126c1d7b2613f92b2",
+      "size_bytes": 2426
+    },
+    {
+      "path": "cases/case_0/static.json",
+      "sha256": "c0958b271b6f761f2907065227c85703abdbafb46d1e1c423fe1266a3e823ead",
+      "size_bytes": 1999
+    },
+    {
+      "path": "conversion_report.json",
+      "sha256": "7d8d7ea6d3f34f997aef6f1da24b38232cad70a49fb9c55e50f90617c24aa029",
+      "size_bytes": 6038
+    },
+    {
+      "path": "experiment.json",
+      "sha256": "f75f9ce30b2f8ca302e96a9d41de6edf67d63a8a59c1dad706b281133687e791",
+      "size_bytes": 12756
+    },
+    {
+      "path": "schema/case.schema.json",
+      "sha256": "b303303524a00d48f99a39e70ebb2ca581f49aacf4893c52e9484a13381b7e51",
+      "size_bytes": 952
+    },
+    {
+      "path": "schema/channel.schema.json",
+      "sha256": "e83ad3d448be92b46a67fb85bb879d04f158966653dbf14f1a36c583a4146308",
+      "size_bytes": 930
+    },
+    {
+      "path": "schema/experiment.schema.json",
+      "sha256": "8eee512d8fa4104265738664d3946c10bd825233dc24a6df7d8894c5b8b552ac",
+      "size_bytes": 1015
+    },
+    {
+      "path": "schema/frame.schema.json",
+      "sha256": "cc12ef98f743772f854571ad46a673c1229b1d8a90fa277aa858aa98fa15a684",
+      "size_bytes": 841
+    }
+  ],
+  "integrity": {
+    "status": "PASS_AT_CONVERSION_TIME",
+    "raw_files_modified": false,
+    "missing_values_zero_filled": false,
+    "frames_interpolated": false
+  },
+  "consumer_policy": {
+    "read_only": true,
+    "may_write_inside_contract": false,
+    "analysis_output_must_be_separate": true
+  },
+  "generated_utc": "2026-11-16T12:58:59+00:00"
+}

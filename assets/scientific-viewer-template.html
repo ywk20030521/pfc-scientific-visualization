@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__TITLE__</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --paper: #fbfbfa;
+    --line: #d7d7d3;
+    --line-soft: #ecece8;
+    --ink: #1a1a1a;
+    --muted: #6c6c68;
+    --blue: #3C5488;
+    --red: #E64B35;
+    --ochre: #F39B7F;
+    --particle-low: #EAEEF5;
+    --particle-high: #3C5488;
+    --font: Arial, Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; margin: 0; background: var(--bg); color: var(--ink);
+    font: 12px/1.45 var(--font); overflow: hidden; }
+  button, select { font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line);
+    border-radius: 2px; padding: 5px 9px; cursor: pointer; }
+  button:hover, select:hover { border-color: var(--ink); }
+  button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 2px solid rgba(60,84,136,.32); outline-offset: 1px; }
+  button.primary { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 700; }
+  #shell { width: 100%; height: 100%; display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(560px, .88fr); }
+  #stage { position: relative; min-width: 0; min-height: 0; border-right: 1px solid var(--line-soft);
+    overflow: hidden; }
+  #scene { position: absolute; inset: 0; }
+  #scene canvas { display: block; }
+  #head { position: absolute; left: 22px; top: 16px; z-index: 4; pointer-events: none;
+    max-width: min(760px, calc(100% - 44px)); }
+  h1 { margin: 0; font-size: 16px; font-weight: 700; letter-spacing: 0; }
+  h1 span { margin-left: 8px; color: var(--muted); font-size: 11px; font-weight: 400; }
+  #badge { display: inline-block; margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--line);
+    color: var(--muted); font-size: 11px; }
+  #noteButton { pointer-events: auto; margin-top: 8px; padding: 2px 7px; color: var(--blue);
+    border-color: var(--line-soft); background: rgba(255,255,255,.94); }
+  #notes { position: absolute; left: 0; top: calc(100% + 8px); width: min(640px, calc(100vw - 44px));
+    max-height: 62vh; overflow: auto; padding: 14px 16px; border: 1px solid var(--line);
+    border-top: 2px solid var(--blue); background: #fff; box-shadow: 0 14px 36px rgba(0,0,0,.14);
+    user-select: text; pointer-events: auto; }
+  #notes[hidden] { display: none; }
+  #notes h2 { margin: 0 0 8px; font-size: 13px; }
+  #notes h3 { margin: 12px 0 4px; font-size: 11.5px; }
+  #notes p, #notes li { color: var(--muted); font-size: 11px; }
+  #notes ul { margin: 4px 0; padding-left: 18px; }
+  #legend { position: absolute; left: 22px; bottom: 15px; z-index: 3; color: var(--muted);
+    font-size: 10.5px; pointer-events: none; }
+  #scaleBar { position:absolute; right:22px; bottom:22px; z-index:3; color:var(--muted);
+    font-size:10.5px; text-align:center; pointer-events:none; }
+  #scaleLine { height:5px; border:1px solid #333; border-top:0; margin:0 auto 3px; }
+  .sw { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 5px; }
+  #panel { min-width: 0; min-height: 0; overflow-y: auto; padding: 16px 20px 22px;
+    display: flex; flex-direction: column; gap: 10px; background: #fff; }
+  #panel::-webkit-scrollbar { width: 6px; }
+  #panel::-webkit-scrollbar-thumb { background: #c8c8c8; border-radius: 3px; }
+  .panel-head { display: flex; align-items: flex-start; gap: 10px; }
+  .panel-head h2 { margin: 0; font-size: 13px; }
+  .panel-head p { margin: 2px 0 0; color: var(--muted); font-size: 10.5px; }
+  .spacer { flex: 1; }
+  .controls { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .controls select { min-width: 168px; }
+  input[type=range] { width: 100%; accent-color: var(--blue); }
+  .frame-line { display: flex; justify-content: space-between; color: var(--muted);
+    font-variant-numeric: tabular-nums; font-size: 10.5px; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line-soft); }
+  .stat { min-width: 0; padding: 7px 8px; border-left: 1px solid var(--line-soft); }
+  .stat:nth-child(3n+1) { border-left: 0; padding-left: 0; }
+  .stat span { display: block; color: var(--muted); font-size: 9.5px; }
+  .stat b { display: block; margin-top: 1px; white-space: nowrap; font-size: 13px;
+    font-variant-numeric: tabular-nums; }
+  #chartGrid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+  .chartbox { position: relative; min-height: 250px; border-top: 1px solid var(--line-soft); }
+  .chartbox h3 { position: absolute; left: 4px; top: 4px; z-index: 2; margin: 0;
+    font-size: 11px; font-weight: 400; pointer-events: none; }
+  .echart { position: absolute; inset: 0; }
+  .empty-chart { position:absolute; inset:0; display:grid; place-items:center; color:var(--muted);
+    font-size:10.5px; border:1px dashed var(--line); margin:32px 4px 8px; }
+  .toggles { display: flex; gap: 14px; flex-wrap: wrap; color: var(--muted); font-size: 10.5px; }
+  .toggles label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+  input[type=checkbox] { accent-color: var(--blue); }
+  #err { position: fixed; left: 50%; top: 46%; transform: translate(-50%, -50%);
+    z-index: 30; max-width: 760px; padding: 16px 20px; border: 1px solid var(--red);
+    background: #FDEEEC; color: #7a2418; white-space: pre-wrap; }
+  @media (max-width: 1000px) {
+    #shell { grid-template-columns: 1fr; grid-template-rows: minmax(300px, 48vh) minmax(0,1fr); }
+    #stage { border-right: 0; border-bottom: 1px solid var(--line-soft); }
+    #legend { display: none; }
+    #notes { position: fixed; left: 12px; right: 12px; bottom: 12px; top: auto;
+      width: auto; max-height: 72vh; }
+  }
+  @media (max-width: 700px) {
+    #chartGrid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .stat:nth-child(3n+1) { border-left: 1px solid var(--line-soft); padding-left: 8px; }
+    .stat:nth-child(2n+1) { border-left: 0; padding-left: 0; }
+    #panel { padding: 14px; }
+  }
+</style>
+</head>
+<body>
+<div id="shell">
+  <main id="stage">
+    <div id="scene"></div>
+    <header id="head">
+      <h1 id="title">PFC 全过程 Viewer <span>实测帧</span></h1>
+      <div id="badge">—</div>
+      <button id="noteButton" type="button" aria-expanded="false" aria-controls="notes">数据说明</button>
+      <section id="notes" role="dialog" aria-modal="false" aria-labelledby="notesTitle" tabindex="-1" hidden>
+        <h2 id="notesTitle">数据说明</h2>
+        <p id="notesSummary"></p>
+        <div id="notesBody"></div>
+      </section>
+    </header>
+    <footer id="legend">
+      <span><i class="sw" style="background:var(--blue)"></i>拉伸裂纹</span>
+      <span><i class="sw" style="background:var(--red)"></i>剪切裂纹</span>
+      <span id="colorScaleText" style="margin-left:14px">颗粒颜色：累计位移 0–— m；缺失为灰色。</span>
+    </footer>
+    <div id="scaleBar"><div id="scaleLine"></div><span id="scaleText">—</span></div>
+  </main>
+  <aside id="panel">
+    <div class="panel-head">
+      <div>
+        <h2 id="panelTitle">加载全过程</h2>
+        <p id="caseSubtitle">真实 PFC 状态帧 · 无位置插值</p>
+      </div>
+      <span class="spacer"></span>
+      <button id="reset" type="button">重置视角</button>
+    </div>
+    <section class="controls">
+      <select id="caseSelect" aria-label="选择实验 Case"></select>
+      <button id="play" class="primary" type="button">▶ 播放</button>
+      <button id="prev" type="button" aria-label="上一实测帧">◀</button>
+      <button id="next" type="button" aria-label="下一实测帧">▶</button>
+      <select id="speed" aria-label="播放速度">
+        <option value="4">慢</option>
+        <option value="8" selected>中</option>
+        <option value="16">快</option>
+      </select>
+    </section>
+    <section>
+      <input id="timeline" type="range" min="0" max="1" step="1" value="0" aria-label="实测帧时间轴">
+      <div class="frame-line">
+        <span id="frameText">—</span>
+        <span id="timeText">—</span>
+      </div>
+      <div class="controls" style="margin-top:6px">
+        <label for="cycleInput">Cycle 定位</label>
+        <input id="cycleInput" type="number" step="1" style="width:120px" aria-label="输入 Cycle 精确定位">
+        <button id="cycleGo" type="button">定位</button>
+        <label for="entityInput">Ball ID</label>
+        <input id="entityInput" type="number" step="1" style="width:100px" aria-label="输入 Ball ID 追踪">
+        <button id="entityGo" type="button">追踪</button>
+      </div>
+    </section>
+    <section class="stats">
+      <div class="stat"><span>轴向应力</span><b id="stress">—</b></div>
+      <div class="stat"><span>轴向应变</span><b id="strain">—</b></div>
+      <div class="stat"><span>平均轴向载荷</span><b id="load">—</b></div>
+      <div class="stat"><span>轴向缩短</span><b id="displacement">—</b></div>
+      <div class="stat"><span>当前 Ball</span><b id="balls">—</b></div>
+      <div class="stat"><span>可见裂纹</span><b id="cracks">—</b></div>
+    </section>
+    <section id="chartGrid" aria-label="数据驱动科研图表"></section>
+    <section class="toggles">
+      <label><input id="showParticles" type="checkbox" checked>颗粒</label>
+      <label><input id="showWalls" type="checkbox" checked>压板</label>
+      <label><input id="showCracks" type="checkbox" checked>裂纹</label>
+      <label><input id="showAxes" type="checkbox" checked>坐标轴</label>
+      <label><input id="showBounds" type="checkbox" checked>边界框</label>
+      <label><input id="showTrajectory" type="checkbox" checked>轨迹</label>
+      <label><input id="showClip" type="checkbox">剖切</label>
+      <label for="colorVariable">着色</label>
+      <select id="colorVariable" aria-label="颗粒物理属性着色">
+        <option value="displacement">累计位移</option>
+        <option value="speed">速度</option>
+      </select>
+      <label><input id="uniformColor" type="checkbox">统一颗粒颜色</label>
+    </section>
+    <section class="controls">
+      <label for="clipAxis">剖切轴</label>
+      <select id="clipAxis" aria-label="剖切轴">
+        <option value="x">x</option>
+        <option value="y">y</option>
+        <option value="z" selected>z</option>
+      </select>
+      <input id="clipPosition" type="range" min="0" max="100" value="50" style="flex:1" aria-label="剖切位置">
+    </section>
+    <section class="controls">
+      <label for="cameraMode">相机</label>
+      <select id="cameraMode" aria-label="相机构图">
+        <option value="adaptive">自适应</option>
+        <option value="perspective">透视</option>
+        <option value="orthographic">正交</option>
+      </select>
+      <label for="exportBackground">背景</label>
+      <select id="exportBackground" aria-label="图片背景">
+        <option value="white" selected>白色</option>
+        <option value="transparent">透明</option>
+      </select>
+      <label for="exportWidth">PNG</label>
+      <input id="exportWidth" type="number" min="800" max="12000" step="100" value="3200" style="width:90px" aria-label="导出宽度">
+      <button id="exportPng" type="button">当前视角导出</button>
+      <button id="exportCharts" type="button">图表 SVG</button>
+    </section>
+  </aside>
+</div>
+<div id="err" hidden></div>
+<script>__THREE_JS__</script>
+<script>__ORBIT_JS__</script>
+<script>__ECHARTS_JS__</script>
+<script>window.PFC_DATA = __DATA_JSON__;</script>
+<script>
+(function () {
+  "use strict";
+  var DATA = window.PFC_DATA;
+  var viewerStarted = performance.now();
+  var body = document.body;
+  var errorBox = document.getElementById("err");
+  var state = { caseIndex: 0, frameIndex: 0, playing: false, fps: 8,
+    showParticles: true, showWalls: true, showCracks: true, uniform: false,
+    showAxes: true, showBounds: true, showTrajectory: true, entityId: null,
+    colorVariable: "displacement" };
+
+  function showError(code, message, details) {
+    body.setAttribute("data-error-code", code);
+    body.setAttribute("data-error", "1");
+    window.__PFC_VIEWER_ERROR__ = { code: code, message: message, details: details || null };
+    errorBox.hidden = false;
+    errorBox.textContent = message + (details ? "\n\n" + JSON.stringify(details, null, 2) : "");
+  }
+  function webglProbe() {
+    var canvas = document.createElement("canvas");
+    var names = ["webgl2", "webgl", "experimental-webgl"];
+    for (var i = 0; i < names.length; i++) {
+      try {
+        var context = canvas.getContext(names[i]);
+        if (context) return { available: true, context: names[i] };
+      } catch (ignored) {}
+    }
+    return { available: false, context: null };
+  }
+  try {
+    if (!DATA || !Array.isArray(DATA.cases) || !DATA.cases.length) {
+      throw new Error("DATA_PAYLOAD_MISSING");
+    }
+    if (!window.THREE || !window.echarts) {
+      throw new Error("OFFLINE_VENDOR_MISSING");
+    }
+    var webgl = webglProbe();
+    body.setAttribute("data-webgl-status", webgl.available ? "available" : "unavailable");
+    if (!webgl.available) {
+      showError("WEBGL_UNAVAILABLE",
+        "无法创建 WebGL 上下文。请开启硬件加速，或使用 Chromium/Edge SwiftShader。",
+        { contextProbe: webgl, viewport: [innerWidth, innerHeight], userAgent: navigator.userAgent });
+      return;
+    }
+
+    var $ = function (id) { return document.getElementById(id); };
+    var fmt = function (value, digits) {
+      if (!Number.isFinite(Number(value))) return "—";
+      var v = Number(value), a = Math.abs(v);
+      if (a !== 0 && (a < 1e-3 || a >= 1e5)) return v.toExponential(digits || 3);
+      return v.toFixed(digits == null ? 3 : digits).replace(/0+$/, "").replace(/\.$/, "");
+    };
+    function decodeU32(base64) {
+      var binary = atob(base64 || ""), bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      var view = new DataView(bytes.buffer), out = new Uint32Array(bytes.length / 4);
+      for (var j = 0; j < out.length; j++) out[j] = view.getUint32(j * 4, true);
+      return out;
+    }
+    function decodeF32(base64) {
+      var binary = atob(base64 || ""), bytes = new Uint8Array(binary.length);
+      for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      var view = new DataView(bytes.buffer), out = new Float32Array(bytes.length / 4);
+      for (var j = 0; j < out.length; j++) out[j] = view.getFloat32(j * 4, true);
+      return out;
+    }
+    function upperBound(values, target) {
+      var lo = 0, hi = values.length;
+      while (lo < hi) { var mid = (lo + hi) >> 1;
+        if (values[mid] <= target) lo = mid + 1; else hi = mid; }
+      return lo;
+    }
+    function colorFromRamp(t) {
+      var lo = [234,238,245], hi = [60,84,136];
+      return new THREE.Color(
+        (lo[0] + (hi[0]-lo[0])*t)/255,
+        (lo[1] + (hi[1]-lo[1])*t)/255,
+        (lo[2] + (hi[2]-lo[2])*t)/255
+      );
+    }
+
+    $("title").innerHTML = String(DATA.meta.title).replace(/[&<>]/g, function (ch) {
+      return {"&":"&amp;","<":"&lt;",">":"&gt;"}[ch];
+    }) + " <span>Three.js + ECharts</span>";
+    document.title = DATA.meta.title + " · PFC Viewer";
+    if (DATA.meta.panelTitle) $("panelTitle").textContent = DATA.meta.panelTitle;
+    $("notesSummary").textContent = DATA.meta.noteSummary || "真实 PFC 全过程数据";
+    DATA.meta.noteSections.forEach(function (section) {
+      var h = document.createElement("h3"); h.textContent = section.title;
+      var ul = document.createElement("ul");
+      section.items.forEach(function (item) {
+        var li = document.createElement("li"); li.textContent = item; ul.appendChild(li);
+      });
+      $("notesBody").appendChild(h); $("notesBody").appendChild(ul);
+    });
+    $("noteButton").addEventListener("click", function () {
+      $("notes").hidden = !$("notes").hidden;
+      $("noteButton").setAttribute("aria-expanded", $("notes").hidden ? "false" : "true");
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !$("notes").hidden) $("notes").hidden = true;
+    });
+
+    var staticBalls = DATA.static.balls;
+    var idToIndex = new Map(), radii = new Float32Array(staticBalls.length),
+      liveRadii = new Float32Array(staticBalls.length),
+      initialXYZ = new Float32Array(staticBalls.length * 3);
+    staticBalls.forEach(function (b, i) {
+      idToIndex.set(b[0], i); radii[i] = b[4];
+      initialXYZ[i*3] = b[1]; initialXYZ[i*3+1] = b[2]; initialXYZ[i*3+2] = b[3];
+    });
+
+    var domain = DATA.meta.domain;
+    var dmin = new THREE.Vector3().fromArray(domain.min);
+    var dmax = new THREE.Vector3().fromArray(domain.max);
+    var center = dmin.clone().add(dmax).multiplyScalar(.5);
+    var span = Math.max(dmax.x-dmin.x, dmax.y-dmin.y, dmax.z-dmin.z, 1e-6);
+    var scene = new THREE.Scene(); scene.background = new THREE.Color(0xffffff);
+    var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+    if ("outputColorSpace" in renderer && THREE.SRGBColorSpace) renderer.outputColorSpace = THREE.SRGBColorSpace;
+    else renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.05;
+    renderer.localClippingEnabled = true;
+    $("scene").appendChild(renderer.domElement);
+    var is2D = Number(DATA.meta.dimension) === 2;
+    var perspectiveCamera = new THREE.PerspectiveCamera(40, 1, span*.001, span*100);
+    perspectiveCamera.position.copy(center).add(new THREE.Vector3(span*1.25,-span*1.45,span*.72));
+    var orthoExtent = span*.72;
+    var orthographicCamera = new THREE.OrthographicCamera(-orthoExtent,orthoExtent,orthoExtent,-orthoExtent,span*.001,span*100);
+    orthographicCamera.position.copy(center).add(new THREE.Vector3(0,0,span*2.2));
+    var camera = is2D ? orthographicCamera : perspectiveCamera;
+    var controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.target.copy(center); controls.enableDamping = true; controls.dampingFactor = .08;
+    scene.add(new THREE.HemisphereLight(0xffffff,0x8491B4,.60));
+    var light = new THREE.DirectionalLight(0xffffff,.48);
+    light.position.copy(center).add(new THREE.Vector3(span,-span,span*2)); scene.add(light);
+    var grid = new THREE.GridHelper(span*1.6,16,0xD5D8DE,0xEBEDF0);
+    grid.position.set(center.x,dmin.y-span*.006,center.z);
+    grid.material.transparent = true; grid.material.opacity = .65; scene.add(grid);
+    if (!is2D) grid.visible = false;
+    var axesHelper = new THREE.AxesHelper(span*.28);
+    axesHelper.position.copy(dmin); scene.add(axesHelper);
+    var domainBox = new THREE.Box3Helper(new THREE.Box3(dmin.clone(),dmax.clone()),0xB4BAC6);
+    domainBox.material.transparent = true; domainBox.material.opacity = .55; scene.add(domainBox);
+
+    var clippingPlane = new THREE.Plane(new THREE.Vector3(0,0,-1),dmax.z);
+    var particleMaterial = new THREE.MeshStandardMaterial({roughness:.7,metalness:.02,clippingPlanes:[]});
+    var particles = new THREE.InstancedMesh(
+      new THREE.SphereGeometry(1,12,8),
+      particleMaterial,
+      staticBalls.length
+    );
+    particles.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+    scene.add(particles);
+    var dummy = new THREE.Object3D();
+    var highlightMesh = new THREE.Mesh(
+      new THREE.SphereGeometry(1,20,14),
+      new THREE.MeshBasicMaterial({color:0xF39B7F,wireframe:true,transparent:true,opacity:.9,depthTest:false})
+    );
+    highlightMesh.visible = false; highlightMesh.renderOrder = 30; scene.add(highlightMesh);
+    var trajectoryLine = null;
+
+    var wallMeshes = DATA.static.walls.map(function (wall, wallIndex) {
+      var geometry = new THREE.BufferGeometry();
+      geometry.setAttribute("position", new THREE.BufferAttribute(new Float32Array(wall.vertices.length*3),3));
+      geometry.setIndex([0,1,2,0,2,3]);
+      var material = new THREE.MeshBasicMaterial({
+        color: wallIndex === 0 ? 0x8491B4 : 0xB09C85,
+        transparent: true, opacity: .18, side: THREE.DoubleSide, depthWrite: false,
+        clippingPlanes: []
+      });
+      var mesh = new THREE.Mesh(geometry, material); mesh.renderOrder = 5; scene.add(mesh);
+      var edges = new THREE.LineSegments(
+        new THREE.BufferGeometry().setFromPoints(
+          wall.vertices.map(function (vertex) { return new THREE.Vector3().fromArray(vertex.position); })
+        ),
+        new THREE.LineBasicMaterial({color: wallIndex === 0 ? 0x3C5488 : 0x7E6148, transparent:true, opacity:.9,clippingPlanes:[]})
+      );
+      scene.add(edges);
+      return { wall: wall, mesh: mesh, edges: edges };
+    });
+
+    var currentCase = null;
+    var kindLayers = [];
+    var chartInstances = [];
+
+    function caseLabel(item) {
+      return (item.label || ("Case " + item.id)) + " · " + item.frames.length + " 帧";
+    }
+    var caseSelect = $("caseSelect");
+    DATA.cases.forEach(function (item, index) {
+      var option = document.createElement("option"); option.value = String(index);
+      option.textContent = caseLabel(item); caseSelect.appendChild(option);
+    });
+
+    function clearCracks() {
+      kindLayers.forEach(function (layer) { scene.remove(layer.lines); layer.lines.geometry.dispose(); });
+      kindLayers = [];
+    }
+
+    function buildCracks(item) {
+      clearCracks();
+      item.kinds.forEach(function (kind, kindIndex) {
+        var records = item.cracks.filter(function (c) { return c[7] === kindIndex; })
+          .sort(function (a,b) { return a[6]-b[6]; });
+        var positions = new Float32Array(records.length*6);
+        var ages = new Float64Array(records.length);
+        records.forEach(function (c,i) {
+          positions.set(c.slice(0,6),i*6); ages[i] = c[6];
+        });
+        var geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.BufferAttribute(positions,3));
+        var material = new THREE.LineBasicMaterial({
+          color: kindIndex === 0 ? 0x3C5488 : 0xE64B35,
+          transparent:true, opacity:1, depthTest:false, clippingPlanes:[]
+        });
+        var lines = new THREE.LineSegments(geometry,material);
+        lines.renderOrder = 20+kindIndex; lines.frustumCulled = false;
+        scene.add(lines);
+        kindLayers.push({kind:kind,lines:lines,ages:ages,records:records});
+      });
+    }
+
+    function visibleCrackCount(frameCycle) {
+      var total = 0;
+      kindLayers.forEach(function (layer) {
+        var count = upperBound(layer.ages,frameCycle);
+        layer.lines.geometry.setDrawRange(0,count*2); total += count;
+      });
+      return total;
+    }
+
+    function updateWalls(frame) {
+      wallMeshes.forEach(function (entry, wallIndex) {
+        var byId = new Map();
+        frame.walls.forEach(function (v) {
+          if (v.length < 5 || v[4] === entry.wall.id || v[4] < 0) byId.set(v[0],v);
+        });
+        var complete = entry.wall.vertices.every(function (vertex) { return byId.has(vertex.id); });
+        entry.mesh.visible = state.showWalls && complete;
+        entry.edges.visible = state.showWalls && complete;
+        if (!complete) return;
+        var position = entry.mesh.geometry.attributes.position;
+        entry.wall.vertices.forEach(function (vertex, index) {
+          var v = byId.get(vertex.id);
+          position.setXYZ(index,v[1],v[2],v[3]);
+        });
+        position.needsUpdate = true;
+        entry.mesh.geometry.computeVertexNormals();
+        var points = entry.wall.vertices.map(function (vertex) {
+          var v = byId.get(vertex.id); return new THREE.Vector3(v[1],v[2],v[3]);
+        });
+        entry.edges.geometry.dispose();
+        entry.edges.geometry = new THREE.BufferGeometry().setFromPoints(points);
+      });
+    }
+
+    function updateParticles(frame, frameIndex) {
+      var ids = decodeU32(frame.ids), xyz = decodeF32(frame.xyz);
+      var frameDisplacements = frame.displacements ? decodeF32(frame.displacements) : null;
+      var frameSpeeds = frame.speeds ? decodeF32(frame.speeds) : null;
+      var frameRadii = frame.radii ? decodeF32(frame.radii) : null;
+      var present = new Uint8Array(staticBalls.length);
+      var maxDisp = Math.max(currentCase.maxDisplacement,1e-9);
+      var maxSpeed = Math.max(currentCase.maxSpeed || 0,1e-9);
+      liveRadii.set(radii);
+      (currentCase.radiusUpdates || []).forEach(function (update) {
+        if (update.frameIndex > frameIndex) return;
+        var updateIds = decodeU32(update.ids);
+        var updateRadii = decodeF32(update.radii);
+        for (var u=0;u<updateIds.length;u++) {
+          var radiusIndex = idToIndex.get(updateIds[u]);
+          if (radiusIndex != null) liveRadii[radiusIndex] = updateRadii[u];
+        }
+      });
+      for (var i=0;i<ids.length;i++) {
+        var index = idToIndex.get(ids[i]);
+        if (index == null) continue;
+        present[index] = 1;
+        var x=xyz[i*3], y=xyz[i*3+1], z=xyz[i*3+2];
+        dummy.position.set(x,y,z); dummy.scale.setScalar(frameRadii ? frameRadii[i] : liveRadii[index]);
+        dummy.updateMatrix(); particles.setMatrixAt(index,dummy.matrix);
+        var dx=x-initialXYZ[index*3], dy=y-initialXYZ[index*3+1], dz=z-initialXYZ[index*3+2];
+        var d=frameDisplacements ? frameDisplacements[i] : Math.sqrt(dx*dx+dy*dy+dz*dz);
+        var colorValue = state.colorVariable === "speed" ? (frameSpeeds ? frameSpeeds[i] : NaN) : d;
+        var color = state.uniform ? new THREE.Color(0xC4C9D4) :
+          (!Number.isFinite(colorValue) ? new THREE.Color(0xB4BAC6) :
+          colorFromRamp(Math.min(1,Math.pow(Math.max(0,colorValue)/
+            (state.colorVariable === "speed" ? maxSpeed : maxDisp),.62))));
+        particles.setColorAt(index,color);
+      }
+      for (var j=0;j<present.length;j++) {
+        if (!present[j]) {
+          dummy.position.set(0,0,0); dummy.scale.setScalar(0);
+          dummy.updateMatrix(); particles.setMatrixAt(j,dummy.matrix);
+        }
+      }
+      particles.instanceMatrix.needsUpdate = true;
+      if (particles.instanceColor) particles.instanceColor.needsUpdate = true;
+      particles.visible = state.showParticles;
+      if (state.entityId != null) {
+        var hi = idToIndex.get(state.entityId);
+        var match = -1;
+        for (var h=0;h<ids.length;h++) if(ids[h]===state.entityId){match=h;break;}
+        if (hi != null && match >= 0) {
+          highlightMesh.position.set(xyz[match*3],xyz[match*3+1],xyz[match*3+2]);
+          highlightMesh.scale.setScalar(Math.max(frameRadii ? frameRadii[match] : radii[hi],1e-9)*1.55);
+          highlightMesh.visible = state.showParticles;
+        } else highlightMesh.visible = false;
+      } else highlightMesh.visible = false;
+      body.setAttribute("data-frame-ball-count",String(ids.length));
+      body.setAttribute("data-missing-ball-count",String(staticBalls.length-ids.length));
+      body.setAttribute("data-color-variable",state.colorVariable);
+    }
+
+    function chartAxis(name, unit) {
+      return {type:"value",name:name+(unit?" ("+unit+")":""),nameLocation:"middle",nameGap:34,
+        scale:true,axisLine:{onZero:false,lineStyle:{color:"#333",width:.8}},
+        axisTick:{lineStyle:{color:"#333"},length:3},splitLine:{show:false},
+        axisLabel:{color:"#6c6c68",fontSize:9}};
+    }
+    function chartFrame(spec) {
+      var option = {
+        animation:false,backgroundColor:"transparent",
+        textStyle:{fontFamily:'Arial, Helvetica, "PingFang SC", sans-serif',color:"#1a1a1a"},
+        grid:{left:58,right:64,top:38,bottom:46,containLabel:false},
+        tooltip:{trigger:"axis",textStyle:{fontSize:10}},
+        legend:{top:8,right:4,textStyle:{fontSize:9,color:"#6c6c68"}}
+      };
+      if (spec.type === "line" || spec.type === "scatter" || spec.type === "area") {
+        option.xAxis = chartAxis(spec.x.name,spec.x.unit);
+        option.yAxis = chartAxis(spec.y.name,spec.y.unit);
+        option.series = [{
+          type:spec.type === "scatter" ? "scatter" : "line",
+          showSymbol:false,smooth:false,data:spec.x.data.map(function(v,i){return [v,spec.y.data[i]];}),
+          lineStyle:{color:spec.color,width:1.45},
+          itemStyle:{color:spec.color,opacity:.78},
+          areaStyle:spec.type === "area" ? {color:spec.color,opacity:.16} : null,
+          markLine:{symbol:"none",silent:true,label:{show:false},
+            lineStyle:{color:"#1a1a1a",width:.8,type:"dashed"},
+            data:[{xAxis:spec.x.data[state.frameIndex]}]}
+        }];
+      } else if (spec.type === "dual-line") {
+        option.xAxis = chartAxis(spec.x.name,spec.x.unit);
+        option.yAxis = [chartAxis(spec.series[0].name,spec.series[0].unit),
+          chartAxis(spec.series[1].name,spec.series[1].unit)];
+        option.series = spec.series.map(function(series,index){
+          return {name:series.name,type:"line",yAxisIndex:series.axis,showSymbol:false,
+            data:spec.x.data.map(function(v,i){return [v,series.data[i]];}),
+            lineStyle:{color:series.color,width:1.35},itemStyle:{color:series.color},
+            markLine:index===0 ? {symbol:"none",silent:true,label:{show:false},
+              lineStyle:{color:"#1a1a1a",width:.8,type:"dashed"},
+              data:[{xAxis:spec.x.data[state.frameIndex]}]} : null};
+        });
+      } else if (spec.type === "histogram" || spec.type === "bar" || spec.type === "stacked") {
+        var rawCats = spec.counts || spec.data || [];
+        var centers = spec.edges ? spec.edges.slice(0,-1).map(function(v,i){return (v+spec.edges[i+1])/2;}) :
+          (spec.labels || rawCats.map(function(_,i){return i+1;}));
+        option.xAxis = {type:"category",data:centers,name:spec.x_name||"bin",
+          nameLocation:"middle",nameGap:28,axisLine:{lineStyle:{color:"#333",width:.8}},
+          axisLabel:{color:"#6c6c68",fontSize:8},splitLine:{show:false}};
+        option.yAxis = chartAxis(spec.y_name || "count",spec.y_unit || "");
+        if (spec.type === "stacked" && spec.series) {
+          option.series = spec.series.map(function(series){
+            return {name:series.name,type:"bar",stack:"total",data:series.data,itemStyle:{color:series.color}};
+          });
+        } else {
+          option.series = [{type:"bar",data:spec.counts || spec.data,
+            itemStyle:{color:spec.color,opacity:.88},barMaxWidth:24}];
+        }
+      } else if (spec.type === "boxplot") {
+        option.xAxis = {type:"category",data:spec.labels || ["case"],axisLabel:{fontSize:9}};
+        option.yAxis = chartAxis(spec.y_name || "value",spec.unit || "");
+        option.series = [{type:"boxplot",data:spec.data,itemStyle:{color:spec.color,borderColor:spec.color}}];
+      } else if (spec.type === "heatmap" || spec.type === "correlation") {
+        var xlabels = spec.type === "correlation" ? spec.labels : spec.x.slice(1).map(function(v,i){return (spec.x[i]+v)/2;});
+        var ylabels = spec.type === "correlation" ? spec.labels : spec.y.slice(1).map(function(v,i){return (spec.y[i]+v)/2;});
+        var matrix = spec.type === "correlation" ? spec.values : spec.z;
+        var values = [];
+        matrix.forEach(function(row,y){row.forEach(function(v,x){values.push([x,y,v]);});});
+        option.grid = {left:62,right:24,top:38,bottom:68};
+        option.tooltip = {trigger:"item"};
+        option.xAxis = {type:"category",data:xlabels,splitArea:{show:true},axisLabel:{fontSize:8,color:"#6c6c68"}};
+        option.yAxis = {type:"category",data:ylabels,splitArea:{show:true},axisLabel:{fontSize:8,color:"#6c6c68"}};
+        option.visualMap = spec.type === "correlation" ?
+          {min:-1,max:1,orient:"horizontal",left:"center",bottom:4,calculable:false,
+            inRange:{color:spec.color},textStyle:{fontSize:8}} :
+          {min:0,max:Math.max(1,...values.map(function(v){return v[2];})),orient:"horizontal",
+            left:"center",bottom:4,calculable:false,inRange:{color:spec.color},textStyle:{fontSize:8}};
+        option.series = [{type:"heatmap",data:values,itemStyle:{borderColor:"#fff",borderWidth:.35}}];
+      } else if (spec.type === "rose" || spec.type === "polar") {
+        var bins = new Array(12).fill(0), step = 30;
+        spec.angles.forEach(function(angle){
+          var idx = Math.max(0,Math.min(11,Math.floor(((angle%360)+360)%360/step)));
+          bins[idx] += 1;
+        });
+        option.polar = {"radius":[18,"72%"]};
+        option.angleAxis = {type:"category",data:Array.from({length:12},function(_,i){return i*step+"°";}),
+          axisLine:{lineStyle:{color:"#333",width:.8}},axisLabel:{fontSize:8,color:"#6c6c68"}};
+        option.radiusAxis = {type:"value",axisLine:{lineStyle:{color:"#333",width:.8}},
+          axisLabel:{fontSize:8,color:"#6c6c68"},splitLine:{show:false}};
+        option.series = [{type:spec.type === "rose" ? "bar" : "line",coordinateSystem:"polar",
+          data:bins,itemStyle:{color:spec.color,opacity:.8},lineStyle:{color:spec.color,width:1.3}}];
+      } else if (spec.type === "radar") {
+        option.radar = {indicator:spec.indicators,radius:"62%",splitLine:{lineStyle:{color:"#d7d7d3"}},
+          axisLine:{lineStyle:{color:"#d7d7d3"}},axisName:{fontSize:8,color:"#6c6c68"}};
+        option.series = [{type:"radar",data:spec.series}];
+      } else if (spec.type === "case-compare") {
+        option.xAxis = {type:"category",data:spec.data.map(function(row){return "Case "+row.case_id;}),
+          axisLabel:{fontSize:9,color:"#6c6c68"}};
+        option.yAxis = chartAxis(spec.metric_name || "值",spec.metric_unit || "");
+        option.series = [{type:"bar",data:spec.data.map(function(row,i){
+          var raw=row[spec.metric_key],value=raw==null?null:raw*(spec.scale||1);
+          return {value:value,itemStyle:{color:spec.colors[i%spec.colors.length]}};
+        }),barMaxWidth:30}];
+      } else {
+        return null;
+      }
+      return option;
+    }
+
+    function disposeCharts() {
+      chartInstances.forEach(function(chart){chart.dispose();});
+      chartInstances = [];
+      $("chartGrid").innerHTML = "";
+    }
+
+    function renderCharts() {
+      disposeCharts();
+      var specs = currentCase.chartSpecs || [];
+      if (specs.length === 0) {
+        var empty = document.createElement("div"); empty.className = "empty-chart";
+        empty.textContent = "当前 Case 没有满足物理意义和数据条件的图表";
+        $("chartGrid").appendChild(empty);
+      }
+      specs.forEach(function(spec,index){
+        var section = document.createElement("section"); section.className = "chartbox";
+        var title = document.createElement("h3"); title.textContent = spec.title;
+        var div = document.createElement("div"); div.className = "echart";
+        section.appendChild(title); section.appendChild(div); $("chartGrid").appendChild(section);
+        var chart = echarts.init(div,null,{renderer:"svg"});
+        var option = chartFrame(spec);
+        if (option) {
+          chart.setOption(option);
+          chart.on("click",function(point){
+            if ((spec.type==="line"||spec.type==="dual-line"||spec.type==="scatter"||spec.type==="area") &&
+                spec.case_id != null && point.dataIndex != null && point.dataIndex < currentCase.frames.length) {
+              state.playing=false;$("play").textContent="▶ 播放";setFrame(point.dataIndex,true);
+            }
+          });
+          chartInstances.push(chart);
+        }
+      });
+      body.setAttribute("data-chart-count",String(chartInstances.length));
+      body.setAttribute("data-chart-renderer","svg");
+    }
+
+    function updateCharts(frame) {
+      var specs = currentCase.chartSpecs || [];
+      chartInstances.forEach(function(chart,index){
+        var option = chartFrame(specs[index]);
+        if (option) chart.setOption(option,{notMerge:true,lazyUpdate:true});
+      });
+      body.setAttribute("data-crack-channel",currentCase.crackStatus || (currentCase.cracksAvailable ? "GENERATED" : "NOT_CAPTURED"));
+    }
+
+    function updateClipping() {
+      var axis=$("clipAxis").value,index={x:0,y:1,z:2}[axis]||2;
+      var low=[dmin.x,dmin.y,dmin.z][index],high=[dmax.x,dmax.y,dmax.z][index];
+      var cut=low+(high-low)*(Number($("clipPosition").value)/100);
+      clippingPlane.normal.set(0,0,0);clippingPlane.normal.setComponent(index,-1);
+      clippingPlane.constant=cut;
+      var planes=$("showClip").checked?[clippingPlane]:[];
+      particles.material.clippingPlanes=planes;particles.material.needsUpdate=true;
+      wallMeshes.forEach(function(entry){
+        entry.mesh.material.clippingPlanes=planes;entry.mesh.material.needsUpdate=true;
+        entry.edges.material.clippingPlanes=planes;entry.edges.material.needsUpdate=true;
+      });
+      kindLayers.forEach(function(layer){
+        layer.lines.material.clippingPlanes=planes;layer.lines.material.needsUpdate=true;
+      });
+      body.setAttribute("data-clipping",$("showClip").checked?"ENABLED":"DISABLED");
+    }
+    function niceDistance(value) {
+      if(!Number.isFinite(value)||value<=0)return 1;
+      var power=Math.pow(10,Math.floor(Math.log10(value)));
+      var unit=value/power;
+      var nice=unit>=5?5:unit>=2?2:1;
+      return nice*power;
+    }
+    function updateScaleBar() {
+      var h=Math.max(1,$("stage").clientHeight);
+      var worldPerPixel;
+      if(camera===orthographicCamera){
+        worldPerPixel=(camera.top-camera.bottom)/(h*camera.zoom);
+      }else{
+        var distance=camera.position.distanceTo(controls.target);
+        worldPerPixel=2*distance*Math.tan(THREE.MathUtils.degToRad(camera.fov*.5))/h;
+      }
+      var length=niceDistance(worldPerPixel*110);
+      var pixels=Math.max(28,Math.min(180,length/Math.max(worldPerPixel,1e-12)));
+      $("scaleLine").style.width=pixels.toFixed(1)+"px";
+      $("scaleText").textContent=fmt(length,3)+" m";
+    }
+
+    function setFrame(index, force) {
+      index = Math.max(0,Math.min(currentCase.frames.length-1,index));
+      if (!force && index===state.frameIndex) return;
+      state.frameIndex=index;
+      var frame=currentCase.frames[index];
+      $("timeline").value=String(index);
+      $("frameText").textContent="实测帧 "+(index+1)+" / "+currentCase.frames.length;
+      $("timeText").textContent="Cycle "+frame.cycle+" · t="+fmt(frame.mechanical_time_total,6)+" s";
+      $("stress").textContent=frame.stress_mpa==null ? "未采集" : fmt(frame.stress_mpa,3)+" MPa";
+      $("strain").textContent=frame.strain==null ? "未采集" : fmt(frame.strain,5);
+      $("load").textContent=frame.load_n==null ? "未采集" : fmt(frame.load_n/1e6,3)+" MN";
+      $("displacement").textContent=frame.displacement_m==null ? "未采集" : fmt(frame.displacement_m,5)+" m";
+      $("balls").textContent=String(frame.ballCount);
+      var crackCount=visibleCrackCount(frame.cycle);
+      $("cracks").textContent=currentCase.crackStatus === "NOT_CAPTURED" ? "未采集" :
+        currentCase.crackStatus === "INVALID_GEOMETRY" ? "几何无效" : String(crackCount);
+      $("caseSubtitle").textContent=currentCase.subtitle;
+      updateParticles(frame,index); updateWalls(frame); updateCharts(frame);
+      $("colorScaleText").textContent=state.colorVariable === "speed"
+        ? ("颗粒颜色：速度 0–"+fmt(currentCase.maxSpeed||0,3)+" m/s；未采样为灰色。")
+        : ("颗粒颜色：累计位移 0–"+fmt(currentCase.maxDisplacement||0,3)+" m；缺失为灰色。");
+      if (trajectoryLine) trajectoryLine.visible=state.showTrajectory && Boolean(state.entityId);
+      body.setAttribute("data-ready","1");
+      body.setAttribute("data-frame-index",String(index));
+      body.setAttribute("data-cycle",String(frame.cycle));
+      body.setAttribute("data-cracks-visible",String(crackCount));
+      body.setAttribute("data-case-id",String(currentCase.id));
+    }
+
+    function setCase(index) {
+      state.caseIndex=Math.max(0,Math.min(DATA.cases.length-1,index));
+      currentCase=DATA.cases[state.caseIndex];
+      state.frameIndex=0; state.playing=false; $("play").textContent="▶ 播放";
+      $("timeline").min="0"; $("timeline").max=String(currentCase.frames.length-1);
+      $("timeline").value="0"; $("caseSelect").value=String(state.caseIndex);
+      buildCracks(currentCase);
+      updateClipping();
+      if (trajectoryLine) { scene.remove(trajectoryLine); trajectoryLine.geometry.dispose(); trajectoryLine.material.dispose(); trajectoryLine=null; }
+      renderCharts();
+      body.setAttribute("data-case-id",String(currentCase.id));
+      body.setAttribute("data-frame-count",String(currentCase.frames.length));
+      $("badge").textContent=currentCase.runId+" · "+currentCase.frames.length+" 个实测状态帧 · 无插值";
+      setFrame(0,true);
+    }
+
+    function resetCamera() {
+      if (camera === perspectiveCamera) {
+        camera.position.copy(center).add(new THREE.Vector3(span*1.25,-span*1.45,span*.72));
+        camera.fov=40;
+      } else {
+        camera.position.copy(center).add(new THREE.Vector3(0,0,span*2.2));
+        camera.zoom=1;
+      }
+      camera.near=span*.001;camera.far=span*100;
+      camera.updateProjectionMatrix();controls.target.copy(center);controls.update();
+    }
+    function setCameraMode(mode) {
+      var chosen = mode === "orthographic" ? orthographicCamera :
+        mode === "perspective" ? perspectiveCamera : (is2D ? orthographicCamera : perspectiveCamera);
+      if (chosen !== camera) {
+        controls.dispose(); camera=chosen;
+        controls=new THREE.OrbitControls(camera,renderer.domElement);
+        controls.enableDamping=true;controls.dampingFactor=.08;
+      }
+      resetCamera();
+      body.setAttribute("data-camera-mode",chosen===orthographicCamera?"orthographic":"perspective");
+    }
+    function buildTrajectory(entityId) {
+      if (trajectoryLine) {
+        scene.remove(trajectoryLine);trajectoryLine.geometry.dispose();trajectoryLine.material.dispose();trajectoryLine=null;
+      }
+      var points=[], startCycle=null, endCycle=null;
+      currentCase.frames.forEach(function(frame){
+        var ids=decodeU32(frame.ids), xyz=decodeF32(frame.xyz);
+        for(var i=0;i<ids.length;i++) {
+          if(ids[i]===entityId){
+            points.push(new THREE.Vector3(xyz[i*3],xyz[i*3+1],xyz[i*3+2]));
+            if(startCycle==null) startCycle=frame.cycle;
+            endCycle=frame.cycle;
+            break;
+          }
+        }
+      });
+      if(points.length<2) {
+        body.setAttribute("data-trajectory-status","INSUFFICIENT_REAL_SAMPLES");
+        return null;
+      }
+      trajectoryLine=new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(points),
+        new THREE.LineBasicMaterial({color:0xF39B7F,transparent:true,opacity:.92,depthTest:false})
+      );
+      trajectoryLine.renderOrder=18;trajectoryLine.frustumCulled=false;
+      trajectoryLine.visible=state.showTrajectory;
+      scene.add(trajectoryLine);
+      body.setAttribute("data-trajectory-status","GENERATED");
+      body.setAttribute("data-trajectory-samples",String(points.length));
+      body.setAttribute("data-trajectory-cycle-start",String(startCycle));
+      body.setAttribute("data-trajectory-cycle-end",String(endCycle));
+      return points[0];
+    }
+    function focusEntity(entityId) {
+      var firstIndex=-1;
+      for(var i=0;i<currentCase.frames.length;i++){
+        var ids=decodeU32(currentCase.frames[i].ids);
+        if(Array.prototype.indexOf.call(ids,entityId)>=0){firstIndex=i;break;}
+      }
+      if(firstIndex<0){
+        $("entityInput").setCustomValidity("当前 Case 的实测帧中没有该 Ball ID。");
+        $("entityInput").reportValidity();return;
+      }
+      $("entityInput").setCustomValidity("");
+      state.entityId=entityId;
+      var point=buildTrajectory(entityId);
+      setFrame(firstIndex,true);
+      if(point){
+        var direction=camera.position.clone().sub(controls.target).normalize();
+        controls.target.copy(point);
+        camera.position.copy(point).add(direction.multiplyScalar(Math.max(span*.28,1e-9)));
+        camera.lookAt(point);controls.update();
+      }
+    }
+    function downloadDataUrl(name, dataUrl) {
+      var link=document.createElement("a");link.href=dataUrl;link.download=name;
+      document.body.appendChild(link);link.click();link.remove();
+    }
+    function exportPNG() {
+      var targetWidth=Math.max(800,Math.min(12000,Number($("exportWidth").value)||3200));
+      var stageWidth=Math.max(1,$("stage").clientWidth),stageHeight=Math.max(1,$("stage").clientHeight);
+      var targetHeight=Math.max(1,Math.round(targetWidth*stageHeight/stageWidth));
+      var previousWidth=renderer.domElement.width,previousHeight=renderer.domElement.height;
+      var previousPixelRatio=renderer.getPixelRatio();
+      var previousBackground=scene.background;
+      var transparent=$("exportBackground").value==="transparent";
+      scene.background=transparent?null:new THREE.Color(0xffffff);
+      renderer.setPixelRatio(1);renderer.setSize(targetWidth,targetHeight,false);
+      camera.aspect=targetWidth/targetHeight;
+      if(camera===orthographicCamera){
+        var aspect=camera.aspect,halfHeight=orthoExtent,halfWidth=halfHeight*aspect;
+        camera.left=-halfWidth;camera.right=halfWidth;camera.top=halfHeight;camera.bottom=-halfHeight;
+      }
+      camera.updateProjectionMatrix();renderer.render(scene,camera);
+      var dataUrl=renderer.domElement.toDataURL("image/png");
+      downloadDataUrl("pfc_case_"+currentCase.id+"_cycle_"+currentCase.frames[state.frameIndex].cycle+".png",dataUrl);
+      scene.background=previousBackground;renderer.setPixelRatio(previousPixelRatio);
+      resize();renderer.render(scene,camera);
+      body.setAttribute("data-export-status","GENERATED");
+    }
+    function exportChartSVGs() {
+      chartInstances.forEach(function(chart,index){
+        setTimeout(function(){
+          var dataUrl=chart.getDataURL({type:"svg",backgroundColor:"#ffffff",excludeComponents:["toolbox"]});
+          downloadDataUrl("pfc_case_"+currentCase.id+"_chart_"+String(index+1).padStart(2,"0")+".svg",dataUrl);
+        },index*120);
+      });
+      body.setAttribute("data-chart-export-status","GENERATED");
+    }
+    window.PFCViewer = {
+      exportPNG:exportPNG,
+      exportChartSVGs:exportChartSVGs,
+      setFrame:setFrame,
+      setCase:setCase,
+      focusEntity:focusEntity
+    };
+
+    caseSelect.addEventListener("change",function(e){setCase(Number(e.target.value));});
+    $("timeline").addEventListener("input",function(e){state.playing=false;$("play").textContent="▶ 播放";setFrame(Number(e.target.value),true);});
+    $("cycleGo").addEventListener("click",function(){
+      var target=Number($("cycleInput").value);
+      if(!Number.isFinite(target))return;
+      var idx=currentCase.frames.findIndex(function(frame){return frame.cycle===target;});
+      if(idx<0){
+        $("cycleInput").setCustomValidity("该 run 中没有精确采集到该 Cycle；不会插值。");
+        $("cycleInput").reportValidity();
+        return;
+      }
+      $("cycleInput").setCustomValidity("");
+      state.playing=false;$("play").textContent="▶ 播放";setFrame(idx,true);
+    });
+    $("cycleInput").addEventListener("input",function(){this.setCustomValidity("");});
+    $("entityGo").addEventListener("click",function(){
+      var id=Number($("entityInput").value);
+      if(Number.isFinite(id))focusEntity(id);
+    });
+    $("entityInput").addEventListener("input",function(){this.setCustomValidity("");});
+    $("prev").addEventListener("click",function(){state.playing=false;$("play").textContent="▶ 播放";setFrame(state.frameIndex-1,true);});
+    $("next").addEventListener("click",function(){state.playing=false;$("play").textContent="▶ 播放";setFrame(state.frameIndex+1,true);});
+    $("play").addEventListener("click",function(){
+      if (!state.playing && state.frameIndex>=currentCase.frames.length-1) setFrame(0,true);
+      state.playing=!state.playing; $("play").textContent=state.playing?"⏸ 暂停":"▶ 播放";
+    });
+    $("speed").addEventListener("change",function(e){state.fps=Number(e.target.value)||8;});
+    $("showParticles").addEventListener("change",function(e){state.showParticles=e.target.checked;particles.visible=state.showParticles;});
+    $("showWalls").addEventListener("change",function(e){state.showWalls=e.target.checked;
+      wallMeshes.forEach(function(w){w.mesh.visible=state.showWalls;w.edges.visible=state.showWalls;});});
+    $("showCracks").addEventListener("change",function(e){state.showCracks=e.target.checked;
+      kindLayers.forEach(function(l){l.lines.visible=state.showCracks;});});
+    $("showAxes").addEventListener("change",function(e){state.showAxes=e.target.checked;axesHelper.visible=state.showAxes;});
+    $("showBounds").addEventListener("change",function(e){state.showBounds=e.target.checked;domainBox.visible=state.showBounds;});
+    $("showTrajectory").addEventListener("change",function(e){state.showTrajectory=e.target.checked;
+      if(trajectoryLine)trajectoryLine.visible=state.showTrajectory;});
+    $("showClip").addEventListener("change",updateClipping);
+    $("clipAxis").addEventListener("change",updateClipping);
+    $("clipPosition").addEventListener("input",updateClipping);
+    $("uniformColor").addEventListener("change",function(e){state.uniform=e.target.checked;setFrame(state.frameIndex,true);});
+    $("colorVariable").addEventListener("change",function(e){
+      state.colorVariable=e.target.value;setFrame(state.frameIndex,true);
+    });
+    $("cameraMode").addEventListener("change",function(e){setCameraMode(e.target.value);});
+    $("reset").addEventListener("click",resetCamera);
+    $("exportPng").addEventListener("click",exportPNG);
+    $("exportCharts").addEventListener("click",exportChartSVGs);
+    document.addEventListener("keydown",function(e){
+      if(e.code==="Space"){e.preventDefault();$("play").click();}
+      else if(e.code==="ArrowLeft"){e.preventDefault();$("prev").click();}
+      else if(e.code==="ArrowRight"){e.preventDefault();$("next").click();}
+      else if(e.code==="Home"){setFrame(0,true);}
+      else if(e.code==="End"){setFrame(currentCase.frames.length-1,true);}
+    });
+    function resize() {
+      var w=Math.max(1,$("stage").clientWidth), h=Math.max(1,$("stage").clientHeight);
+      camera.aspect=w/h;
+      if(camera===orthographicCamera){
+        var aspect=camera.aspect;camera.left=-orthoExtent*aspect;camera.right=orthoExtent*aspect;
+        camera.top=orthoExtent;camera.bottom=-orthoExtent;
+      }
+      camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));renderer.setSize(w,h);
+      chartInstances.forEach(function(chart){chart.resize();});
+    }
+    addEventListener("resize",resize);
+    var initialCase=DATA.cases.findIndex(function(c){return c.id===DATA.meta.defaultCase;});
+    setCase(initialCase>=0?initialCase:0); resize();
+    setCameraMode("adaptive");
+    body.setAttribute("data-chart-canvases","0");
+    body.setAttribute("data-schema-version",String(DATA.meta.schema_version));
+    var last=performance.now(), acc=0, metricsLast=last, metricsFrames=0;
+    body.setAttribute("data-load-ms",String((performance.now()-viewerStarted).toFixed(2)));
+    function tick(now){
+      requestAnimationFrame(tick);
+      var dt=Math.min(.1,(now-last)/1000);last=now;
+      if(state.playing){acc+=dt;if(acc>=1/state.fps){acc=0;
+        if(state.frameIndex>=currentCase.frames.length-1){state.playing=false;$("play").textContent="▶ 播放";}
+        else setFrame(state.frameIndex+1,false);}}
+      controls.update();renderer.render(scene,camera);
+      updateScaleBar();
+      metricsFrames += 1;
+      if(now-metricsLast>=500){
+        var elapsed=(now-metricsLast)/1000;
+        body.setAttribute("data-fps",String((metricsFrames/elapsed).toFixed(1)));
+        body.setAttribute("data-draw-calls",String(renderer.info.render.calls));
+        body.setAttribute("data-triangles",String(renderer.info.render.triangles));
+        body.setAttribute("data-geometries",String(renderer.info.memory.geometries));
+        body.setAttribute("data-textures",String(renderer.info.memory.textures));
+        if(performance.memory){
+          body.setAttribute("data-js-heap-bytes",String(performance.memory.usedJSHeapSize));
+        }
+        metricsLast=now;metricsFrames=0;
+      }
+      body.setAttribute("data-ready","1");
+    }
+    requestAnimationFrame(tick);
+  } catch (error) {
+    showError(error.code || "VIEWER_RUNTIME_ERROR",
+      String(error.stack || error), {userAgent:navigator.userAgent,viewport:[innerWidth,innerHeight]});
+  }
+})();
+</script>
+</body>
+</html>

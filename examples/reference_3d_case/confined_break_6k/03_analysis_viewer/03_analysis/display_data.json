@@ -1,0 +1,524 @@
+{
+  "status": "GENERATED",
+  "policy": "Display formatting is derived from chart values at render time. Per-point formatted strings are not used as analysis inputs.",
+  "charts": [
+    {
+      "chart_id": "case_17:stress_strain",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "1",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "1",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -3,
+            "axis_scale": 0.001,
+            "axis_scale_label": "× 10⁻³",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "MPa",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "MPa",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 4,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": [
+        {
+          "operation": "UNIT_CONVERSION",
+          "source_unit": "Pa",
+          "target_unit": "MPa",
+          "factor": 1e-06,
+          "formula": "x[MPa] = x[Pa] * 1e-06",
+          "preserves_missing_values": true
+        }
+      ]
+    },
+    {
+      "chart_id": "case_17:stress_time",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "s",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "s",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -2,
+            "axis_scale": 0.01,
+            "axis_scale_label": "× 10⁻²",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "MPa",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "MPa",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 4,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:speed_time",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "s",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "s",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -2,
+            "axis_scale": 0.01,
+            "axis_scale_label": "× 10⁻²",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "m/s",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m/s",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 5,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:acceleration_time",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "s",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "s",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -2,
+            "axis_scale": 0.01,
+            "axis_scale_label": "× 10⁻²",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "m/s^2",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m/s^2",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 2,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:motion_cracks",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "cycle",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "cycle",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 1,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "series": [
+          {
+            "status": "GENERATED",
+            "unit": "m",
+            "formatting": {
+              "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+              "unit": "m",
+              "scientific": false,
+              "axis_notation": "DECIMAL",
+              "axis_exponent": null,
+              "axis_scale": 1.0,
+              "axis_scale_label": null,
+              "significant_digits": 4,
+              "decimals": 6,
+              "axis_formatter": "number",
+              "tooltip_digits": 8,
+              "missing_text": "—",
+              "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+            },
+            "value_materialization": "GENERATED_ON_RENDER",
+            "rule": "Per-point display strings are derived from chart values at render time."
+          },
+          {
+            "status": "GENERATED",
+            "unit": "event",
+            "formatting": {
+              "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+              "unit": "event",
+              "scientific": false,
+              "axis_notation": "DECIMAL",
+              "axis_exponent": null,
+              "axis_scale": 1.0,
+              "axis_scale_label": null,
+              "significant_digits": 4,
+              "decimals": 0,
+              "axis_formatter": "number",
+              "tooltip_digits": 8,
+              "missing_text": "—",
+              "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+            },
+            "value_materialization": "GENERATED_ON_RENDER",
+            "rule": "Per-point display strings are derived from chart values at render time."
+          }
+        ]
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:motion",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "cycle",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "cycle",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 1,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 6,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:displacement_hist",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 6,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "count",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "count",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 2,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:particle_size",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 5,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "count",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "count",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 1,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:fracture_rose",
+      "display": {
+        "angles": {
+          "status": "GENERATED",
+          "unit": "degree",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "degree",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": 2,
+            "axis_scale": 100.0,
+            "axis_scale_label": "× 10²",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:particle_density",
+      "display": {
+        "x": {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -1,
+            "axis_scale": 0.1,
+            "axis_scale_label": "× 10⁻¹",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "y": {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": true,
+            "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+            "axis_exponent": -1,
+            "axis_scale": 0.1,
+            "axis_scale_label": "× 10⁻¹",
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        "z": {
+          "status": "GENERATED",
+          "unit": "count",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "count",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 3,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      },
+      "conversions": []
+    },
+    {
+      "chart_id": "case_17:correlation",
+      "display": {},
+      "conversions": []
+    }
+  ],
+  "verification": "NOT_VERIFIED"
+}

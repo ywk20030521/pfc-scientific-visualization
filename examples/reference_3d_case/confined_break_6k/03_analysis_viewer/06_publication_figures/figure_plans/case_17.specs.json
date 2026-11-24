@@ -1,0 +1,1582 @@
+[
+  {
+    "id": "case_17:stress_strain",
+    "case_id": 17,
+    "type": "line",
+    "title": "轴向应力–应变",
+    "basis": "Both stress and strain are derived from captured Wall force and platen geometry.",
+    "x": {
+      "name": "ε",
+      "unit": "1",
+      "data": [
+        0.0,
+        0.0001020000000000465,
+        0.00020399999999998197,
+        0.0003049999999999997,
+        0.0004070000000000462,
+        0.0005100000000000104,
+        0.0006239999999999579,
+        0.0008280000000000509,
+        0.0010330000000000616,
+        0.0012369999999999326,
+        0.0014410000000000256,
+        0.0016450000000000076,
+        0.0018489999999999895,
+        0.0020530000000000825,
+        0.0022560000000000358,
+        0.0024600000000000177,
+        0.002663000000000082,
+        0.002866999999999953,
+        0.0030000000000000027
+      ]
+    },
+    "y": {
+      "name": "σ",
+      "unit": "MPa",
+      "data": [
+        27.32028,
+        2.07522,
+        1.109278,
+        0.96265,
+        0.889574,
+        0.833228,
+        0.838112,
+        0.810746,
+        0.7893939999999999,
+        0.770338,
+        0.76623,
+        0.755976,
+        0.7453879999999999,
+        0.7340559999999999,
+        0.73034,
+        0.7161959999999999,
+        0.716946,
+        0.712386,
+        0.7050099999999999
+      ]
+    },
+    "source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "color": "#3C5488",
+    "conversions": [
+      {
+        "operation": "UNIT_CONVERSION",
+        "source_unit": "Pa",
+        "target_unit": "MPa",
+        "factor": 1e-06,
+        "formula": "x[MPa] = x[Pa] * 1e-06",
+        "preserves_missing_values": true
+      }
+    ],
+    "source_channels": [
+      "sample.axial_strain",
+      "sample.axial_stress"
+    ],
+    "analysis_goal": "mechanical_response_path",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.98,
+      "reason": "Two aligned continuous mechanical-response channels form a monotonic path suitable for a stress–strain curve.",
+      "alternatives": [
+        {
+          "type": "scatter",
+          "score": 0.82,
+          "reason": "Possible, but the path order carries deformation history."
+        },
+        {
+          "type": "histogram",
+          "score": 0.35,
+          "reason": "Would discard the pairwise relationship."
+        }
+      ],
+      "derived": true,
+      "missing_count": 0,
+      "manual_override": null,
+      "compatible_types": [
+        "line",
+        "scatter"
+      ]
+    },
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "1",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "1",
+          "scientific": true,
+          "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+          "axis_exponent": -3,
+          "axis_scale": 0.001,
+          "axis_scale_label": "× 10⁻³",
+          "significant_digits": 4,
+          "decimals": 3,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "y": {
+        "status": "GENERATED",
+        "unit": "MPa",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "MPa",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 4,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      }
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "ZERO_INCLUDED",
+        "include_zero": true,
+        "observed_min": 0.0,
+        "observed_max": 0.0030000000000000027,
+        "notation": "SCIENTIFIC_SHARED_EXPONENT",
+        "axis_exponent": -3,
+        "axis_scale": 0.001,
+        "axis_scale_label": "× 10⁻³",
+        "decimals": 3
+      },
+      "y": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.7050099999999999,
+        "observed_max": 27.32028,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 4
+      }
+    },
+    "chart_id": "case_17:stress_strain",
+    "chart_type": "line",
+    "source_variables": [
+      "sample.axial_strain",
+      "sample.axial_stress"
+    ],
+    "source_data": {
+      "channels": [
+        "sample.axial_strain",
+        "sample.axial_stress"
+      ],
+      "analysis_goal": "mechanical_response_path",
+      "basis": "Both stress and strain are derived from captured Wall force and platen geometry.",
+      "derived": true
+    },
+    "physical_meaning": "Both stress and strain are derived from captured Wall force and platen geometry.",
+    "unit": "MPa",
+    "selection_reason": "Two aligned continuous mechanical-response channels form a monotonic path suitable for a stress–strain curve.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 19,
+      "missing_count": 0,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  },
+  {
+    "id": "case_17:motion_cracks",
+    "case_id": 17,
+    "type": "dual-line",
+    "title": "颗粒运动与裂纹演化",
+    "basis": "Both series use captured frames; no synthetic intermediate states.",
+    "x": {
+      "name": "Cycle",
+      "unit": "cycle",
+      "data": [
+        500.0,
+        1000.0,
+        1500.0,
+        2000.0,
+        2500.0,
+        3000.0,
+        3500.0,
+        4000.0,
+        4500.0,
+        5000.0,
+        5500.0,
+        6000.0,
+        6500.0,
+        7000.0,
+        7500.0,
+        8000.0,
+        8500.0,
+        9000.0,
+        9330.0
+      ]
+    },
+    "source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "series": [
+      {
+        "name": "平均位移",
+        "unit": "m",
+        "axis": 0,
+        "color": "#8491B4",
+        "data": [
+          0.0,
+          0.005559334913959583,
+          0.006092313024215164,
+          0.006403452498201604,
+          0.006656476647485874,
+          0.0068711436155810745,
+          0.0070552044973127915,
+          0.007200654037219485,
+          0.007327076844448117,
+          0.0074278566963826885,
+          0.007523046943486709,
+          0.007607139255690696,
+          0.007682987582683825,
+          0.007748573043053296,
+          0.007811606056537075,
+          0.007876150639368544,
+          0.007934967519896833,
+          0.007994476265366077,
+          0.008035293500003166
+        ]
+      },
+      {
+        "name": "累计裂纹",
+        "unit": "event",
+        "axis": 1,
+        "color": "#E64B35",
+        "data": [
+          0.0,
+          1803.0,
+          2704.0,
+          2981.0,
+          3115.0,
+          3198.0,
+          3287.0,
+          3358.0,
+          3407.0,
+          3441.0,
+          3483.0,
+          3525.0,
+          3562.0,
+          3594.0,
+          3620.0,
+          3654.0,
+          3693.0,
+          3708.0,
+          3721.0
+        ],
+        "source": "DERIVED"
+      }
+    ],
+    "source_channels": [
+      "ball.displacement",
+      "fracture.cumulative",
+      "cycle"
+    ],
+    "analysis_goal": "temporal_coevolution",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.95,
+      "reason": "Motion and cumulative captured fracture events share real Cycle indices, so a two-axis temporal view shows their co-evolution.",
+      "alternatives": [
+        {
+          "type": "line",
+          "score": 0.68,
+          "reason": "Separate scales would make event counts and displacement difficult to compare."
+        }
+      ],
+      "derived": true,
+      "missing_count": 0,
+      "manual_override": null,
+      "compatible_types": [
+        "dual-line"
+      ]
+    },
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "cycle",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "cycle",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 1,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "series": [
+        {
+          "status": "GENERATED",
+          "unit": "m",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "m",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 6,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        },
+        {
+          "status": "GENERATED",
+          "unit": "event",
+          "formatting": {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "unit": "event",
+            "scientific": false,
+            "axis_notation": "DECIMAL",
+            "axis_exponent": null,
+            "axis_scale": 1.0,
+            "axis_scale_label": null,
+            "significant_digits": 4,
+            "decimals": 0,
+            "axis_formatter": "number",
+            "tooltip_digits": 8,
+            "missing_text": "—",
+            "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+          },
+          "value_materialization": "GENERATED_ON_RENDER",
+          "rule": "Per-point display strings are derived from chart values at render time."
+        }
+      ]
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 500.0,
+        "observed_max": 9330.0,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 1
+      },
+      "series": [
+        {
+          "range_policy": "ZERO_INCLUDED",
+          "include_zero": true,
+          "observed_min": 0.0,
+          "observed_max": 0.008035293500003166,
+          "notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "decimals": 6
+        },
+        {
+          "range_policy": "ZERO_INCLUDED",
+          "include_zero": true,
+          "observed_min": 0.0,
+          "observed_max": 3721.0,
+          "notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "decimals": 0
+        }
+      ]
+    },
+    "chart_id": "case_17:motion_cracks",
+    "chart_type": "dual-line",
+    "source_variables": [
+      "ball.displacement",
+      "fracture.cumulative",
+      "cycle"
+    ],
+    "source_data": {
+      "channels": [
+        "ball.displacement",
+        "fracture.cumulative",
+        "cycle"
+      ],
+      "analysis_goal": "temporal_coevolution",
+      "basis": "Both series use captured frames; no synthetic intermediate states.",
+      "derived": true
+    },
+    "physical_meaning": "Both series use captured frames; no synthetic intermediate states.",
+    "unit": [
+      "m",
+      "event"
+    ],
+    "selection_reason": "Motion and cumulative captured fracture events share real Cycle indices, so a two-axis temporal view shows their co-evolution.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 38,
+      "missing_count": 0,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  },
+  {
+    "id": "case_17:acceleration_time",
+    "case_id": 17,
+    "type": "line",
+    "title": "平均加速度–机械时间",
+    "basis": "Backward finite differences between consecutive real same-ID velocity observations.",
+    "x": {
+      "name": "机械时间",
+      "unit": "s",
+      "data": [
+        0.00073827,
+        0.00244022,
+        0.0041332,
+        0.00582808,
+        0.00752775,
+        0.00923136,
+        0.0109346,
+        0.0126395,
+        0.0143437,
+        0.0160478,
+        0.0177503,
+        0.0194502,
+        0.0211477,
+        0.022844,
+        0.0245399,
+        0.0262352,
+        0.0279298,
+        0.0296239,
+        0.0307415
+      ]
+    },
+    "y": {
+      "name": "平均加速度",
+      "unit": "m/s^2",
+      "data": [
+        null,
+        null,
+        1809.5062251169393,
+        260.3582898738638,
+        163.9888010122887,
+        118.59838646324118,
+        92.94489590491374,
+        79.85118979685714,
+        64.24286569557938,
+        56.42197917597124,
+        45.98959944258931,
+        45.04344693825544,
+        39.593796149960596,
+        38.788551578025086,
+        33.275705436486334,
+        29.974503143434852,
+        33.26053472889585,
+        30.692162031111376,
+        37.782299484167005
+      ]
+    },
+    "source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "color": "#F39B7F",
+    "source_channels": [
+      "mechanical_time_total",
+      "ball.acceleration"
+    ],
+    "analysis_goal": "temporal_trend",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.91,
+      "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+      "alternatives": [
+        {
+          "type": "area",
+          "score": 0.73,
+          "reason": "Adds magnitude emphasis without improving trend identification."
+        },
+        {
+          "type": "scatter",
+          "score": 0.6,
+          "reason": "Shows real observations but obscures continuity."
+        }
+      ],
+      "derived": true,
+      "missing_count": 2,
+      "manual_override": null,
+      "compatible_types": [
+        "line",
+        "area",
+        "scatter"
+      ]
+    },
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "s",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "s",
+          "scientific": true,
+          "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+          "axis_exponent": -2,
+          "axis_scale": 0.01,
+          "axis_scale_label": "× 10⁻²",
+          "significant_digits": 4,
+          "decimals": 3,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "y": {
+        "status": "GENERATED",
+        "unit": "m/s^2",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "m/s^2",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 2,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      }
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.00073827,
+        "observed_max": 0.0307415,
+        "notation": "SCIENTIFIC_SHARED_EXPONENT",
+        "axis_exponent": -2,
+        "axis_scale": 0.01,
+        "axis_scale_label": "× 10⁻²",
+        "decimals": 3
+      },
+      "y": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 29.974503143434852,
+        "observed_max": 1809.5062251169393,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 2
+      }
+    },
+    "chart_id": "case_17:acceleration_time",
+    "chart_type": "line",
+    "source_variables": [
+      "mechanical_time_total",
+      "ball.acceleration"
+    ],
+    "source_data": {
+      "channels": [
+        "mechanical_time_total",
+        "ball.acceleration"
+      ],
+      "analysis_goal": "temporal_trend",
+      "basis": "Backward finite differences between consecutive real same-ID velocity observations.",
+      "derived": true
+    },
+    "physical_meaning": "Backward finite differences between consecutive real same-ID velocity observations.",
+    "unit": "m/s^2",
+    "selection_reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 17,
+      "missing_count": 2,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  },
+  {
+    "id": "case_17:speed_time",
+    "case_id": 17,
+    "type": "line",
+    "title": "平均速度–机械时间",
+    "basis": "Backward finite differences between consecutive real same-ID observations.",
+    "x": {
+      "name": "机械时间",
+      "unit": "s",
+      "data": [
+        0.00073827,
+        0.00244022,
+        0.0041332,
+        0.00582808,
+        0.00752775,
+        0.00923136,
+        0.0109346,
+        0.0126395,
+        0.0143437,
+        0.0160478,
+        0.0177503,
+        0.0194502,
+        0.0211477,
+        0.022844,
+        0.0245399,
+        0.0262352,
+        0.0279298,
+        0.0296239,
+        0.0307415
+      ]
+    },
+    "y": {
+      "name": "平均速度",
+      "unit": "m/s",
+      "data": [
+        null,
+        3.26645019769064,
+        0.5854976612271895,
+        0.45929875187400054,
+        0.36009413267094126,
+        0.29059293928272756,
+        0.24596412445490393,
+        0.20525573473404998,
+        0.18035227996012113,
+        0.15011133107021002,
+        0.1485300660233845,
+        0.13289193486095224,
+        0.1279061545846462,
+        0.11737303593781051,
+        0.11688460982218767,
+        0.11203809610938582,
+        0.10255907129148494,
+        0.0980628672412175,
+        0.10621689712896465
+      ]
+    },
+    "source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "color": "#8491B4",
+    "source_channels": [
+      "mechanical_time_total",
+      "ball.velocity"
+    ],
+    "analysis_goal": "temporal_trend",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.91,
+      "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+      "alternatives": [
+        {
+          "type": "area",
+          "score": 0.73,
+          "reason": "Adds magnitude emphasis without improving trend identification."
+        },
+        {
+          "type": "scatter",
+          "score": 0.6,
+          "reason": "Shows real observations but obscures continuity."
+        }
+      ],
+      "derived": true,
+      "missing_count": 1,
+      "manual_override": null,
+      "compatible_types": [
+        "line",
+        "area",
+        "scatter"
+      ]
+    },
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "s",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "s",
+          "scientific": true,
+          "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+          "axis_exponent": -2,
+          "axis_scale": 0.01,
+          "axis_scale_label": "× 10⁻²",
+          "significant_digits": 4,
+          "decimals": 3,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "y": {
+        "status": "GENERATED",
+        "unit": "m/s",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "m/s",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 5,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      }
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.00073827,
+        "observed_max": 0.0307415,
+        "notation": "SCIENTIFIC_SHARED_EXPONENT",
+        "axis_exponent": -2,
+        "axis_scale": 0.01,
+        "axis_scale_label": "× 10⁻²",
+        "decimals": 3
+      },
+      "y": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.0980628672412175,
+        "observed_max": 3.26645019769064,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 5
+      }
+    },
+    "chart_id": "case_17:speed_time",
+    "chart_type": "line",
+    "source_variables": [
+      "mechanical_time_total",
+      "ball.velocity"
+    ],
+    "source_data": {
+      "channels": [
+        "mechanical_time_total",
+        "ball.velocity"
+      ],
+      "analysis_goal": "temporal_trend",
+      "basis": "Backward finite differences between consecutive real same-ID observations.",
+      "derived": true
+    },
+    "physical_meaning": "Backward finite differences between consecutive real same-ID observations.",
+    "unit": "m/s",
+    "selection_reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 18,
+      "missing_count": 1,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  },
+  {
+    "id": "case_17:stress_time",
+    "case_id": 17,
+    "type": "line",
+    "title": "名义应力–机械时间",
+    "basis": "Frame-aligned native mechanical time and derived nominal stress.",
+    "x": {
+      "name": "机械时间",
+      "unit": "s",
+      "data": [
+        0.00073827,
+        0.00244022,
+        0.0041332,
+        0.00582808,
+        0.00752775,
+        0.00923136,
+        0.0109346,
+        0.0126395,
+        0.0143437,
+        0.0160478,
+        0.0177503,
+        0.0194502,
+        0.0211477,
+        0.022844,
+        0.0245399,
+        0.0262352,
+        0.0279298,
+        0.0296239,
+        0.0307415
+      ]
+    },
+    "y": {
+      "name": "σ",
+      "unit": "MPa",
+      "data": [
+        27.32028,
+        2.07522,
+        1.109278,
+        0.96265,
+        0.889574,
+        0.833228,
+        0.838112,
+        0.810746,
+        0.789394,
+        0.770338,
+        0.76623,
+        0.755976,
+        0.745388,
+        0.734056,
+        0.73034,
+        0.716196,
+        0.716946,
+        0.712386,
+        0.70501
+      ]
+    },
+    "source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "color": "#3C5488",
+    "source_channels": [
+      "mechanical_time_total",
+      "sample.axial_stress"
+    ],
+    "analysis_goal": "temporal_trend",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.91,
+      "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+      "alternatives": [
+        {
+          "type": "area",
+          "score": 0.73,
+          "reason": "Adds magnitude emphasis without improving trend identification."
+        },
+        {
+          "type": "scatter",
+          "score": 0.6,
+          "reason": "Shows real observations but obscures continuity."
+        }
+      ],
+      "derived": true,
+      "missing_count": 0,
+      "manual_override": null,
+      "compatible_types": [
+        "line",
+        "area",
+        "scatter"
+      ]
+    },
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "s",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "s",
+          "scientific": true,
+          "axis_notation": "SCIENTIFIC_SHARED_EXPONENT",
+          "axis_exponent": -2,
+          "axis_scale": 0.01,
+          "axis_scale_label": "× 10⁻²",
+          "significant_digits": 4,
+          "decimals": 3,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "y": {
+        "status": "GENERATED",
+        "unit": "MPa",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "MPa",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 4,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      }
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.00073827,
+        "observed_max": 0.0307415,
+        "notation": "SCIENTIFIC_SHARED_EXPONENT",
+        "axis_exponent": -2,
+        "axis_scale": 0.01,
+        "axis_scale_label": "× 10⁻²",
+        "decimals": 3
+      },
+      "y": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.70501,
+        "observed_max": 27.32028,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 4
+      }
+    },
+    "chart_id": "case_17:stress_time",
+    "chart_type": "line",
+    "source_variables": [
+      "mechanical_time_total",
+      "sample.axial_stress"
+    ],
+    "source_data": {
+      "channels": [
+        "mechanical_time_total",
+        "sample.axial_stress"
+      ],
+      "analysis_goal": "temporal_trend",
+      "basis": "Frame-aligned native mechanical time and derived nominal stress.",
+      "derived": true
+    },
+    "physical_meaning": "Frame-aligned native mechanical time and derived nominal stress.",
+    "unit": "MPa",
+    "selection_reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 19,
+      "missing_count": 0,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  },
+  {
+    "id": "case_17:displacement_hist",
+    "case_id": 17,
+    "type": "histogram",
+    "title": "末帧颗粒累计位移分布",
+    "basis": "Distribution of real final-frame particle displacements.",
+    "counts": [
+      319,
+      121,
+      135,
+      183,
+      191,
+      199,
+      202,
+      240,
+      270,
+      287,
+      301,
+      301,
+      296,
+      290,
+      272,
+      283,
+      245,
+      206,
+      226,
+      197,
+      171,
+      176,
+      165,
+      131,
+      135,
+      120,
+      78,
+      75,
+      64,
+      68,
+      39,
+      37,
+      37,
+      319
+    ],
+    "edges": [
+      0.002675443565244824,
+      0.003059068859553683,
+      0.0034426941538625417,
+      0.003826319448171401,
+      0.00420994474248026,
+      0.004593570036789119,
+      0.004977195331097977,
+      0.005360820625406836,
+      0.005744445919715695,
+      0.006128071214024554,
+      0.006511696508333413,
+      0.0068953218026422715,
+      0.00727894709695113,
+      0.007662572391259989,
+      0.008046197685568848,
+      0.008429822979877707,
+      0.008813448274186566,
+      0.009197073568495424,
+      0.009580698862804283,
+      0.009964324157113142,
+      0.010347949451422,
+      0.010731574745730861,
+      0.01111520004003972,
+      0.011498825334348579,
+      0.011882450628657438,
+      0.012266075922966297,
+      0.012649701217275156,
+      0.013033326511584014,
+      0.013416951805892873,
+      0.013800577100201732,
+      0.01418420239451059,
+      0.01456782768881945,
+      0.014951452983128308
+    ],
+    "bins": [
+      {
+        "kind": "UNDERFLOW",
+        "index": 0,
+        "lower": 0.0,
+        "upper": 0.002675443565244824,
+        "count": 319
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 0,
+        "lower": 0.002675443565244824,
+        "upper": 0.003059068859553683,
+        "count": 121
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 1,
+        "lower": 0.003059068859553683,
+        "upper": 0.0034426941538625417,
+        "count": 135
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 2,
+        "lower": 0.0034426941538625417,
+        "upper": 0.003826319448171401,
+        "count": 183
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 3,
+        "lower": 0.003826319448171401,
+        "upper": 0.00420994474248026,
+        "count": 191
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 4,
+        "lower": 0.00420994474248026,
+        "upper": 0.004593570036789119,
+        "count": 199
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 5,
+        "lower": 0.004593570036789119,
+        "upper": 0.004977195331097977,
+        "count": 202
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 6,
+        "lower": 0.004977195331097977,
+        "upper": 0.005360820625406836,
+        "count": 240
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 7,
+        "lower": 0.005360820625406836,
+        "upper": 0.005744445919715695,
+        "count": 270
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 8,
+        "lower": 0.005744445919715695,
+        "upper": 0.006128071214024554,
+        "count": 287
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 9,
+        "lower": 0.006128071214024554,
+        "upper": 0.006511696508333413,
+        "count": 301
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 10,
+        "lower": 0.006511696508333413,
+        "upper": 0.0068953218026422715,
+        "count": 301
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 11,
+        "lower": 0.0068953218026422715,
+        "upper": 0.00727894709695113,
+        "count": 296
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 12,
+        "lower": 0.00727894709695113,
+        "upper": 0.007662572391259989,
+        "count": 290
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 13,
+        "lower": 0.007662572391259989,
+        "upper": 0.008046197685568848,
+        "count": 272
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 14,
+        "lower": 0.008046197685568848,
+        "upper": 0.008429822979877707,
+        "count": 283
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 15,
+        "lower": 0.008429822979877707,
+        "upper": 0.008813448274186566,
+        "count": 245
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 16,
+        "lower": 0.008813448274186566,
+        "upper": 0.009197073568495424,
+        "count": 206
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 17,
+        "lower": 0.009197073568495424,
+        "upper": 0.009580698862804283,
+        "count": 226
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 18,
+        "lower": 0.009580698862804283,
+        "upper": 0.009964324157113142,
+        "count": 197
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 19,
+        "lower": 0.009964324157113142,
+        "upper": 0.010347949451422,
+        "count": 171
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 20,
+        "lower": 0.010347949451422,
+        "upper": 0.010731574745730861,
+        "count": 176
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 21,
+        "lower": 0.010731574745730861,
+        "upper": 0.01111520004003972,
+        "count": 165
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 22,
+        "lower": 0.01111520004003972,
+        "upper": 0.011498825334348579,
+        "count": 131
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 23,
+        "lower": 0.011498825334348579,
+        "upper": 0.011882450628657438,
+        "count": 135
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 24,
+        "lower": 0.011882450628657438,
+        "upper": 0.012266075922966297,
+        "count": 120
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 25,
+        "lower": 0.012266075922966297,
+        "upper": 0.012649701217275156,
+        "count": 78
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 26,
+        "lower": 0.012649701217275156,
+        "upper": 0.013033326511584014,
+        "count": 75
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 27,
+        "lower": 0.013033326511584014,
+        "upper": 0.013416951805892873,
+        "count": 64
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 28,
+        "lower": 0.013416951805892873,
+        "upper": 0.013800577100201732,
+        "count": 68
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 29,
+        "lower": 0.013800577100201732,
+        "upper": 0.01418420239451059,
+        "count": 39
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 30,
+        "lower": 0.01418420239451059,
+        "upper": 0.01456782768881945,
+        "count": 37
+      },
+      {
+        "kind": "INTERIOR",
+        "index": 31,
+        "lower": 0.01456782768881945,
+        "upper": 0.014951452983128308,
+        "count": 37
+      },
+      {
+        "kind": "OVERFLOW",
+        "index": 33,
+        "lower": 0.014951452983128308,
+        "upper": 0.04550983324513506,
+        "count": 319
+      }
+    ],
+    "bin_labels": [
+      "< P05",
+      0.0028672562123992535,
+      0.0032508815067081123,
+      0.0036345068010169715,
+      0.00401813209532583,
+      0.004401757389634689,
+      0.004785382683943548,
+      0.005169007978252407,
+      0.005552633272561266,
+      0.0059362585668701244,
+      0.006319883861178983,
+      0.006703509155487842,
+      0.007087134449796701,
+      0.00747075974410556,
+      0.00785438503841442,
+      0.008238010332723276,
+      0.008621635627032137,
+      0.009005260921340994,
+      0.009388886215649855,
+      0.009772511509958712,
+      0.010156136804267572,
+      0.010539762098576431,
+      0.01092338739288529,
+      0.01130701268719415,
+      0.011690637981503008,
+      0.012074263275811868,
+      0.012457888570120725,
+      0.012841513864429586,
+      0.013225139158738443,
+      0.013608764453047303,
+      0.01399238974735616,
+      0.014376015041665021,
+      0.014759640335973878,
+      "> P95"
+    ],
+    "range_policy": "ROBUST_P05_P95_WITH_OVERFLOW",
+    "total_count": 6379,
+    "finite_count": 6379,
+    "missing_count": 0,
+    "underflow_count": 319,
+    "overflow_count": 319,
+    "interior_quantiles": [
+      0.05,
+      0.95
+    ],
+    "interior_min": 0.002675443565244824,
+    "interior_max": 0.014951452983128308,
+    "observed_min": 0.0,
+    "observed_max": 0.04550983324513506,
+    "color": "#8491B4",
+    "display": {
+      "x": {
+        "status": "GENERATED",
+        "unit": "m",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "m",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 6,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      },
+      "y": {
+        "status": "GENERATED",
+        "unit": "count",
+        "formatting": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "unit": "count",
+          "scientific": false,
+          "axis_notation": "DECIMAL",
+          "axis_exponent": null,
+          "axis_scale": 1.0,
+          "axis_scale_label": null,
+          "significant_digits": 4,
+          "decimals": 2,
+          "axis_formatter": "number",
+          "tooltip_digits": 8,
+          "missing_text": "—",
+          "rule": "Axis values prioritize readability; tooltips retain higher precision. Formatted strings never replace analysis values."
+        },
+        "value_materialization": "GENERATED_ON_RENDER",
+        "rule": "Per-point display strings are derived from chart values at render time."
+      }
+    },
+    "source_channels": [
+      "ball.displacement"
+    ],
+    "analysis_goal": "spatial_distribution",
+    "decision": {
+      "status": "GENERATED",
+      "score": 0.9,
+      "reason": "The final real frame provides a finite particle distribution. The P05-P95 interior is displayed continuously while all lower and upper tail observations remain in explicit overflow bins.",
+      "alternatives": [
+        {
+          "type": "boxplot",
+          "score": 0.74,
+          "reason": "Compact for summary comparison but hides multimodality."
+        }
+      ],
+      "derived": true,
+      "missing_count": 0,
+      "manual_override": null,
+      "compatible_types": [
+        "histogram",
+        "boxplot"
+      ]
+    },
+    "axis_contract": {
+      "x": {
+        "range_policy": "DATA_EXTENT_PADDED",
+        "include_zero": false,
+        "observed_min": 0.002675443565244824,
+        "observed_max": 0.014951452983128308,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 6
+      },
+      "y": {
+        "range_policy": "ZERO_INCLUDED",
+        "include_zero": true,
+        "observed_min": 37.0,
+        "observed_max": 319.0,
+        "notation": "DECIMAL",
+        "axis_exponent": null,
+        "axis_scale": 1.0,
+        "axis_scale_label": null,
+        "decimals": 2
+      }
+    },
+    "chart_id": "case_17:displacement_hist",
+    "chart_type": "histogram",
+    "source_variables": [
+      "ball.displacement"
+    ],
+    "source_data": {
+      "channels": [
+        "ball.displacement"
+      ],
+      "analysis_goal": "spatial_distribution",
+      "basis": "Distribution of real final-frame particle displacements.",
+      "derived": true
+    },
+    "physical_meaning": "Distribution of real final-frame particle displacements.",
+    "unit": "count",
+    "selection_reason": "The final real frame provides a finite particle distribution. The P05-P95 interior is displayed continuously while all lower and upper tail observations remain in explicit overflow bins.",
+    "omission_reason": null,
+    "data_quality": {
+      "status": "GENERATED",
+      "finite_count": 6379,
+      "missing_count": 0,
+      "constant_channel_rejected": false,
+      "missing_values_treated_as_zero": false
+    },
+    "publication_priority": "HIGH"
+  }
+]

@@ -1,0 +1,221 @@
+{
+  "version": "3.0.0",
+  "default_theme": "light",
+  "themes": {
+    "light": {
+      "scene_background": "#f7f9fb",
+      "panel_background": "#fbfcfd",
+      "panel_header_background": "rgba(251, 252, 253, 0.96)",
+      "stage_head_background": "rgba(247, 249, 251, 0.88)",
+      "legend_background": "rgba(247, 249, 251, 0.9)",
+      "chart_background": "#ffffff",
+      "chart_header_background": "#ffffff",
+      "tooltip_background": "rgba(255, 255, 255, 0.96)",
+      "tooltip_border": "#d9d9d5",
+      "ink": "#171717",
+      "muted": "#6f7074",
+      "line": "#cfd6df",
+      "line_soft": "#e5e9ee",
+      "grid": "#e6e7e4",
+      "axis": "#3d3d3d",
+      "axis_tick": "#8a8a86",
+      "primary": "#3C5488",
+      "wall_surface": "#2F6FD0",
+      "wall_edge": "#2F6FD0",
+      "fracture": "#E64B35",
+      "slate": "#8491B4",
+      "tan": "#B09C85",
+      "accent": "#F39B7F",
+      "particle_low": "#5B9BD5",
+      "particle_high": "#E46A3C",
+      "particle_ramp": [
+        {
+          "at": 0.0,
+          "color": "#5B9BD5"
+        },
+        {
+          "at": 0.2,
+          "color": "#74B9D4"
+        },
+        {
+          "at": 0.4,
+          "color": "#7EC9B0"
+        },
+        {
+          "at": 0.6,
+          "color": "#B8D77A"
+        },
+        {
+          "at": 0.8,
+          "color": "#F0C85C"
+        },
+        {
+          "at": 1.0,
+          "color": "#E46A3C"
+        }
+      ],
+      "heatmap_low": "#eef1f5",
+      "heatmap_mid": "#aab6ca",
+      "missing": "#A8ADB7",
+      "export_background": "#ffffff"
+    },
+    "dark": {
+      "scene_background": "#0d1520",
+      "panel_background": "#141d2b",
+      "panel_header_background": "rgba(20, 29, 43, 0.96)",
+      "stage_head_background": "rgba(13, 21, 32, 0.88)",
+      "legend_background": "rgba(13, 21, 32, 0.9)",
+      "chart_background": "#161f2e",
+      "chart_header_background": "#161f2e",
+      "tooltip_background": "rgba(20, 29, 43, 0.96)",
+      "tooltip_border": "#3a4a63",
+      "ink": "#e6edf7",
+      "muted": "#9aabc2",
+      "line": "#2a394f",
+      "line_soft": "#1e2a3a",
+      "grid": "#2a394f",
+      "axis": "#9aabc2",
+      "axis_tick": "#7d8ca3",
+      "primary": "#6ea8fe",
+      "wall_surface": "#6ea8fe",
+      "wall_edge": "#6ea8fe",
+      "fracture": "#ff6b5a",
+      "slate": "#8fa8cc",
+      "tan": "#c9a87c",
+      "accent": "#ffb08a",
+      "particle_low": "#22314d",
+      "particle_high": "#6ea8fe",
+      "particle_ramp": [
+        {
+          "at": 0.0,
+          "color": "#2b3f7a"
+        },
+        {
+          "at": 0.2,
+          "color": "#3C70c4"
+        },
+        {
+          "at": 0.4,
+          "color": "#37a8c4"
+        },
+        {
+          "at": 0.6,
+          "color": "#6fbf8a"
+        },
+        {
+          "at": 0.8,
+          "color": "#e3c45c"
+        },
+        {
+          "at": 1.0,
+          "color": "#e0643f"
+        }
+      ],
+      "heatmap_low": "#1b2636",
+      "heatmap_mid": "#3a4a63",
+      "missing": "#59677a",
+      "export_background": "#161f2e"
+    }
+  },
+  "theme_note": "Dark theme preserves hue semantics (blue = primary/displacement, red = fracture/shear) and only raises lightness for legibility on a dark ground. particle_ramp is a multi-stop sequential colormap with monotonically increasing perceived lightness (deep blue -> blue -> cyan -> green -> yellow -> orange-red); it is NOT a jet/rainbow scale — numeric order remains readable and no hue reversal occurs. Publication PNG/SVG exports follow the active theme background for legibility; switch to the light theme before export to obtain a journal-convention white background.",
+  "threejs": {
+    "background_token": "scene_background",
+    "color_space": "sRGB",
+    "tone_mapping": "None",
+    "particle_material": "MeshStandardMaterial",
+    "roughness": 0.62,
+    "metalness": 0.015,
+    "particle_geometry_2d": "CircleGeometry",
+    "particle_geometry_3d": "SphereGeometry",
+    "sphere_segments_3d": [
+      18,
+      12
+    ],
+    "shadow_map": "PCFSoftShadowMap",
+    "lighting": {
+      "hemisphere_intensity": 0.72,
+      "key_intensity": 1.05,
+      "fill_intensity": 0.26
+    },
+    "projection": {
+      "PFC2D": "orthographic",
+      "PFC3D": "perspective"
+    },
+    "views": [
+      "fit",
+      "isometric",
+      "front",
+      "top",
+      "side"
+    ]
+  },
+  "echarts": {
+    "background_token": "chart_background",
+    "axis_token": "axis",
+    "axis_width_px": 0.8,
+    "grid_lines": false,
+    "font_family": "Arial, Helvetica, PingFang SC, Microsoft YaHei, sans-serif",
+    "tooltip_precision_digits": 8,
+    "panel_label_format": "(a)",
+    "viewer_layout": "single_column_charts",
+    "composite_layout": "content_aware_odd_even"
+  },
+  "colors": {
+    "primary": "#3C5488",
+    "fracture": "#E64B35",
+    "slate": "#8491B4",
+    "tan": "#B09C85",
+    "accent": "#F39B7F",
+    "particle_low": "#B8CCE4",
+    "particle_high": "#3C5488",
+    "missing": "#A8ADB7"
+  },
+  "variables": {
+    "ball.position_m": {
+      "entity": "ball",
+      "color_token": "slate",
+      "scale": "continuous"
+    },
+    "ball.displacement_m": {
+      "entity": "ball",
+      "color_token": "primary",
+      "scale": "continuous"
+    },
+    "ball.speed_m_s": {
+      "entity": "ball",
+      "color_token": "slate",
+      "scale": "continuous"
+    },
+    "contact.force_n": {
+      "entity": "contact",
+      "color_token": "tan",
+      "scale": "continuous"
+    },
+    "fracture.tension": {
+      "entity": "fracture",
+      "color_token": "primary",
+      "scale": "categorical"
+    },
+    "fracture.shear": {
+      "entity": "fracture",
+      "color_token": "fracture",
+      "scale": "categorical"
+    },
+    "sample.axial_stress_pa": {
+      "entity": "sample",
+      "color_token": "primary",
+      "scale": "continuous"
+    },
+    "sample.axial_strain": {
+      "entity": "sample",
+      "color_token": "slate",
+      "scale": "continuous"
+    }
+  },
+  "truth_rules": {
+    "missing_color": "missing",
+    "interpolate_frames": false,
+    "zero_fill": false,
+    "uninterpreted_history_is_physical_quantity": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "viewer": "scientific_viewer.html",
+  "fixed_view": true,
+  "png_supported": true,
+  "transparent_background_supported": true,
+  "chart_vector_format": "SVG",
+  "composite_raster_export": "PNG",
+  "panel_letters": true,
+  "adaptive_composite_layout": true,
+  "composite_titles": true,
+  "all_panels_exported": true,
+  "uniform_color_tokens": {
+    "primary": "#3C5488",
+    "fracture": "#E64B35",
+    "slate": "#8491B4",
+    "tan": "#B09C85",
+    "accent": "#F39B7F"
+  },
+  "verification": "NOT_VERIFIED"
+}

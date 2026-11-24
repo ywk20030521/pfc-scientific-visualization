@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "raw_data_immutable": true,
+  "analysis_output_inside_contract": false,
+  "missing_values_zero_filled": false,
+  "cases": [
+    {
+      "case_id": 17,
+      "status": "PASS",
+      "checks": {
+        "arrays_exist": true,
+        "arrays_hash_matches": true,
+        "frame_lengths_match": true,
+        "frame_offsets_match": true,
+        "final_ball_offset_matches": true,
+        "cycles_strictly_increase": true,
+        "mechanical_time_strictly_increases": true,
+        "real_pfc_boundary": true
+      },
+      "frame_count": 19,
+      "ball_observations": 121201,
+      "wall_observations": 456
+    }
+  ],
+  "generated_utc": "2026-11-24T13:03:06+00:00"
+}

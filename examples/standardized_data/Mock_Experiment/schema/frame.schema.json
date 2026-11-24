@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/frame.schema.json",
+  "title": "PFC Sample Frame",
+  "type": "object",
+  "required": ["frame_id", "cycle", "entity_offsets", "event_ids", "capture_status", "provenance"],
+  "properties": {
+    "frame_id": {"type": "integer", "minimum": 1},
+    "cycle": {"type": "integer"},
+    "mechanical_time_total": {"type": ["number", "null"]},
+    "entity_offsets": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": "integer", "minimum": 0}
+      }
+    },
+    "event_ids": {"type": "array", "items": {"type": "integer"}},
+    "capture_status": {"enum": ["VALID", "INVALID", "NOT_CAPTURED"]},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

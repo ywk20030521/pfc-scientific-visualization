@@ -1,0 +1,24 @@
+{
+  "status": "GENERATED",
+  "scope": "VIEWER_BUNDLE_ONLY",
+  "verification": "NOT_VERIFIED",
+  "items": [
+    {
+      "id": "offline_viewer",
+      "status": "GENERATED",
+      "path": "scientific_viewer.html",
+      "verification": "NOT_VERIFIED"
+    },
+    {
+      "id": "linking_decision_record",
+      "status": "GENERATED",
+      "path": "linkage_decisions.json"
+    }
+  ],
+  "analysis_contract_artifacts": {
+    "chart_decisions.json": "GENERATED",
+    "display_data.json": "GENERATED",
+    "data_layers.json": "GENERATED"
+  },
+  "note": "This path rebuilds only the Viewer bundle. Use run_pipeline.py to regenerate the complete experiment output contract."
+}

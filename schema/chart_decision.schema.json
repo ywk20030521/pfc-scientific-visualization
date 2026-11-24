@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/chart_decision.schema.json",
+  "title": "PFC Chart Decision",
+  "type": "object",
+  "required": ["id", "case_id", "type", "title", "source_channels", "analysis_goal", "decision"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "case_id": {"type": ["integer", "null"]},
+    "type": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "source_channels": {"type": "array", "items": {"type": "string"}},
+    "analysis_goal": {"type": "string", "minLength": 1},
+    "chart_id": {"type": "string", "minLength": 1},
+    "chart_type": {"type": "string", "minLength": 1},
+    "source_variables": {"type": "array", "items": {"type": "string"}},
+    "source_data": {"type": "object"},
+    "physical_meaning": {"type": "string", "minLength": 1},
+    "unit": {
+      "oneOf": [
+        {"type": "string"},
+        {"type": "array", "items": {"type": "string"}},
+        {"type": "null"}
+      ]
+    },
+    "selection_reason": {"type": ["string", "null"]},
+    "omission_reason": {"type": ["string", "null"]},
+    "data_quality": {"type": "object"},
+    "publication_priority": {
+      "enum": ["HIGH", "MEDIUM", "SUPPORTING", "EXCLUDED"]
+    },
+    "display": {"type": "object"},
+    "conversions": {"type": "array", "items": {"type": "object"}},
+    "decision": {
+      "type": "object",
+      "required": ["status", "score", "reason", "alternatives", "derived", "missing_count"],
+      "properties": {
+        "status": {"enum": ["GENERATED", "NOT_GENERATED", "NOT_CAPTURED", "NOT_SUPPORTED", "INVALID", "NOT_VERIFIED"]},
+        "score": {"type": "number", "minimum": 0, "maximum": 1},
+        "reason": {"type": "string"},
+        "alternatives": {"type": "array", "items": {"type": "object"}},
+        "derived": {"type": "boolean"},
+        "missing_count": {"type": "integer", "minimum": 0},
+        "manual_override": {"type": ["object", "null"]}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

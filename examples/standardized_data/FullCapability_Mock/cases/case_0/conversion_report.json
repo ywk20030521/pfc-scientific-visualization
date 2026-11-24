@@ -1,0 +1,132 @@
+{
+  "status": "GENERATED",
+  "case_id": 0,
+  "input_files": [],
+  "output_file": "cases/case_0/arrays.npz",
+  "output_sha256": "aa09a957a5005670ad61d2e6305f5760680576af2df46ab2588d29b9a7735bab",
+  "arrays": {
+    "cycle": [
+      24
+    ],
+    "mechanical_time_total": [
+      24
+    ],
+    "frame_offsets": [
+      25
+    ],
+    "ball_id": [
+      5760
+    ],
+    "ball_xyz": [
+      5760,
+      3
+    ],
+    "ball_radius": [
+      5760
+    ],
+    "ball_frame_index": [
+      5760
+    ],
+    "wall_offsets": [
+      25
+    ],
+    "wall_id": [
+      192
+    ],
+    "wall_vertex_id": [
+      192
+    ],
+    "wall_vertex_xyz": [
+      192,
+      3
+    ],
+    "fracture_event_id": [
+      40
+    ],
+    "fracture_cycle": [
+      40
+    ],
+    "fracture_mechanical_time_total": [
+      40
+    ],
+    "fracture_mode": [
+      40
+    ],
+    "fracture_position": [
+      40,
+      3
+    ],
+    "fracture_normal": [
+      40,
+      3
+    ],
+    "fracture_diameter": [
+      40
+    ],
+    "fracture_ball_id_a": [
+      40
+    ],
+    "fracture_ball_id_b": [
+      40
+    ],
+    "contact_offsets": [
+      25
+    ],
+    "contact_id": [
+      2880
+    ],
+    "contact_xyz": [
+      2880,
+      3
+    ],
+    "contact_force_xyz": [
+      2880,
+      3
+    ],
+    "contact_end1_id": [
+      2880
+    ],
+    "contact_end2_id": [
+      2880
+    ],
+    "bond_frame_offsets": [
+      25
+    ],
+    "bond_ball_id_a": [
+      2880
+    ],
+    "bond_ball_id_b": [
+      2880
+    ],
+    "bond_force_n": [
+      2880
+    ],
+    "top_force_n": [
+      24
+    ],
+    "bottom_force_n": [
+      24
+    ],
+    "platen_distance_m": [
+      24
+    ],
+    "axial_strain": [
+      24
+    ],
+    "axial_stress_pa": [
+      24
+    ],
+    "ball_contact_force_n": [
+      5760
+    ]
+  },
+  "integrity": {
+    "frame_offsets_consistent": true,
+    "finite_coordinates": true
+  },
+  "entity_changes": {
+    "status": "GENERATED"
+  },
+  "missing_fields": [],
+  "truth_boundary": "MOCK / DEMO only; not a real PFC solve."
+}

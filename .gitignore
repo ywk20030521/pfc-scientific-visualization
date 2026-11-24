@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+
+# Generated verification and benchmark artifacts stay reproducible.
+build/
+validation_output/
+benchmarks/results/
+*.zip

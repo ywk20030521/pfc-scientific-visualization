@@ -1,0 +1,227 @@
+[
+  {
+    "id": "cycle",
+    "entity_type": "history",
+    "variable": "cycle",
+    "unit": "cycle",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "PFC Cycle at capture.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "mechanical_time_total",
+    "entity_type": "history",
+    "variable": "mechanical_time_total",
+    "unit": "s",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "PFC total mechanical time at capture.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "ball_id",
+    "entity_type": "ball",
+    "variable": "id",
+    "unit": null,
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "frame_variable_length"
+    ],
+    "description": "Stable PFC Ball ID; offsets define each real frame.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "ball_xyz",
+    "entity_type": "ball",
+    "variable": "position",
+    "unit": "m",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "xyz"
+    ],
+    "description": "Same-Cycle Ball coordinates.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "ball_radius",
+    "entity_type": "ball",
+    "variable": "radius",
+    "unit": "m",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity"
+    ],
+    "description": "Static radius or a real radius update at/after Ball creation.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "wall_vertex_xyz",
+    "entity_type": "wall",
+    "variable": "vertex_position",
+    "unit": "m",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "xyz",
+      "frame_variable_length"
+    ],
+    "description": "Wall vertices from each captured frame.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "fracture_events",
+    "entity_type": "fracture",
+    "variable": "bond_break",
+    "unit": "event",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "event"
+    ],
+    "description": "Real bond-break/DFN-matched fracture events.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "fracture_normal",
+    "entity_type": "fracture",
+    "variable": "normal",
+    "unit": null,
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "event",
+      "xyz"
+    ],
+    "description": "Captured fracture normal; orientation is not inferred.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "top_force_n",
+    "entity_type": "wall",
+    "variable": "contact_force_magnitude",
+    "unit": "N",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "Top platen contact-force magnitude.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  },
+  {
+    "id": "bottom_force_n",
+    "entity_type": "wall",
+    "variable": "contact_force_magnitude",
+    "unit": "N",
+    "source": "CONFIG",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "Bottom platen contact-force magnitude.",
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": null,
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-16T12:58:59+00:00"
+    }
+  }
+]

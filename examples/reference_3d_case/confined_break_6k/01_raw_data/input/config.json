@@ -1,0 +1,85 @@
+{
+  "case_id": 17,
+  "run_id": "run_case17_confined_break_6k_r1",
+  "project_dir": "D:/Python/itasca-mcp/pfc10_practice/subprojects/case06_rock_ucs/source",
+  "restore_initial": false,
+  "setup": [
+    "model new",
+    "model large-strain on",
+    "model title 'Confined breakable specimen: 6k graded balls, settled bond network'",
+    "model domain extent -1.0 1.0 -1.0 1.0 -1.5 1.5",
+    "wall generate id 101 name 'bottom' polygon -0.25,-0.25,-0.5 0.25,-0.25,-0.5 0.25,0.25,-0.5 -0.25,0.25,-0.5",
+    "wall generate id 102 name 'top' polygon -0.25,-0.25,0.5 0.25,-0.25,0.5 0.25,0.25,0.5 -0.25,0.25,0.5",
+    "wall generate id 103 name 'left' polygon -0.25,-0.25,-0.5 -0.25,0.25,-0.5 -0.25,0.25,0.5 -0.25,-0.25,0.5",
+    "wall generate id 104 name 'right' polygon 0.25,-0.25,-0.5 0.25,0.25,-0.5 0.25,0.25,0.5 0.25,-0.25,0.5",
+    "wall generate id 105 name 'front' polygon -0.25,-0.25,-0.5 0.25,-0.25,-0.5 0.25,-0.25,0.5 -0.25,-0.25,0.5",
+    "wall generate id 106 name 'back' polygon -0.25,0.25,-0.5 0.25,0.25,-0.5 0.25,0.25,0.5 -0.25,0.25,0.5",
+    "contact cmat default model linearpbond property kn 1.0e8 ks 1.0e8 pb_kn 1.0e8 pb_ks 1.0e8 pb_ten 5.0e5 pb_coh 1.5e6 pb_fa 35.0",
+    "ball distribute porosity 0.30 radius 0.014 0.020 box -0.22 0.22 -0.22 0.22 -0.5 0.5",
+    "ball attribute density 2500.0 damp 0.8",
+    "model cycle 500",
+    "model calm",
+    "contact method bond gap 0.0012",
+    "model calm"
+  ],
+  "solve": "wall attribute velocity-z -0.05 range id 102\nwall attribute velocity-z 0.01 range id 101\nmodel solve time 0.01\nwall attribute velocity-z -0.10 range id 102\nwall attribute velocity-z 0.02 range id 101\nmodel solve time 0.02",
+  "post_solve": [],
+  "save": "model save 'case17_confined_break_6k_final'",
+  "sample_stride_cycles": 500,
+  "capture_contacts": false,
+  "history_names": [],
+  "history_meanings": {},
+  "fracture_observer": true,
+  "expected_initial": {},
+  "source_files": {},
+  "load_axis": "z",
+  "top_wall_id": 102,
+  "bottom_wall_id": 101,
+  "design_note": "Parameter scan on ~6400 balls showed pb_ten 5e6-4e7 produced no visible bond break within 10k cycles under rigid lateral confinement, while pb_ten 5e5 produced ~130 breaks and stable loading. This run prioritizes observable progressive fracture and contained grains; it is not a validated 150 MPa granite calibration.",
+  "collection_plan": {
+    "plan_version": "1.0.0",
+    "mode": "cycle",
+    "interval": 500.0,
+    "channels": [
+      {
+        "id": "wall.geometry",
+        "enabled": true,
+        "required": true
+      },
+      {
+        "id": "ball.position",
+        "enabled": true,
+        "required": true
+      },
+      {
+        "id": "ball.radius",
+        "enabled": true,
+        "required": true
+      },
+      {
+        "id": "fracture.event",
+        "enabled": true,
+        "required": false
+      }
+    ],
+    "events": [
+      "fracture"
+    ],
+    "dimension": 3
+  },
+  "sample_mode": "cycle",
+  "sample_interval": 500.0,
+  "field_status_plan": {
+    "wall.geometry": "REAL_PFC",
+    "ball.position": "REAL_PFC",
+    "ball.radius": "REAL_PFC",
+    "fracture.event": "REAL_PFC"
+  },
+  "headless": {
+    "project_id": "pfc10_practice_20261121",
+    "case_id": 17,
+    "run_id": "run_case17_confined_break_6k_r1",
+    "parameters": {},
+    "source_case_config": "cases/case_17/case_config.json"
+  }
+}

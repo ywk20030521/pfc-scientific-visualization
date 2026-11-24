@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/channel.schema.json",
+  "title": "PFC Data Channel",
+  "type": "object",
+  "required": ["id", "entity_type", "variable", "source", "status", "provenance"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]*$"},
+    "entity_type": {"enum": ["ball", "clump", "wall", "contact", "bond", "fracture", "history", "other"]},
+    "variable": {"type": "string"},
+    "unit": {"type": ["string", "null"]},
+    "source": {"enum": ["REAL_PFC", "DERIVED", "CONFIG", "NOT_CAPTURED", "INVALID"]},
+    "status": {"enum": ["GENERATED", "NOT_GENERATED", "NOT_CAPTURED", "NOT_SUPPORTED", "INVALID", "NOT_VERIFIED"]},
+    "dimensions": {"type": "array", "items": {"type": "string"}},
+    "description": {"type": "string"},
+    "provenance": {"type": "object"}
+  },
+  "additionalProperties": true
+}

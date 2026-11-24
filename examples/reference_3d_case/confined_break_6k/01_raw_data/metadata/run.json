@@ -1,0 +1,105 @@
+{
+  "case_id": 17,
+  "collection_plan": {
+    "channels": [
+      {
+        "enabled": true,
+        "id": "wall.geometry",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "ball.position",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "ball.radius",
+        "required": true
+      },
+      {
+        "enabled": true,
+        "id": "fracture.event",
+        "required": false
+      }
+    ],
+    "dimension": 3,
+    "events": [
+      "fracture"
+    ],
+    "interval": 500.0,
+    "mode": "cycle",
+    "plan_version": "1.0.0"
+  },
+  "end_time": "2026-11-24T13:02:50+00:00",
+  "entry_script": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\entry\\capture_case.py",
+  "error": null,
+  "execution_nonce": "exec_7ff0b6a4",
+  "execution_options": {},
+  "feedback_id": null,
+  "finalization": {
+    "delivery": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1",
+    "ended_utc": "2026-11-24T13:03:07+00:00",
+    "status": "VALIDATED"
+  },
+  "input_snapshot": "input",
+  "instance_id": "pfc3d_9001case17",
+  "instance_identity_fingerprint": "sha256:c308070e845b41d8652ce13883caab2686496bcc6647380ce45070379ccd3ae0",
+  "instance_snapshot": {
+    "bridge_port": 9001,
+    "command_line": [
+      "D:\\Itasca\\PFC900\\exe64\\pfc3d9_console.exe",
+      "--run",
+      "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\instances\\pfc3d_9001case17\\.pfc-console\\bridge_bootstrap.py"
+    ],
+    "engine_type": "PFC3D_CONSOLE",
+    "executable_path": "D:\\Itasca\\PFC900\\exe64\\pfc3d9_console.exe",
+    "instance_id": "pfc3d_9001case17",
+    "pid": 26952
+  },
+  "mcp_connection_id": "mcp_pfc3d_9001case17_9001",
+  "mcp_evidence": {
+    "connection_id": "mcp_pfc3d_9001case17_9001",
+    "evidence_sha256": "adb0cca395c2ad70be8bdbcd75c6efd30b71e1ca19973039016f5f2c0ff70afe",
+    "identity_fingerprint": "sha256:c308070e845b41d8652ce13883caab2686496bcc6647380ce45070379ccd3ae0",
+    "instance_id": "pfc3d_9001case17",
+    "observed_utc": "2026-11-24T13:02:37Z",
+    "request": {
+      "task_id": "65349a"
+    },
+    "response": {
+      "data": {
+        "description": "PFC Headless run_id=run_case17_confined_break_6k_r1 nonce=exec_7ff0b6a4 instance_id=pfc3d_9001case17",
+        "elapsed_time": 116.57,
+        "end_time": "2026-11-24 21:02:15",
+        "entry_script": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\entry\\capture_case.py",
+        "start_time": "2026-11-24 21:00:19",
+        "task_id": "65349a",
+        "task_status": "completed"
+      },
+      "ok": true,
+      "pagination": {
+        "line_range": "467-471",
+        "total_lines": 471
+      }
+    },
+    "run_id": "run_case17_confined_break_6k_r1",
+    "schema_version": "1.0.0",
+    "status": "PASS",
+    "task_id": "65349a",
+    "tool": "itasca_check_task_status",
+    "validated_utc": "2026-11-24T13:02:50+00:00"
+  },
+  "mcp_task_id": "65349a",
+  "output_path": "deliveries/run_case17_confined_break_6k_r1",
+  "preflight": {
+    "status": "NOT_RUN"
+  },
+  "prepared_utc": "2026-11-24T13:00:14+00:00",
+  "run_id": "run_case17_confined_break_6k_r1",
+  "schema_version": "1.0.0",
+  "script_version": "sha256:853d7c9013f77ee1ef8304e741b9dcf42484ee7f28bb8ed333cf85736774847b",
+  "start_time": "2026-11-24T13:00:14+00:00",
+  "task_description": "PFC Headless run_id=run_case17_confined_break_6k_r1 nonce=exec_7ff0b6a4 instance_id=pfc3d_9001case17",
+  "task_status": "COMPLETED"
+}

@@ -1,0 +1,291 @@
+{
+  "status": "GENERATED",
+  "arrays": [
+    {
+      "key": "ball_frame_index",
+      "path": "ball_frame_index.npy",
+      "shape": [
+        121201
+      ],
+      "dtype": "int64",
+      "sha256": "1c19192eae8596428e5a16e72a40db0ae5d15df95c97e52f37fc16d0f2261c6a"
+    },
+    {
+      "key": "ball_id",
+      "path": "ball_id.npy",
+      "shape": [
+        121201
+      ],
+      "dtype": "uint64",
+      "sha256": "2581f60c9dcf238537d54f35c2b0065a4928c78e97547793a695830d0d8177cd"
+    },
+    {
+      "key": "ball_radius",
+      "path": "ball_radius.npy",
+      "shape": [
+        121201
+      ],
+      "dtype": "float64",
+      "sha256": "b98957c3c725bfcfdec1f865463f9c32829b72e55081a209c0ce63c5d0292d97"
+    },
+    {
+      "key": "ball_spin",
+      "path": "ball_spin.npy",
+      "shape": [
+        121201,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "cb4b3499633dfdb50587bd1d76596c0041e98993e6d020c3163d9821f6404918"
+    },
+    {
+      "key": "ball_velocity",
+      "path": "ball_velocity.npy",
+      "shape": [
+        121201,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "e0aa0c5aef4c3237fe056d0368a7095e37351b497f8a921623ed01e7aa931525"
+    },
+    {
+      "key": "ball_xyz",
+      "path": "ball_xyz.npy",
+      "shape": [
+        121201,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "00587e9a0c150f3b5c7014d4befd973660f5549f29a5649abfc06166b61560af"
+    },
+    {
+      "key": "bottom_force_n",
+      "path": "bottom_force_n.npy",
+      "shape": [
+        19
+      ],
+      "dtype": "float64",
+      "sha256": "756efeee1818a08d00faec0bcb869dcec012ea29ac41504694ef400647532b94"
+    },
+    {
+      "key": "cycle",
+      "path": "cycle.npy",
+      "shape": [
+        19
+      ],
+      "dtype": "int64",
+      "sha256": "6a85c0185a775d3a082d9158fcb52d9c72be0565440b19f78a66ad54605bfb10"
+    },
+    {
+      "key": "fracture_ball_id_a",
+      "path": "fracture_ball_id_a.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "int64",
+      "sha256": "2a9646aa6065a3b9b3c63f5b2e5965857da0d0cad901ce6b90aac6febb16ddb9"
+    },
+    {
+      "key": "fracture_ball_id_b",
+      "path": "fracture_ball_id_b.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "int64",
+      "sha256": "18b5d224c5ebdf96441b93618cd9065a8db2141e079b6d788056fda5e0671c22"
+    },
+    {
+      "key": "fracture_cycle",
+      "path": "fracture_cycle.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "int64",
+      "sha256": "0dc9099309a0f6d5872e14de9746843b47360e13c619955f96a459ed8cffa0e7"
+    },
+    {
+      "key": "fracture_diameter",
+      "path": "fracture_diameter.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "float64",
+      "sha256": "3b0e4e41df7da6fe44c95cfd378c759b32adbd74e6f77bd031b076b12033cadc"
+    },
+    {
+      "key": "fracture_event_id",
+      "path": "fracture_event_id.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "int64",
+      "sha256": "c6c5bde39dec1e633e1a85664ceb7ba8779f62dbc3d7556da93a862b97f93da0"
+    },
+    {
+      "key": "fracture_mechanical_time_total",
+      "path": "fracture_mechanical_time_total.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "float64",
+      "sha256": "1ee631935a2b296fd013b6795cde3175e5672eb9c6e3dc7c7859a0c16b499867"
+    },
+    {
+      "key": "fracture_mode",
+      "path": "fracture_mode.npy",
+      "shape": [
+        3721
+      ],
+      "dtype": "int8",
+      "sha256": "f73a1df69ef07e6b3ff7d9362c7fbd956c97ea51912e8d3878883f83b29a16df"
+    },
+    {
+      "key": "fracture_normal",
+      "path": "fracture_normal.npy",
+      "shape": [
+        3721,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "8384c476fe4e304b51b381c6d2ff031158ebc6826050d1ae62610e9ec8452443"
+    },
+    {
+      "key": "fracture_position",
+      "path": "fracture_position.npy",
+      "shape": [
+        3721,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "ac7587ac62e91e34ad482ad379f63e36b4e25a9b71a48787b9cb29b4c3d55090"
+    },
+    {
+      "key": "frame_offsets",
+      "path": "frame_offsets.npy",
+      "shape": [
+        20
+      ],
+      "dtype": "int64",
+      "sha256": "d9bdcc820be0ae4dab80b5ceb3d48e7d60f020941d4f410d40199e3e4157df67"
+    },
+    {
+      "key": "mechanical_time_total",
+      "path": "mechanical_time_total.npy",
+      "shape": [
+        19
+      ],
+      "dtype": "float64",
+      "sha256": "ede0d9d42fc64e3bdab4c91b93e36326b9cb17b4d939f5c7988d068ce5aaca59"
+    },
+    {
+      "key": "platen_distance_m",
+      "path": "platen_distance_m.npy",
+      "shape": [
+        19
+      ],
+      "dtype": "float64",
+      "sha256": "51fc749ebbf1ef09c80d83c0119a7c6cab5a231825851edd8996702a619f10c7"
+    },
+    {
+      "key": "top_force_n",
+      "path": "top_force_n.npy",
+      "shape": [
+        19
+      ],
+      "dtype": "float64",
+      "sha256": "a68cfbf5a086caa7e82f0f300a6db61e2fdb1d03302a87d11416144a6b02544a"
+    },
+    {
+      "key": "wall_facet_active",
+      "path": "wall_facet_active.npy",
+      "shape": [
+        12
+      ],
+      "dtype": "int8",
+      "sha256": "5f8aa893c217244586c0e170a264282be4f2f9518d90654ae92908f84d8def39"
+    },
+    {
+      "key": "wall_facet_id",
+      "path": "wall_facet_id.npy",
+      "shape": [
+        12
+      ],
+      "dtype": "uint64",
+      "sha256": "b6cffc68ca770d49fd2aefdac2b6aefa525492196095c59fbbc2818a93e9deb5"
+    },
+    {
+      "key": "wall_facet_normal",
+      "path": "wall_facet_normal.npy",
+      "shape": [
+        12,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "b3d0c7c5f241cb695974db14a1982e3659faba16e4e7363d32bec4446c342b36"
+    },
+    {
+      "key": "wall_facet_vertex_ids",
+      "path": "wall_facet_vertex_ids.npy",
+      "shape": [
+        36
+      ],
+      "dtype": "uint64",
+      "sha256": "53d3135242d0b67e30301bfcd3a63246d547ce8dee03aeecf9e4a32eb97184db"
+    },
+    {
+      "key": "wall_facet_vertex_offsets",
+      "path": "wall_facet_vertex_offsets.npy",
+      "shape": [
+        13
+      ],
+      "dtype": "int64",
+      "sha256": "816787496036864987723f524a0609b78544882230d88e13fb6001d450c35c8e"
+    },
+    {
+      "key": "wall_facet_wall_id",
+      "path": "wall_facet_wall_id.npy",
+      "shape": [
+        12
+      ],
+      "dtype": "uint64",
+      "sha256": "bf9dff388588c35e93856443839ed100a1486f52deb4d9bd305e8dadde304fcd"
+    },
+    {
+      "key": "wall_id",
+      "path": "wall_id.npy",
+      "shape": [
+        456
+      ],
+      "dtype": "uint64",
+      "sha256": "0b5c479b19cce032ef8c686f10166778f6fa21f9324c270696932abf6f8dcd0e"
+    },
+    {
+      "key": "wall_offsets",
+      "path": "wall_offsets.npy",
+      "shape": [
+        20
+      ],
+      "dtype": "int64",
+      "sha256": "1376ebafb9d1d7c0051ae98bd203e833c4c717f3e8d508370934d4b42b3cbb91"
+    },
+    {
+      "key": "wall_vertex_id",
+      "path": "wall_vertex_id.npy",
+      "shape": [
+        456
+      ],
+      "dtype": "uint64",
+      "sha256": "f04173288b65a12d14ff62410a4ec78a969716a03e70d5a0a9b51c54350ebf65"
+    },
+    {
+      "key": "wall_vertex_xyz",
+      "path": "wall_vertex_xyz.npy",
+      "shape": [
+        456,
+        3
+      ],
+      "dtype": "float64",
+      "sha256": "75ccdcaca2e2806c8827607dd06f83d8f133392749f13305024190aa315d344d"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-headless/project.schema.json",
+  "title": "PFC Headless Project",
+  "type": "object",
+  "required": ["schema_version", "project_id", "project_name", "project_root", "configuration", "cases", "created_utc"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "project_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]*$"},
+    "project_name": {"type": "string", "minLength": 1},
+    "project_root": {"type": "string", "minLength": 1},
+    "configuration": {"type": "object"},
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["case_id", "path"],
+        "properties": {
+          "case_id": {"type": "integer", "minimum": 0},
+          "path": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "created_utc": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

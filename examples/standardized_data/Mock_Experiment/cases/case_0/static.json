@@ -1,0 +1,134 @@
+{
+  "dimension": 3,
+  "balls": [
+    {
+      "id": 101,
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "radius": 0.48
+    },
+    {
+      "id": 102,
+      "x": 1.0,
+      "y": 0.0,
+      "z": 0.0,
+      "radius": 0.48
+    },
+    {
+      "id": 103,
+      "x": 0.5,
+      "y": 0.9,
+      "z": 0.0,
+      "radius": 0.48
+    }
+  ],
+  "walls": [
+    {
+      "id": 10,
+      "name": "top",
+      "position": [
+        0.5,
+        0.5,
+        2.4
+      ],
+      "vertices": [
+        {
+          "id": 1,
+          "position": [
+            -0.5,
+            -0.5,
+            2.4
+          ]
+        },
+        {
+          "id": 2,
+          "position": [
+            1.5,
+            -0.5,
+            2.4
+          ]
+        },
+        {
+          "id": 3,
+          "position": [
+            1.5,
+            1.5,
+            2.4
+          ]
+        },
+        {
+          "id": 4,
+          "position": [
+            -0.5,
+            1.5,
+            2.4
+          ]
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "bottom",
+      "position": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "vertices": [
+        {
+          "id": 1,
+          "position": [
+            -0.5,
+            -0.5,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "position": [
+            1.5,
+            -0.5,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "position": [
+            1.5,
+            1.5,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "position": [
+            -0.5,
+            1.5,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "geometry": {
+    "dimension": 3,
+    "axis": "z",
+    "axis_index": 2,
+    "top": 10,
+    "bottom": 20,
+    "height0": 2.4,
+    "area0": 4.0,
+    "area_kind": "cross_section_area",
+    "transverse_spans": [
+      {
+        "axis": "x",
+        "extent": 2.0
+      },
+      {
+        "axis": "y",
+        "extent": 2.0
+      }
+    ]
+  }
+}

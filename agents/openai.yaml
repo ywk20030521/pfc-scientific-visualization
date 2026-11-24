@@ -1,0 +1,4 @@
+interface:
+  display_name: "PFC Scientific Visualization"
+  short_description: "标准化 PFC 数据的科学分析、图表和离线 Viewer"
+  default_prompt: "Use $pfc-scientific-visualization to verify a read-only pfc-headless standardized experiment contract, derive and statistically analyze scientific quantities, select explainable charts, and build an offline Three.js/ECharts Viewer and adaptive publication figures without modifying the input data."

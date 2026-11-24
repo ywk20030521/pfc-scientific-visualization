@@ -1,0 +1,698 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "run_case17_confined_break_6k_r1",
+  "case_id": 17,
+  "engine_dimension": 3,
+  "engine_version": "9.0.0",
+  "model_identity": {
+    "sha256": "f9328f7a73c777699eabb2b33e09282bde5458e9366561a0c96311297c8ce0dd",
+    "ball_count": 6379,
+    "wall_count": 6,
+    "wall_vertex_count": 24,
+    "basis": "static initial topology plus captured fracture events"
+  },
+  "script_identity": {
+    "input_files": [
+      {
+        "path": "static.json",
+        "size_bytes": 1276546,
+        "sha256": "5d8d2093e9a8ef7a11cabce4a6bfb345b3b6ef87440e5542af53940d8b021773"
+      },
+      {
+        "path": "frame_index.csv",
+        "size_bytes": 1659,
+        "sha256": "5b9fb8b109275ef54358caffafa3e47a53077d6fb1c8f2452c66586b62434d39"
+      },
+      {
+        "path": "ball_frames.csv",
+        "size_bytes": 12313710,
+        "sha256": "a977a15a835d2b369b4a79bdad6e57ab1514bf89ec516a686aa8d6b58d78f1e7"
+      },
+      {
+        "path": "wall_vertices.csv",
+        "size_bytes": 10118,
+        "sha256": "fec52f2102d8b2ba910204b790f5c7f342e473c8d03a03a2a33ab0857515d685"
+      },
+      {
+        "path": "fracture_events.csv",
+        "size_bytes": 416681,
+        "sha256": "99026852dbc1f74e7ae88f8e313ae2d9570abb223af45d17cc73e7d812eafabe"
+      },
+      {
+        "path": "contact_frames.csv",
+        "size_bytes": 77,
+        "sha256": "f6b5899a389ecd47254c6a39fc2d24b232666c8e2f6596bccb6321063f8fe8b1"
+      },
+      {
+        "path": "native_histories.csv",
+        "size_bytes": 60,
+        "sha256": "9a648d79f03369bd3f7623bfc9756f124f827b90d5f9d1f076ac30b9690d3333"
+      }
+    ],
+    "capture_config_sha256": "f206a610ead39dff6088cad5cdc245d772e5851dc1cf6843fc985d91359f2e9f",
+    "capture_config_available": true
+  },
+  "parameters": {},
+  "sampling_configuration": {
+    "mode": "cycle",
+    "value": 500.0,
+    "capture_contacts": false,
+    "source": "recorded capture configuration"
+  },
+  "units": {
+    "length": "m",
+    "time": "s",
+    "force": "N",
+    "velocity": "m/s",
+    "angular_velocity": "rad/s",
+    "unknown_native_histories": "UNKNOWN"
+  },
+  "coordinate_system": {
+    "name": "PFC_GLOBAL_CARTESIAN",
+    "dimensions": 3,
+    "pfc2d_z": "physical PFC3D coordinate"
+  },
+  "time_range": [
+    0.00073827,
+    0.0307415
+  ],
+  "step_range": [
+    500,
+    9330
+  ],
+  "data_files": [
+    {
+      "path": "cases/case_17/arrays.npz",
+      "size_bytes": 8247436,
+      "sha256": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7"
+    },
+    {
+      "path": "cases/case_17/case.json",
+      "size_bytes": 14833,
+      "sha256": "7d26f6ffc20c908b6f81e17982c8c2176a64398952a08b3543f50d831278fa02"
+    },
+    {
+      "path": "cases/case_17/channels.json",
+      "size_bytes": 9914,
+      "sha256": "deaeb76f9270d769b6cc730677f5ff66b2b702421fe5c00724d038241bc9e125"
+    },
+    {
+      "path": "cases/case_17/conversion_report.json",
+      "size_bytes": 6959,
+      "sha256": "46e8847b4b7c12d11efc8f0fb5ae04f6bd0e0c6b0cd678199cfb62e171304ce6"
+    },
+    {
+      "path": "cases/case_17/entity_changes.json",
+      "size_bytes": 4009,
+      "sha256": "abee737b6b29a7250f442ae657cac51d0fa86920957e7976d3cae1e6a26ac120"
+    },
+    {
+      "path": "cases/case_17/events.json",
+      "size_bytes": 2750110,
+      "sha256": "f1e3c7ad0273f73ef7cfba0759b13cf86020c7ba24c39f3ca4b49fa364819631"
+    },
+    {
+      "path": "cases/case_17/frame_summary.csv",
+      "size_bytes": 1087,
+      "sha256": "559084516849c083bb5282006e04cf66a1ca3f9bfd152a79561dbec43d6c209a"
+    },
+    {
+      "path": "cases/case_17/frames.json",
+      "size_bytes": 11863,
+      "sha256": "44c8d7ec00967372879ca47a30579e696f5f88ccb10e4d7128c2f91c5205b493"
+    },
+    {
+      "path": "cases/case_17/npy/ball_frame_index.npy",
+      "size_bytes": 969736,
+      "sha256": "1c19192eae8596428e5a16e72a40db0ae5d15df95c97e52f37fc16d0f2261c6a"
+    },
+    {
+      "path": "cases/case_17/npy/ball_id.npy",
+      "size_bytes": 969736,
+      "sha256": "2581f60c9dcf238537d54f35c2b0065a4928c78e97547793a695830d0d8177cd"
+    },
+    {
+      "path": "cases/case_17/npy/ball_radius.npy",
+      "size_bytes": 969736,
+      "sha256": "b98957c3c725bfcfdec1f865463f9c32829b72e55081a209c0ce63c5d0292d97"
+    },
+    {
+      "path": "cases/case_17/npy/ball_spin.npy",
+      "size_bytes": 2908952,
+      "sha256": "cb4b3499633dfdb50587bd1d76596c0041e98993e6d020c3163d9821f6404918"
+    },
+    {
+      "path": "cases/case_17/npy/ball_velocity.npy",
+      "size_bytes": 2908952,
+      "sha256": "e0aa0c5aef4c3237fe056d0368a7095e37351b497f8a921623ed01e7aa931525"
+    },
+    {
+      "path": "cases/case_17/npy/ball_xyz.npy",
+      "size_bytes": 2908952,
+      "sha256": "00587e9a0c150f3b5c7014d4befd973660f5549f29a5649abfc06166b61560af"
+    },
+    {
+      "path": "cases/case_17/npy/bottom_force_n.npy",
+      "size_bytes": 280,
+      "sha256": "756efeee1818a08d00faec0bcb869dcec012ea29ac41504694ef400647532b94"
+    },
+    {
+      "path": "cases/case_17/npy/cycle.npy",
+      "size_bytes": 280,
+      "sha256": "6a85c0185a775d3a082d9158fcb52d9c72be0565440b19f78a66ad54605bfb10"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_ball_id_a.npy",
+      "size_bytes": 29896,
+      "sha256": "2a9646aa6065a3b9b3c63f5b2e5965857da0d0cad901ce6b90aac6febb16ddb9"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_ball_id_b.npy",
+      "size_bytes": 29896,
+      "sha256": "18b5d224c5ebdf96441b93618cd9065a8db2141e079b6d788056fda5e0671c22"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_cycle.npy",
+      "size_bytes": 29896,
+      "sha256": "0dc9099309a0f6d5872e14de9746843b47360e13c619955f96a459ed8cffa0e7"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_diameter.npy",
+      "size_bytes": 29896,
+      "sha256": "3b0e4e41df7da6fe44c95cfd378c759b32adbd74e6f77bd031b076b12033cadc"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_event_id.npy",
+      "size_bytes": 29896,
+      "sha256": "c6c5bde39dec1e633e1a85664ceb7ba8779f62dbc3d7556da93a862b97f93da0"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_mechanical_time_total.npy",
+      "size_bytes": 29896,
+      "sha256": "1ee631935a2b296fd013b6795cde3175e5672eb9c6e3dc7c7859a0c16b499867"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_mode.npy",
+      "size_bytes": 3849,
+      "sha256": "f73a1df69ef07e6b3ff7d9362c7fbd956c97ea51912e8d3878883f83b29a16df"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_normal.npy",
+      "size_bytes": 89432,
+      "sha256": "8384c476fe4e304b51b381c6d2ff031158ebc6826050d1ae62610e9ec8452443"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_position.npy",
+      "size_bytes": 89432,
+      "sha256": "ac7587ac62e91e34ad482ad379f63e36b4e25a9b71a48787b9cb29b4c3d55090"
+    },
+    {
+      "path": "cases/case_17/npy/frame_offsets.npy",
+      "size_bytes": 288,
+      "sha256": "d9bdcc820be0ae4dab80b5ceb3d48e7d60f020941d4f410d40199e3e4157df67"
+    },
+    {
+      "path": "cases/case_17/npy/index.json",
+      "size_bytes": 7202,
+      "sha256": "ca9dc7c32afc81aabe786ba1d856fb29f7c8243a1f6865a167e4b1cc6817e58f"
+    },
+    {
+      "path": "cases/case_17/npy/mechanical_time_total.npy",
+      "size_bytes": 280,
+      "sha256": "ede0d9d42fc64e3bdab4c91b93e36326b9cb17b4d939f5c7988d068ce5aaca59"
+    },
+    {
+      "path": "cases/case_17/npy/platen_distance_m.npy",
+      "size_bytes": 280,
+      "sha256": "51fc749ebbf1ef09c80d83c0119a7c6cab5a231825851edd8996702a619f10c7"
+    },
+    {
+      "path": "cases/case_17/npy/top_force_n.npy",
+      "size_bytes": 280,
+      "sha256": "a68cfbf5a086caa7e82f0f300a6db61e2fdb1d03302a87d11416144a6b02544a"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_active.npy",
+      "size_bytes": 140,
+      "sha256": "5f8aa893c217244586c0e170a264282be4f2f9518d90654ae92908f84d8def39"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_id.npy",
+      "size_bytes": 224,
+      "sha256": "b6cffc68ca770d49fd2aefdac2b6aefa525492196095c59fbbc2818a93e9deb5"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_normal.npy",
+      "size_bytes": 416,
+      "sha256": "b3d0c7c5f241cb695974db14a1982e3659faba16e4e7363d32bec4446c342b36"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_vertex_ids.npy",
+      "size_bytes": 416,
+      "sha256": "53d3135242d0b67e30301bfcd3a63246d547ce8dee03aeecf9e4a32eb97184db"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_vertex_offsets.npy",
+      "size_bytes": 232,
+      "sha256": "816787496036864987723f524a0609b78544882230d88e13fb6001d450c35c8e"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_wall_id.npy",
+      "size_bytes": 224,
+      "sha256": "bf9dff388588c35e93856443839ed100a1486f52deb4d9bd305e8dadde304fcd"
+    },
+    {
+      "path": "cases/case_17/npy/wall_id.npy",
+      "size_bytes": 3776,
+      "sha256": "0b5c479b19cce032ef8c686f10166778f6fa21f9324c270696932abf6f8dcd0e"
+    },
+    {
+      "path": "cases/case_17/npy/wall_offsets.npy",
+      "size_bytes": 288,
+      "sha256": "1376ebafb9d1d7c0051ae98bd203e833c4c717f3e8d508370934d4b42b3cbb91"
+    },
+    {
+      "path": "cases/case_17/npy/wall_vertex_id.npy",
+      "size_bytes": 3776,
+      "sha256": "f04173288b65a12d14ff62410a4ec78a969716a03e70d5a0a9b51c54350ebf65"
+    },
+    {
+      "path": "cases/case_17/npy/wall_vertex_xyz.npy",
+      "size_bytes": 11072,
+      "sha256": "75ccdcaca2e2806c8827607dd06f83d8f133392749f13305024190aa315d344d"
+    },
+    {
+      "path": "cases/case_17/static.json",
+      "size_bytes": 1058885,
+      "sha256": "d89da11053458dd350df1f7f1841b7765adcbf23c7f4f905c3ea5c3f8087a5d1"
+    },
+    {
+      "path": "conversion_report.json",
+      "size_bytes": 8435,
+      "sha256": "07f13c25ad4b109f59b943e1cee61b9bfece321a7487779a1c7b696a88626d75"
+    },
+    {
+      "path": "experiment.json",
+      "size_bytes": 19656,
+      "sha256": "ee2ffcf4a16b5594ef3a11675077978857a10f8e8e4e4c6c707793258780038c"
+    },
+    {
+      "path": "schema/case.schema.json",
+      "size_bytes": 2135,
+      "sha256": "bd332f7908462069ee11c6b8a245f83c51bf6c0c24df43ad8450aa4d8c53c5c2"
+    },
+    {
+      "path": "schema/channel.schema.json",
+      "size_bytes": 930,
+      "sha256": "e83ad3d448be92b46a67fb85bb879d04f158966653dbf14f1a36c583a4146308"
+    },
+    {
+      "path": "schema/experiment.schema.json",
+      "size_bytes": 1015,
+      "sha256": "8eee512d8fa4104265738664d3946c10bd825233dc24a6df7d8894c5b8b552ac"
+    },
+    {
+      "path": "schema/feedback.schema.json",
+      "size_bytes": 2923,
+      "sha256": "262fde8faeae680d0a210a9512951627aaca3cc7d2ed2a0bb62f3fc25044363f"
+    },
+    {
+      "path": "schema/frame.schema.json",
+      "size_bytes": 841,
+      "sha256": "cc12ef98f743772f854571ad46a673c1229b1d8a90fa277aa858aa98fa15a684"
+    },
+    {
+      "path": "schema/instance.schema.json",
+      "size_bytes": 1612,
+      "sha256": "e509b5435b5045d58dc363c1316930bccaf4cd11aeb169c150f2b06104beb594"
+    },
+    {
+      "path": "schema/manifest.schema.json",
+      "size_bytes": 1209,
+      "sha256": "edc9b0e2ea744d6e725e6362facd9813f4ee769f9451b8ede978431f05d149d8"
+    },
+    {
+      "path": "schema/metadata.schema.json",
+      "size_bytes": 1359,
+      "sha256": "af247a32916a1e3c4936a002ca9488dbe91b5dd67f92109764ee71d64414e969"
+    },
+    {
+      "path": "schema/project.schema.json",
+      "size_bytes": 1014,
+      "sha256": "0ea5fb2c2c04262e0afdee81271a82ee3131007a9229c0f402ca94d3f06fc171"
+    },
+    {
+      "path": "schema/run.schema.json",
+      "size_bytes": 1790,
+      "sha256": "7233547d9354f4916fc94a10563d6dff9fccceabcc4c49ba3ebce4cc0e249618"
+    },
+    {
+      "path": "validation_report.json",
+      "size_bytes": 718,
+      "sha256": "e334a3e05d6d3b1e6e0b2211a57a23fe4ea651b549d8e4e7673c641e79f057ec"
+    }
+  ],
+  "file_hashes": {
+    "cases/case_17/arrays.npz": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7",
+    "cases/case_17/case.json": "7d26f6ffc20c908b6f81e17982c8c2176a64398952a08b3543f50d831278fa02",
+    "cases/case_17/channels.json": "deaeb76f9270d769b6cc730677f5ff66b2b702421fe5c00724d038241bc9e125",
+    "cases/case_17/conversion_report.json": "46e8847b4b7c12d11efc8f0fb5ae04f6bd0e0c6b0cd678199cfb62e171304ce6",
+    "cases/case_17/entity_changes.json": "abee737b6b29a7250f442ae657cac51d0fa86920957e7976d3cae1e6a26ac120",
+    "cases/case_17/events.json": "f1e3c7ad0273f73ef7cfba0759b13cf86020c7ba24c39f3ca4b49fa364819631",
+    "cases/case_17/frame_summary.csv": "559084516849c083bb5282006e04cf66a1ca3f9bfd152a79561dbec43d6c209a",
+    "cases/case_17/frames.json": "44c8d7ec00967372879ca47a30579e696f5f88ccb10e4d7128c2f91c5205b493",
+    "cases/case_17/npy/ball_frame_index.npy": "1c19192eae8596428e5a16e72a40db0ae5d15df95c97e52f37fc16d0f2261c6a",
+    "cases/case_17/npy/ball_id.npy": "2581f60c9dcf238537d54f35c2b0065a4928c78e97547793a695830d0d8177cd",
+    "cases/case_17/npy/ball_radius.npy": "b98957c3c725bfcfdec1f865463f9c32829b72e55081a209c0ce63c5d0292d97",
+    "cases/case_17/npy/ball_spin.npy": "cb4b3499633dfdb50587bd1d76596c0041e98993e6d020c3163d9821f6404918",
+    "cases/case_17/npy/ball_velocity.npy": "e0aa0c5aef4c3237fe056d0368a7095e37351b497f8a921623ed01e7aa931525",
+    "cases/case_17/npy/ball_xyz.npy": "00587e9a0c150f3b5c7014d4befd973660f5549f29a5649abfc06166b61560af",
+    "cases/case_17/npy/bottom_force_n.npy": "756efeee1818a08d00faec0bcb869dcec012ea29ac41504694ef400647532b94",
+    "cases/case_17/npy/cycle.npy": "6a85c0185a775d3a082d9158fcb52d9c72be0565440b19f78a66ad54605bfb10",
+    "cases/case_17/npy/fracture_ball_id_a.npy": "2a9646aa6065a3b9b3c63f5b2e5965857da0d0cad901ce6b90aac6febb16ddb9",
+    "cases/case_17/npy/fracture_ball_id_b.npy": "18b5d224c5ebdf96441b93618cd9065a8db2141e079b6d788056fda5e0671c22",
+    "cases/case_17/npy/fracture_cycle.npy": "0dc9099309a0f6d5872e14de9746843b47360e13c619955f96a459ed8cffa0e7",
+    "cases/case_17/npy/fracture_diameter.npy": "3b0e4e41df7da6fe44c95cfd378c759b32adbd74e6f77bd031b076b12033cadc",
+    "cases/case_17/npy/fracture_event_id.npy": "c6c5bde39dec1e633e1a85664ceb7ba8779f62dbc3d7556da93a862b97f93da0",
+    "cases/case_17/npy/fracture_mechanical_time_total.npy": "1ee631935a2b296fd013b6795cde3175e5672eb9c6e3dc7c7859a0c16b499867",
+    "cases/case_17/npy/fracture_mode.npy": "f73a1df69ef07e6b3ff7d9362c7fbd956c97ea51912e8d3878883f83b29a16df",
+    "cases/case_17/npy/fracture_normal.npy": "8384c476fe4e304b51b381c6d2ff031158ebc6826050d1ae62610e9ec8452443",
+    "cases/case_17/npy/fracture_position.npy": "ac7587ac62e91e34ad482ad379f63e36b4e25a9b71a48787b9cb29b4c3d55090",
+    "cases/case_17/npy/frame_offsets.npy": "d9bdcc820be0ae4dab80b5ceb3d48e7d60f020941d4f410d40199e3e4157df67",
+    "cases/case_17/npy/index.json": "ca9dc7c32afc81aabe786ba1d856fb29f7c8243a1f6865a167e4b1cc6817e58f",
+    "cases/case_17/npy/mechanical_time_total.npy": "ede0d9d42fc64e3bdab4c91b93e36326b9cb17b4d939f5c7988d068ce5aaca59",
+    "cases/case_17/npy/platen_distance_m.npy": "51fc749ebbf1ef09c80d83c0119a7c6cab5a231825851edd8996702a619f10c7",
+    "cases/case_17/npy/top_force_n.npy": "a68cfbf5a086caa7e82f0f300a6db61e2fdb1d03302a87d11416144a6b02544a",
+    "cases/case_17/npy/wall_facet_active.npy": "5f8aa893c217244586c0e170a264282be4f2f9518d90654ae92908f84d8def39",
+    "cases/case_17/npy/wall_facet_id.npy": "b6cffc68ca770d49fd2aefdac2b6aefa525492196095c59fbbc2818a93e9deb5",
+    "cases/case_17/npy/wall_facet_normal.npy": "b3d0c7c5f241cb695974db14a1982e3659faba16e4e7363d32bec4446c342b36",
+    "cases/case_17/npy/wall_facet_vertex_ids.npy": "53d3135242d0b67e30301bfcd3a63246d547ce8dee03aeecf9e4a32eb97184db",
+    "cases/case_17/npy/wall_facet_vertex_offsets.npy": "816787496036864987723f524a0609b78544882230d88e13fb6001d450c35c8e",
+    "cases/case_17/npy/wall_facet_wall_id.npy": "bf9dff388588c35e93856443839ed100a1486f52deb4d9bd305e8dadde304fcd",
+    "cases/case_17/npy/wall_id.npy": "0b5c479b19cce032ef8c686f10166778f6fa21f9324c270696932abf6f8dcd0e",
+    "cases/case_17/npy/wall_offsets.npy": "1376ebafb9d1d7c0051ae98bd203e833c4c717f3e8d508370934d4b42b3cbb91",
+    "cases/case_17/npy/wall_vertex_id.npy": "f04173288b65a12d14ff62410a4ec78a969716a03e70d5a0a9b51c54350ebf65",
+    "cases/case_17/npy/wall_vertex_xyz.npy": "75ccdcaca2e2806c8827607dd06f83d8f133392749f13305024190aa315d344d",
+    "cases/case_17/static.json": "d89da11053458dd350df1f7f1841b7765adcbf23c7f4f905c3ea5c3f8087a5d1",
+    "conversion_report.json": "07f13c25ad4b109f59b943e1cee61b9bfece321a7487779a1c7b696a88626d75",
+    "experiment.json": "ee2ffcf4a16b5594ef3a11675077978857a10f8e8e4e4c6c707793258780038c",
+    "schema/case.schema.json": "bd332f7908462069ee11c6b8a245f83c51bf6c0c24df43ad8450aa4d8c53c5c2",
+    "schema/channel.schema.json": "e83ad3d448be92b46a67fb85bb879d04f158966653dbf14f1a36c583a4146308",
+    "schema/experiment.schema.json": "8eee512d8fa4104265738664d3946c10bd825233dc24a6df7d8894c5b8b552ac",
+    "schema/feedback.schema.json": "262fde8faeae680d0a210a9512951627aaca3cc7d2ed2a0bb62f3fc25044363f",
+    "schema/frame.schema.json": "cc12ef98f743772f854571ad46a673c1229b1d8a90fa277aa858aa98fa15a684",
+    "schema/instance.schema.json": "e509b5435b5045d58dc363c1316930bccaf4cd11aeb169c150f2b06104beb594",
+    "schema/manifest.schema.json": "edc9b0e2ea744d6e725e6362facd9813f4ee769f9451b8ede978431f05d149d8",
+    "schema/metadata.schema.json": "af247a32916a1e3c4936a002ca9488dbe91b5dd67f92109764ee71d64414e969",
+    "schema/project.schema.json": "0ea5fb2c2c04262e0afdee81271a82ee3131007a9229c0f402ca94d3f06fc171",
+    "schema/run.schema.json": "7233547d9354f4916fc94a10563d6dff9fccceabcc4c49ba3ebce4cc0e249618",
+    "validation_report.json": "e334a3e05d6d3b1e6e0b2211a57a23fe4ea651b549d8e4e7673c641e79f057ec"
+  },
+  "record_counts": {
+    "cases": 1,
+    "frames": 19,
+    "ball_observations": 121201,
+    "wall_observations": 456,
+    "events": 3721
+  },
+  "validation_status": "PASS",
+  "metadata_file": "metadata.json",
+  "files": [
+    {
+      "path": "cases/case_17/arrays.npz",
+      "size_bytes": 8247436,
+      "sha256": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7"
+    },
+    {
+      "path": "cases/case_17/case.json",
+      "size_bytes": 14833,
+      "sha256": "7d26f6ffc20c908b6f81e17982c8c2176a64398952a08b3543f50d831278fa02"
+    },
+    {
+      "path": "cases/case_17/channels.json",
+      "size_bytes": 9914,
+      "sha256": "deaeb76f9270d769b6cc730677f5ff66b2b702421fe5c00724d038241bc9e125"
+    },
+    {
+      "path": "cases/case_17/conversion_report.json",
+      "size_bytes": 6959,
+      "sha256": "46e8847b4b7c12d11efc8f0fb5ae04f6bd0e0c6b0cd678199cfb62e171304ce6"
+    },
+    {
+      "path": "cases/case_17/entity_changes.json",
+      "size_bytes": 4009,
+      "sha256": "abee737b6b29a7250f442ae657cac51d0fa86920957e7976d3cae1e6a26ac120"
+    },
+    {
+      "path": "cases/case_17/events.json",
+      "size_bytes": 2750110,
+      "sha256": "f1e3c7ad0273f73ef7cfba0759b13cf86020c7ba24c39f3ca4b49fa364819631"
+    },
+    {
+      "path": "cases/case_17/frame_summary.csv",
+      "size_bytes": 1087,
+      "sha256": "559084516849c083bb5282006e04cf66a1ca3f9bfd152a79561dbec43d6c209a"
+    },
+    {
+      "path": "cases/case_17/frames.json",
+      "size_bytes": 11863,
+      "sha256": "44c8d7ec00967372879ca47a30579e696f5f88ccb10e4d7128c2f91c5205b493"
+    },
+    {
+      "path": "cases/case_17/npy/ball_frame_index.npy",
+      "size_bytes": 969736,
+      "sha256": "1c19192eae8596428e5a16e72a40db0ae5d15df95c97e52f37fc16d0f2261c6a"
+    },
+    {
+      "path": "cases/case_17/npy/ball_id.npy",
+      "size_bytes": 969736,
+      "sha256": "2581f60c9dcf238537d54f35c2b0065a4928c78e97547793a695830d0d8177cd"
+    },
+    {
+      "path": "cases/case_17/npy/ball_radius.npy",
+      "size_bytes": 969736,
+      "sha256": "b98957c3c725bfcfdec1f865463f9c32829b72e55081a209c0ce63c5d0292d97"
+    },
+    {
+      "path": "cases/case_17/npy/ball_spin.npy",
+      "size_bytes": 2908952,
+      "sha256": "cb4b3499633dfdb50587bd1d76596c0041e98993e6d020c3163d9821f6404918"
+    },
+    {
+      "path": "cases/case_17/npy/ball_velocity.npy",
+      "size_bytes": 2908952,
+      "sha256": "e0aa0c5aef4c3237fe056d0368a7095e37351b497f8a921623ed01e7aa931525"
+    },
+    {
+      "path": "cases/case_17/npy/ball_xyz.npy",
+      "size_bytes": 2908952,
+      "sha256": "00587e9a0c150f3b5c7014d4befd973660f5549f29a5649abfc06166b61560af"
+    },
+    {
+      "path": "cases/case_17/npy/bottom_force_n.npy",
+      "size_bytes": 280,
+      "sha256": "756efeee1818a08d00faec0bcb869dcec012ea29ac41504694ef400647532b94"
+    },
+    {
+      "path": "cases/case_17/npy/cycle.npy",
+      "size_bytes": 280,
+      "sha256": "6a85c0185a775d3a082d9158fcb52d9c72be0565440b19f78a66ad54605bfb10"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_ball_id_a.npy",
+      "size_bytes": 29896,
+      "sha256": "2a9646aa6065a3b9b3c63f5b2e5965857da0d0cad901ce6b90aac6febb16ddb9"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_ball_id_b.npy",
+      "size_bytes": 29896,
+      "sha256": "18b5d224c5ebdf96441b93618cd9065a8db2141e079b6d788056fda5e0671c22"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_cycle.npy",
+      "size_bytes": 29896,
+      "sha256": "0dc9099309a0f6d5872e14de9746843b47360e13c619955f96a459ed8cffa0e7"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_diameter.npy",
+      "size_bytes": 29896,
+      "sha256": "3b0e4e41df7da6fe44c95cfd378c759b32adbd74e6f77bd031b076b12033cadc"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_event_id.npy",
+      "size_bytes": 29896,
+      "sha256": "c6c5bde39dec1e633e1a85664ceb7ba8779f62dbc3d7556da93a862b97f93da0"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_mechanical_time_total.npy",
+      "size_bytes": 29896,
+      "sha256": "1ee631935a2b296fd013b6795cde3175e5672eb9c6e3dc7c7859a0c16b499867"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_mode.npy",
+      "size_bytes": 3849,
+      "sha256": "f73a1df69ef07e6b3ff7d9362c7fbd956c97ea51912e8d3878883f83b29a16df"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_normal.npy",
+      "size_bytes": 89432,
+      "sha256": "8384c476fe4e304b51b381c6d2ff031158ebc6826050d1ae62610e9ec8452443"
+    },
+    {
+      "path": "cases/case_17/npy/fracture_position.npy",
+      "size_bytes": 89432,
+      "sha256": "ac7587ac62e91e34ad482ad379f63e36b4e25a9b71a48787b9cb29b4c3d55090"
+    },
+    {
+      "path": "cases/case_17/npy/frame_offsets.npy",
+      "size_bytes": 288,
+      "sha256": "d9bdcc820be0ae4dab80b5ceb3d48e7d60f020941d4f410d40199e3e4157df67"
+    },
+    {
+      "path": "cases/case_17/npy/index.json",
+      "size_bytes": 7202,
+      "sha256": "ca9dc7c32afc81aabe786ba1d856fb29f7c8243a1f6865a167e4b1cc6817e58f"
+    },
+    {
+      "path": "cases/case_17/npy/mechanical_time_total.npy",
+      "size_bytes": 280,
+      "sha256": "ede0d9d42fc64e3bdab4c91b93e36326b9cb17b4d939f5c7988d068ce5aaca59"
+    },
+    {
+      "path": "cases/case_17/npy/platen_distance_m.npy",
+      "size_bytes": 280,
+      "sha256": "51fc749ebbf1ef09c80d83c0119a7c6cab5a231825851edd8996702a619f10c7"
+    },
+    {
+      "path": "cases/case_17/npy/top_force_n.npy",
+      "size_bytes": 280,
+      "sha256": "a68cfbf5a086caa7e82f0f300a6db61e2fdb1d03302a87d11416144a6b02544a"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_active.npy",
+      "size_bytes": 140,
+      "sha256": "5f8aa893c217244586c0e170a264282be4f2f9518d90654ae92908f84d8def39"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_id.npy",
+      "size_bytes": 224,
+      "sha256": "b6cffc68ca770d49fd2aefdac2b6aefa525492196095c59fbbc2818a93e9deb5"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_normal.npy",
+      "size_bytes": 416,
+      "sha256": "b3d0c7c5f241cb695974db14a1982e3659faba16e4e7363d32bec4446c342b36"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_vertex_ids.npy",
+      "size_bytes": 416,
+      "sha256": "53d3135242d0b67e30301bfcd3a63246d547ce8dee03aeecf9e4a32eb97184db"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_vertex_offsets.npy",
+      "size_bytes": 232,
+      "sha256": "816787496036864987723f524a0609b78544882230d88e13fb6001d450c35c8e"
+    },
+    {
+      "path": "cases/case_17/npy/wall_facet_wall_id.npy",
+      "size_bytes": 224,
+      "sha256": "bf9dff388588c35e93856443839ed100a1486f52deb4d9bd305e8dadde304fcd"
+    },
+    {
+      "path": "cases/case_17/npy/wall_id.npy",
+      "size_bytes": 3776,
+      "sha256": "0b5c479b19cce032ef8c686f10166778f6fa21f9324c270696932abf6f8dcd0e"
+    },
+    {
+      "path": "cases/case_17/npy/wall_offsets.npy",
+      "size_bytes": 288,
+      "sha256": "1376ebafb9d1d7c0051ae98bd203e833c4c717f3e8d508370934d4b42b3cbb91"
+    },
+    {
+      "path": "cases/case_17/npy/wall_vertex_id.npy",
+      "size_bytes": 3776,
+      "sha256": "f04173288b65a12d14ff62410a4ec78a969716a03e70d5a0a9b51c54350ebf65"
+    },
+    {
+      "path": "cases/case_17/npy/wall_vertex_xyz.npy",
+      "size_bytes": 11072,
+      "sha256": "75ccdcaca2e2806c8827607dd06f83d8f133392749f13305024190aa315d344d"
+    },
+    {
+      "path": "cases/case_17/static.json",
+      "size_bytes": 1058885,
+      "sha256": "d89da11053458dd350df1f7f1841b7765adcbf23c7f4f905c3ea5c3f8087a5d1"
+    },
+    {
+      "path": "conversion_report.json",
+      "size_bytes": 8435,
+      "sha256": "07f13c25ad4b109f59b943e1cee61b9bfece321a7487779a1c7b696a88626d75"
+    },
+    {
+      "path": "experiment.json",
+      "size_bytes": 19656,
+      "sha256": "ee2ffcf4a16b5594ef3a11675077978857a10f8e8e4e4c6c707793258780038c"
+    },
+    {
+      "path": "metadata.json",
+      "size_bytes": 18417,
+      "sha256": "ffac8016ef0d600b56fc06464cc616bc82f37606ab9d8ef3a4da45022b4cfac0"
+    },
+    {
+      "path": "schema/case.schema.json",
+      "size_bytes": 2135,
+      "sha256": "bd332f7908462069ee11c6b8a245f83c51bf6c0c24df43ad8450aa4d8c53c5c2"
+    },
+    {
+      "path": "schema/channel.schema.json",
+      "size_bytes": 930,
+      "sha256": "e83ad3d448be92b46a67fb85bb879d04f158966653dbf14f1a36c583a4146308"
+    },
+    {
+      "path": "schema/experiment.schema.json",
+      "size_bytes": 1015,
+      "sha256": "8eee512d8fa4104265738664d3946c10bd825233dc24a6df7d8894c5b8b552ac"
+    },
+    {
+      "path": "schema/feedback.schema.json",
+      "size_bytes": 2923,
+      "sha256": "262fde8faeae680d0a210a9512951627aaca3cc7d2ed2a0bb62f3fc25044363f"
+    },
+    {
+      "path": "schema/frame.schema.json",
+      "size_bytes": 841,
+      "sha256": "cc12ef98f743772f854571ad46a673c1229b1d8a90fa277aa858aa98fa15a684"
+    },
+    {
+      "path": "schema/instance.schema.json",
+      "size_bytes": 1612,
+      "sha256": "e509b5435b5045d58dc363c1316930bccaf4cd11aeb169c150f2b06104beb594"
+    },
+    {
+      "path": "schema/manifest.schema.json",
+      "size_bytes": 1209,
+      "sha256": "edc9b0e2ea744d6e725e6362facd9813f4ee769f9451b8ede978431f05d149d8"
+    },
+    {
+      "path": "schema/metadata.schema.json",
+      "size_bytes": 1359,
+      "sha256": "af247a32916a1e3c4936a002ca9488dbe91b5dd67f92109764ee71d64414e969"
+    },
+    {
+      "path": "schema/project.schema.json",
+      "size_bytes": 1014,
+      "sha256": "0ea5fb2c2c04262e0afdee81271a82ee3131007a9229c0f402ca94d3f06fc171"
+    },
+    {
+      "path": "schema/run.schema.json",
+      "size_bytes": 1790,
+      "sha256": "7233547d9354f4916fc94a10563d6dff9fccceabcc4c49ba3ebce4cc0e249618"
+    },
+    {
+      "path": "validation_report.json",
+      "size_bytes": 718,
+      "sha256": "e334a3e05d6d3b1e6e0b2211a57a23fe4ea651b549d8e4e7673c641e79f057ec"
+    }
+  ],
+  "files_sha256_verified": true
+}

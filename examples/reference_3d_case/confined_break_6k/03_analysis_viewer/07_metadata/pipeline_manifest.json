@@ -1,0 +1,1565 @@
+{
+  "status": "GENERATED",
+  "verification": "NOT_VERIFIED",
+  "source_contract": {
+    "name": "pfc.standardized-experiment",
+    "version": "1.0.0",
+    "read_only": true
+  },
+  "source_manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b",
+  "experiment": {
+    "schema_version": "1.0.0",
+    "experiment_id": "run_case17_confined_break_6k_r1",
+    "title": "run_case17_confined_break_6k_r1",
+    "pfc_version": "9.0.0",
+    "execution_mode": "CONSOLE",
+    "dimensions": [
+      3
+    ],
+    "data_boundary": "REAL_PFC",
+    "cases": [
+      {
+        "schema_version": "1.0.0",
+        "case_id": 17,
+        "label": "Case 17",
+        "run_id": "run_case17_confined_break_6k_r1",
+        "dimension": 3,
+        "source_format": "pfc-live-capture-working",
+        "frame_count": 19,
+        "arrays_path": "cases/case_17/arrays.npz",
+        "channels": [
+          {
+            "id": "cycle",
+            "entity_type": "history",
+            "variable": "cycle",
+            "unit": "cycle",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "frame"
+            ],
+            "description": "PFC Cycle at capture.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "mechanical_time_total",
+            "entity_type": "history",
+            "variable": "mechanical_time_total",
+            "unit": "s",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "frame"
+            ],
+            "description": "PFC total mechanical time at capture.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "ball_id",
+            "entity_type": "ball",
+            "variable": "id",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity",
+              "frame_variable_length"
+            ],
+            "description": "Stable PFC Ball ID; offsets define each real frame.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "ball_xyz",
+            "entity_type": "ball",
+            "variable": "position",
+            "unit": "m",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity",
+              "xyz"
+            ],
+            "description": "Same-Cycle Ball coordinates.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "ball_radius",
+            "entity_type": "ball",
+            "variable": "radius",
+            "unit": "m",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity"
+            ],
+            "description": "Static radius or a real radius update at/after Ball creation.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "wall_vertex_xyz",
+            "entity_type": "wall",
+            "variable": "vertex_position",
+            "unit": "m",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity",
+              "xyz",
+              "frame_variable_length"
+            ],
+            "description": "Wall vertices from each captured frame.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "wall_facet_vertex_ids",
+            "entity_type": "wall",
+            "variable": "facet_vertex_topology",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "facet",
+              "variable_length"
+            ],
+            "description": "Static facet corner vertex IDs (flat, indexed by wall_facet_vertex_offsets); join with per-frame wall_vertex_xyz to rebuild real wall faces.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "wall_facet_normal",
+            "entity_type": "wall",
+            "variable": "facet_normal",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "facet",
+              "xyz"
+            ],
+            "description": "Static facet unit normals for real wall face rendering.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "ball_velocity",
+            "entity_type": "ball",
+            "variable": "velocity",
+            "unit": "m/s",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity",
+              "xyz"
+            ],
+            "description": "Captured Ball velocity in the global coordinate system.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "ball_spin",
+            "entity_type": "ball",
+            "variable": "angular_velocity",
+            "unit": "rad/s",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "entity",
+              "xyz"
+            ],
+            "description": "Captured Ball angular velocity; PFC2D uses the z component.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "contact_id",
+            "entity_type": "contact",
+            "variable": "id",
+            "unit": null,
+            "source": "NOT_CAPTURED",
+            "status": "NOT_CAPTURED",
+            "dimensions": [
+              "contact"
+            ],
+            "description": "Contact network was disabled for this Case.",
+            "provenance": {
+              "source": "NOT_CAPTURED",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "contact_force_xyz",
+            "entity_type": "contact",
+            "variable": "force_global",
+            "unit": "N",
+            "source": "NOT_CAPTURED",
+            "status": "NOT_CAPTURED",
+            "dimensions": [
+              "contact",
+              "xyz"
+            ],
+            "description": "Contact force was not captured.",
+            "provenance": {
+              "source": "NOT_CAPTURED",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "fracture_events",
+            "entity_type": "fracture",
+            "variable": "bond_break",
+            "unit": "event",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "event"
+            ],
+            "description": "Real bond-break/DFN-matched fracture events.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "fracture_normal",
+            "entity_type": "fracture",
+            "variable": "normal",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "event",
+              "xyz"
+            ],
+            "description": "Captured fracture normal; orientation is not inferred.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "fracture_ball_id_a",
+            "entity_type": "fracture",
+            "variable": "endpoint_ball_id_a",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "event"
+            ],
+            "description": "Ball ID at contact end1 when the bond broke; -1 when the endpoint is not a Ball or was not captured.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "fracture_ball_id_b",
+            "entity_type": "fracture",
+            "variable": "endpoint_ball_id_b",
+            "unit": null,
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "event"
+            ],
+            "description": "Ball ID at contact end2 when the bond broke; -1 when the endpoint is not a Ball or was not captured.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "top_force_n",
+            "entity_type": "wall",
+            "variable": "contact_force_magnitude",
+            "unit": "N",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "frame"
+            ],
+            "description": "Top platen contact-force magnitude.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          },
+          {
+            "id": "bottom_force_n",
+            "entity_type": "wall",
+            "variable": "contact_force_magnitude",
+            "unit": "N",
+            "source": "REAL_PFC",
+            "status": "GENERATED",
+            "dimensions": [
+              "frame"
+            ],
+            "description": "Bottom platen contact-force magnitude.",
+            "provenance": {
+              "source": "REAL_PFC",
+              "input_files": [],
+              "parent_results": [],
+              "formula": null,
+              "method": null,
+              "applicability": null,
+              "notes": [],
+              "generated_utc": "2026-11-24T13:03:05+00:00"
+            }
+          }
+        ],
+        "entity_groups": [
+          {
+            "entity_type": "ball",
+            "array_prefix": "ball",
+            "count": 121201,
+            "dynamic_ids": true,
+            "properties": [
+              "id",
+              "position",
+              "radius",
+              "frame_index"
+            ],
+            "source": "REAL_PFC"
+          },
+          {
+            "entity_type": "wall",
+            "array_prefix": "wall",
+            "count": 456,
+            "dynamic_ids": true,
+            "properties": [
+              "id",
+              "vertex_id",
+              "vertex_position"
+            ],
+            "source": "REAL_PFC"
+          },
+          {
+            "entity_type": "fracture",
+            "array_prefix": "fracture",
+            "count": 3721,
+            "dynamic_ids": false,
+            "properties": [
+              "id",
+              "cycle",
+              "position",
+              "normal",
+              "diameter",
+              "mode",
+              "ball_id_a",
+              "ball_id_b"
+            ],
+            "source": "REAL_PFC"
+          }
+        ],
+        "metadata": {
+          "geometry": {
+            "dimension": 3,
+            "axis": "z",
+            "axis_index": 2,
+            "top": 102,
+            "bottom": 101,
+            "height0": 1.0,
+            "area0": 0.25,
+            "area_kind": "cross_section_area",
+            "transverse_spans": [
+              {
+                "axis": "x",
+                "extent": 0.5
+              },
+              {
+                "axis": "y",
+                "extent": 0.5
+              }
+            ]
+          },
+          "ball_count_min": 6379,
+          "ball_count_max": 6379,
+          "event_count": 3721,
+          "contact_count": 0,
+          "contact_type_codes": {},
+          "contact_model_codes": {},
+          "cycle_start": 500,
+          "cycle_end": 9330,
+          "mechanical_time_start": 0.00073827,
+          "mechanical_time_end": 0.0307415
+        },
+        "provenance": {
+          "source": "REAL_PFC",
+          "input_files": [
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\static.json",
+              "size_bytes": 1276546,
+              "sha256": "5d8d2093e9a8ef7a11cabce4a6bfb345b3b6ef87440e5542af53940d8b021773"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\frame_index.csv",
+              "size_bytes": 1659,
+              "sha256": "5b9fb8b109275ef54358caffafa3e47a53077d6fb1c8f2452c66586b62434d39"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\ball_frames.csv",
+              "size_bytes": 12313710,
+              "sha256": "a977a15a835d2b369b4a79bdad6e57ab1514bf89ec516a686aa8d6b58d78f1e7"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\wall_vertices.csv",
+              "size_bytes": 10118,
+              "sha256": "fec52f2102d8b2ba910204b790f5c7f342e473c8d03a03a2a33ab0857515d685"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\fracture_events.csv",
+              "size_bytes": 416681,
+              "sha256": "99026852dbc1f74e7ae88f8e313ae2d9570abb223af45d17cc73e7d812eafabe"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\contact_frames.csv",
+              "size_bytes": 77,
+              "sha256": "f6b5899a389ecd47254c6a39fc2d24b232666c8e2f6596bccb6321063f8fe8b1"
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\native_histories.csv",
+              "size_bytes": 60,
+              "sha256": "9a648d79f03369bd3f7623bfc9756f124f827b90d5f9d1f076ac30b9690d3333"
+            }
+          ],
+          "parent_results": [],
+          "formula": null,
+          "method": "read-only legacy adapter; variable-length concatenated arrays; NPZ compression",
+          "applicability": null,
+          "notes": [
+            "Raw capture files were not modified.",
+            "Each frame uses explicit offsets; Ball sets may grow or shrink."
+          ],
+          "generated_utc": "2026-11-24T13:03:06+00:00"
+        }
+      }
+    ],
+    "metadata": {
+      "conversion": "NumPy NPZ with variable-length entity offsets",
+      "raw_input_root": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1",
+      "case_count": 1
+    },
+    "provenance": {
+      "source": "CONFIG",
+      "input_files": [
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\static.json",
+          "size_bytes": 1276546,
+          "sha256": "5d8d2093e9a8ef7a11cabce4a6bfb345b3b6ef87440e5542af53940d8b021773"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\frame_index.csv",
+          "size_bytes": 1659,
+          "sha256": "5b9fb8b109275ef54358caffafa3e47a53077d6fb1c8f2452c66586b62434d39"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\ball_frames.csv",
+          "size_bytes": 12313710,
+          "sha256": "a977a15a835d2b369b4a79bdad6e57ab1514bf89ec516a686aa8d6b58d78f1e7"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\wall_vertices.csv",
+          "size_bytes": 10118,
+          "sha256": "fec52f2102d8b2ba910204b790f5c7f342e473c8d03a03a2a33ab0857515d685"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\fracture_events.csv",
+          "size_bytes": 416681,
+          "sha256": "99026852dbc1f74e7ae88f8e313ae2d9570abb223af45d17cc73e7d812eafabe"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\raw\\contact_frames.csv",
+          "size_bytes": 77,
+          "sha256": "f6b5899a389ecd47254c6a39fc2d24b232666c8e2f6596bccb6321063f8fe8b1"
+        },
+        {
+          "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data\\native_histories.csv",
+          "size_bytes": 60,
+          "sha256": "9a648d79f03369bd3f7623bfc9756f124f827b90d5f9d1f076ac30b9690d3333"
+        }
+      ],
+      "parent_results": [],
+      "formula": null,
+      "method": "standardize_experiment",
+      "applicability": null,
+      "notes": [],
+      "generated_utc": "2026-11-24T13:03:06+00:00"
+    },
+    "generated_utc": "2026-11-24T13:03:06+00:00"
+  },
+  "data_layers": {
+    "status": "GENERATED",
+    "layers": [
+      "ANALYSIS_DATA",
+      "DISPLAY_DATA"
+    ],
+    "records": [
+      {
+        "layer": "ANALYSIS_DATA",
+        "layer_id": "analysis_data:case_17",
+        "case_id": 17,
+        "status": "GENERATED",
+        "parent_layers": [
+          "pfc-headless:fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b:case_17"
+        ],
+        "artifacts": [
+          {
+            "path": "03_analysis/case_17/analysis_arrays.npz",
+            "sha256": "3dfd40a755267b0110e46e3e5c393c9b8e04674f8cf3f6fdc471fc077b1f61ff",
+            "size_bytes": 16633597
+          },
+          {
+            "path": "03_analysis/case_17/analysis.json",
+            "sha256": "12c4aaa8f4e595d0fb958307e5b1f1a346717f2c7395ddba6b3586323fb79555",
+            "size_bytes": 234200
+          }
+        ],
+        "operations": [
+          {
+            "method": "||x_i(t)-x_i(t_first_observed)||",
+            "outputs": [
+              "ball.displacement"
+            ],
+            "unit": "m",
+            "source": "DERIVED"
+          },
+          {
+            "method": "(x(t2)-x(t1))/(t2-t1)",
+            "outputs": [
+              "ball.velocity"
+            ],
+            "unit": "m/s",
+            "source": "DERIVED"
+          },
+          {
+            "method": "(v(t2)-v(t1))/(t2-t1)",
+            "outputs": [
+              "ball.acceleration"
+            ],
+            "unit": "m/s^2",
+            "source": "DERIVED"
+          },
+          {
+            "method": "count(real fracture event with cycle <= frame cycle)",
+            "outputs": [
+              "fracture.cumulative"
+            ],
+            "unit": "event",
+            "source": "DERIVED"
+          },
+          {
+            "method": "(H0-H)/H0",
+            "outputs": [
+              "sample.axial_strain"
+            ],
+            "unit": "1",
+            "source": "DERIVED"
+          },
+          {
+            "method": "0.5*(|F_top|+|F_bottom|)",
+            "outputs": [
+              "sample.mean_axial_load"
+            ],
+            "unit": "N",
+            "source": "DERIVED"
+          },
+          {
+            "method": "mean_axial_load/A0",
+            "outputs": [
+              "sample.axial_stress"
+            ],
+            "unit": "Pa",
+            "source": "DERIVED"
+          }
+        ],
+        "display": null,
+        "provenance": {
+          "source": "DERIVED",
+          "input_files": [
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1\\experiment.json",
+              "sha256": "ee2ffcf4a16b5594ef3a11675077978857a10f8e8e4e4c6c707793258780038c",
+              "size_bytes": 19656
+            },
+            {
+              "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1\\cases\\case_17\\arrays.npz",
+              "sha256": "b00ee24fad0ad9d71ba1bc6da9d69b38cfba2ac80e5b369540ed6def904474b7",
+              "size_bytes": 8247436
+            }
+          ],
+          "parent_results": [],
+          "formula": null,
+          "method": "Formula-gated analysis over standardized arrays.",
+          "applicability": "Only fields with complete declared inputs are derived.",
+          "notes": [],
+          "generated_utc": "2026-11-24T13:03:28+00:00"
+        },
+        "generated_utc": "2026-11-24T13:03:28+00:00"
+      },
+      {
+        "layer": "DISPLAY_DATA",
+        "layer_id": "display_data:case_17",
+        "case_id": 17,
+        "status": "GENERATED",
+        "parent_layers": [
+          "analysis_data:case_17"
+        ],
+        "artifacts": [
+          {
+            "path": "03_analysis/chart_specs.json",
+            "sha256": "f3a502cdd1d5d2c3a019add0d7d7b99b8e9eea001438751be2367892eff74bf6",
+            "size_bytes": 172720
+          },
+          {
+            "path": "03_analysis/display_data.json",
+            "sha256": "1bd17c6af6dc0471d6fb5180693d32030446c4c9b7b47371f1334b010d03a9ec",
+            "size_bytes": 19866
+          }
+        ],
+        "operations": [
+          {
+            "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+            "inputs": "analysis values by immutable array reference",
+            "outputs": "display strings and axis/tooltip formatting metadata",
+            "note": "Display values are never used as analysis inputs."
+          }
+        ],
+        "display": {
+          "method": "AUTO_SCIENTIFIC_OR_DECIMAL_DISPLAY_ONLY",
+          "significant_digits": 4,
+          "tooltip_digits": 8,
+          "rules": "Display strings and unit scaling are metadata; chart values retain the declared numerical transform and never feed analysis."
+        },
+        "provenance": {
+          "source": "CONFIG",
+          "input_files": [],
+          "parent_results": [],
+          "formula": null,
+          "method": null,
+          "applicability": null,
+          "notes": [],
+          "generated_utc": "2026-11-24T13:03:28+00:00"
+        },
+        "generated_utc": "2026-11-24T13:03:28+00:00"
+      }
+    ],
+    "external_parent": {
+      "owner": "pfc-headless",
+      "contract": {
+        "name": "pfc.standardized-experiment",
+        "version": "1.0.0",
+        "read_only": true
+      },
+      "manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b",
+      "read_only": true
+    },
+    "policy": {
+      "standardized_input_immutable": true,
+      "raw_owned_by_pfc_headless": true,
+      "derived_requires_formula_and_inputs": true,
+      "display_never_used_as_analysis_input": true
+    },
+    "verification": "NOT_VERIFIED"
+  },
+  "capabilities": {
+    "status": "GENERATED",
+    "policy": "Capabilities are inspected per Case. A missing optional field in one Case does not prevent other Cases from being processed.",
+    "cases": {
+      "17": {
+        "status": "GENERATED",
+        "dimension": 3,
+        "capabilities": {
+          "ball_position": "SUPPORTED",
+          "ball_radius": "SUPPORTED",
+          "wall_geometry": "SUPPORTED",
+          "fracture_event": "SUPPORTED",
+          "contact_network": "NOT_CAPTURED",
+          "bond_network": "NOT_CAPTURED",
+          "particle_displacement": "SUPPORTED",
+          "particle_speed": "SUPPORTED",
+          "particle_acceleration": "SUPPORTED",
+          "nominal_stress": "SUPPORTED",
+          "line_load": "NOT_CAPTURED"
+        }
+      }
+    },
+    "common": {
+      "ball_position": "SUPPORTED",
+      "ball_radius": "SUPPORTED",
+      "wall_geometry": "SUPPORTED",
+      "fracture_event": "SUPPORTED",
+      "contact_network": "NOT_CAPTURED",
+      "bond_network": "NOT_CAPTURED",
+      "particle_displacement": "SUPPORTED",
+      "particle_speed": "SUPPORTED",
+      "particle_acceleration": "SUPPORTED",
+      "nominal_stress": "SUPPORTED",
+      "line_load": "NOT_CAPTURED"
+    },
+    "runtime_verification": "NOT_VERIFIED"
+  },
+  "linkage": {
+    "status": "GENERATED",
+    "verification": "NOT_VERIFIED",
+    "shared_state": [
+      "currentCase",
+      "currentFrame",
+      "currentCycle",
+      "currentTime"
+    ],
+    "policy": "Shared time and Case state does not imply full bidirectional linkage. A view remains independent when it has no physical ID correspondence.",
+    "decisions": [
+      {
+        "id": "timeline_sync",
+        "implemented": true,
+        "status": "SUPPORTED",
+        "scientific_need": "high",
+        "interaction_value": "high",
+        "technical_complexity": "low",
+        "coordinate_conversion_complexity": "none",
+        "data_sync_complexity": "low",
+        "performance_cost": "low",
+        "maintenance_cost": "low",
+        "decision_reason": "All temporal views index the same real captured frame."
+      },
+      {
+        "id": "case_switch_sync",
+        "implemented": true,
+        "status": "SUPPORTED",
+        "scientific_need": "high",
+        "interaction_value": "high",
+        "technical_complexity": "low",
+        "coordinate_conversion_complexity": "none",
+        "data_sync_complexity": "medium",
+        "performance_cost": "low",
+        "maintenance_cost": "low",
+        "decision_reason": "Case changes reset selection, range and frame before loading new data."
+      },
+      {
+        "id": "particle_selection_attribute_panel",
+        "implemented": true,
+        "status": "PARTIAL",
+        "scientific_need": "high",
+        "interaction_value": "high",
+        "technical_complexity": "medium",
+        "coordinate_conversion_complexity": "none",
+        "data_sync_complexity": "medium",
+        "performance_cost": "low",
+        "maintenance_cost": "medium",
+        "decision_reason": "Implemented for real Ball IDs with these particle histories: displacement, speed; force and stress histories remain unavailable unless captured.",
+        "available_metrics": [
+          "displacement",
+          "speed"
+        ],
+        "unavailable_metrics": [
+          "contact_force",
+          "particle_stress"
+        ]
+      },
+      {
+        "id": "particle_3d_to_2d_projection",
+        "implemented": false,
+        "status": "NOT_IMPLEMENTED",
+        "scientific_need": "medium",
+        "interaction_value": "medium",
+        "technical_complexity": "high",
+        "coordinate_conversion_complexity": "medium",
+        "data_sync_complexity": "high",
+        "performance_cost": "medium",
+        "maintenance_cost": "high",
+        "decision_reason": "The existing distribution view answers aggregate spatial questions; a projected particle marker would add synchronization complexity with limited additional evidence. Independent views are retained."
+      },
+      {
+        "id": "crack_3d_to_2d_projection",
+        "implemented": false,
+        "status": "NOT_IMPLEMENTED",
+        "scientific_need": "medium",
+        "interaction_value": "medium",
+        "technical_complexity": "high",
+        "coordinate_conversion_complexity": "high",
+        "data_sync_complexity": "high",
+        "performance_cost": "medium",
+        "maintenance_cost": "high",
+        "decision_reason": "Captured crack direction is already represented by a rose chart and 3D lines; projection is only valuable for an explicit shared slice."
+      },
+      {
+        "id": "camera_to_2d_view_sync",
+        "implemented": false,
+        "status": "NOT_IMPLEMENTED",
+        "scientific_need": "low",
+        "interaction_value": "low",
+        "technical_complexity": "high",
+        "coordinate_conversion_complexity": "high",
+        "data_sync_complexity": "high",
+        "performance_cost": "high",
+        "maintenance_cost": "high",
+        "decision_reason": "Camera rotation is exploratory navigation, not a shared physical state."
+      },
+      {
+        "id": "all_charts_bidirectional_3d",
+        "implemented": false,
+        "status": "NOT_IMPLEMENTED",
+        "scientific_need": "low",
+        "interaction_value": "low",
+        "technical_complexity": "high",
+        "coordinate_conversion_complexity": "medium",
+        "data_sync_complexity": "high",
+        "performance_cost": "high",
+        "maintenance_cost": "high",
+        "decision_reason": "Many aggregate charts have no particle-level correspondence. Forcing bidirectional linkage would imply a mapping the data does not contain."
+      }
+    ]
+  },
+  "viewer": {
+    "status": "GENERATED",
+    "verification_status": "NOT_VERIFIED",
+    "architecture": "small-html-local-dependencies-chunked-data",
+    "viewer": "D:\\Python\\itasca-mcp\\_practice\\viz_upgrade_proposal\\confined_break_6k_final\\04_viewer\\scientific_viewer.html",
+    "html_bytes": 12388,
+    "html_target_bytes": 5242880,
+    "html_target_met": true,
+    "viewer_total_bytes": 14866862,
+    "offline": true,
+    "external_network_requests": false,
+    "single_html": false,
+    "dependencies": [
+      "viewer/vendor/three.min.js",
+      "viewer/vendor/OrbitControls.js",
+      "viewer/vendor/echarts.min.js",
+      "viewer/visual-semantics.js"
+    ],
+    "payload": {
+      "path": "D:\\Python\\itasca-mcp\\_practice\\viz_upgrade_proposal\\confined_break_6k_final\\04_viewer\\data",
+      "version": "2.2.0",
+      "reused": false,
+      "frame_policy": "ALL_REAL_FRAMES",
+      "sizes": {
+        "catalog_bytes": 1843,
+        "static_bytes": 1134403,
+        "chunk_bytes": 5834364,
+        "history_bytes": 5396974,
+        "metadata_and_chart_bytes": 580160,
+        "total_bytes": 12947750
+      },
+      "cases": [
+        {
+          "id": 17,
+          "label": "Case 17",
+          "runId": "run_case17_confined_break_6k_r1",
+          "dimension": 3,
+          "sourceFrameCount": 19,
+          "viewerFrameCount": 19,
+          "frameStatus": "FULL_REAL_FRAME_SET",
+          "ballCountMin": 6379,
+          "ballCountMax": 6379,
+          "fractureEvents": 3721,
+          "crackStatus": "GENERATED",
+          "maxDisplacement": 0.04558559979862063,
+          "maxSpeed": 14.784305222800404,
+          "maxAcceleration": 9261.245799069362,
+          "maxContactForce": 0.0,
+          "bounds": [
+            [
+              -0.236909,
+              -0.238001,
+              -0.487263
+            ],
+            [
+              0.236667,
+              0.236887,
+              0.821942
+            ]
+          ],
+          "chartCount": 11,
+          "metaPath": "data/cases/case_17/meta.js",
+          "chartsPath": "data/cases/case_17/charts.js",
+          "chunkPattern": "data/cases/case_17/chunks/chunk_{chunk:03d}.js",
+          "historyPattern": "data/cases/case_17/histories/bucket_{bucket:03d}.js",
+          "chartsStatus": "GENERATED",
+          "entityStatus": {
+            "ball": "SUPPORTED",
+            "wall": "SUPPORTED",
+            "fracture": "SUPPORTED",
+            "contact": "NOT_CAPTURED",
+            "bond": "NOT_CAPTURED",
+            "clump": "NOT_CAPTURED"
+          },
+          "metricStatus": {
+            "displacement": "SUPPORTED",
+            "speed": "SUPPORTED",
+            "acceleration": "SUPPORTED",
+            "contactForce": "NOT_CAPTURED"
+          }
+        }
+      ]
+    },
+    "state_contract": {
+      "currentCase": "integer Case ID",
+      "currentFrame": "zero-based index in the real-frame sequence",
+      "currentCycle": "captured PFC Cycle",
+      "currentTime": "captured mechanical time in seconds",
+      "selectedBallIds": "real PFC Ball IDs",
+      "selectedMetric": "displacement | speed | acceleration",
+      "selectedRange": "inclusive numeric range for the selected particle metric"
+    },
+    "linking": {
+      "timeline_to_scene": true,
+      "chart_drag_to_frame": true,
+      "scene_ball_to_history": true,
+      "current_distribution_brush_to_particles": true,
+      "multi_ball_selection": true,
+      "particle_force_history": "NOT_CAPTURED_UNLESS_SOURCE_FIELD_EXISTS",
+      "decision_record": "linkage_decisions.json",
+      "decision_summary": {
+        "implemented": 3,
+        "not_implemented": 4
+      }
+    },
+    "design_system": {
+      "path": "viewer/visual-semantics.js",
+      "source": "assets/styles/scientific-visual-semantics.json",
+      "version": "3.0.0",
+      "sha256": "12cdb42de577669c0872def4453ed9a7dab23b066606fe6280953a069e7836a9"
+    },
+    "publication_export_api": {
+      "png_current": "window.PFCViewer.exportPNG()",
+      "png_specified_frame": "window.PFCViewer.exportFramePNG(frameIndex, width)",
+      "chart_svg": "window.PFCViewer.exportChartSVGs()",
+      "composite_png": "window.PFCViewer.exportCompositePanels()"
+    },
+    "requested_cases": null,
+    "viewer_output_contract": "viewer_output_contract.json",
+    "build_elapsed_seconds": 1.904
+  },
+  "analysis_chart_count": 11,
+  "figure_plan": {
+    "status": "GENERATED",
+    "selection_policy": "TOP_SCIENTIFIC_VALUE_PER_CASE; analysis artifacts remain complete",
+    "max_panels_per_figure": 6,
+    "source_chart_count": 11,
+    "selected_chart_count": 6,
+    "omitted_chart_count": 5,
+    "omitted_chart_ids": [
+      "case_17:fracture_rose",
+      "case_17:particle_size",
+      "case_17:particle_density",
+      "case_17:motion",
+      "case_17:correlation"
+    ],
+    "figure_count": 1,
+    "figures": [
+      {
+        "figure_id": "case_17",
+        "case_id": 17,
+        "title": "Case 17 Scientific Summary",
+        "chart_count": 6,
+        "source_chart_count": 11,
+        "omitted_chart_count": 5,
+        "omitted_chart_ids": [
+          "case_17:fracture_rose",
+          "case_17:particle_size",
+          "case_17:particle_density",
+          "case_17:motion",
+          "case_17:correlation"
+        ],
+        "layout": {
+          "template": "2_by_3",
+          "panel_count": 6,
+          "row_count": 3,
+          "column_count": 2,
+          "variable_panel_sizes": false,
+          "empty_placeholder_panels": 0,
+          "read_order": "row_major_left_to_right",
+          "panels": [
+            {
+              "index": 0,
+              "row": 0,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.0,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            },
+            {
+              "index": 1,
+              "row": 0,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.0,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            },
+            {
+              "index": 2,
+              "row": 1,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.33333333,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            },
+            {
+              "index": 3,
+              "row": 1,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.33333333,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            },
+            {
+              "index": 4,
+              "row": 2,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.66666667,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            },
+            {
+              "index": 5,
+              "row": 2,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.66666667,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          ]
+        },
+        "panels": [
+          {
+            "index": 1,
+            "panel": "a",
+            "chart_id": "case_17:stress_strain",
+            "title": "轴向应力–应变",
+            "basis": "Both stress and strain are derived from captured Wall force and platen geometry.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.98,
+              "reason": "Two aligned continuous mechanical-response channels form a monotonic path suitable for a stress–strain curve.",
+              "alternatives": [
+                {
+                  "type": "scatter",
+                  "score": 0.82,
+                  "reason": "Possible, but the path order carries deformation history."
+                },
+                {
+                  "type": "histogram",
+                  "score": 0.35,
+                  "reason": "Would discard the pairwise relationship."
+                }
+              ],
+              "derived": true,
+              "missing_count": 0,
+              "manual_override": null,
+              "compatible_types": [
+                "line",
+                "scatter"
+              ]
+            },
+            "rectangle": {
+              "index": 0,
+              "row": 0,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.0,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          },
+          {
+            "index": 2,
+            "panel": "b",
+            "chart_id": "case_17:motion_cracks",
+            "title": "颗粒运动与裂纹演化",
+            "basis": "Both series use captured frames; no synthetic intermediate states.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.95,
+              "reason": "Motion and cumulative captured fracture events share real Cycle indices, so a two-axis temporal view shows their co-evolution.",
+              "alternatives": [
+                {
+                  "type": "line",
+                  "score": 0.68,
+                  "reason": "Separate scales would make event counts and displacement difficult to compare."
+                }
+              ],
+              "derived": true,
+              "missing_count": 0,
+              "manual_override": null,
+              "compatible_types": [
+                "dual-line"
+              ]
+            },
+            "rectangle": {
+              "index": 1,
+              "row": 0,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.0,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          },
+          {
+            "index": 3,
+            "panel": "c",
+            "chart_id": "case_17:acceleration_time",
+            "title": "平均加速度–机械时间",
+            "basis": "Backward finite differences between consecutive real same-ID velocity observations.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.91,
+              "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+              "alternatives": [
+                {
+                  "type": "area",
+                  "score": 0.73,
+                  "reason": "Adds magnitude emphasis without improving trend identification."
+                },
+                {
+                  "type": "scatter",
+                  "score": 0.6,
+                  "reason": "Shows real observations but obscures continuity."
+                }
+              ],
+              "derived": true,
+              "missing_count": 2,
+              "manual_override": null,
+              "compatible_types": [
+                "line",
+                "area",
+                "scatter"
+              ]
+            },
+            "rectangle": {
+              "index": 2,
+              "row": 1,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.33333333,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          },
+          {
+            "index": 4,
+            "panel": "d",
+            "chart_id": "case_17:speed_time",
+            "title": "平均速度–机械时间",
+            "basis": "Backward finite differences between consecutive real same-ID observations.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.91,
+              "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+              "alternatives": [
+                {
+                  "type": "area",
+                  "score": 0.73,
+                  "reason": "Adds magnitude emphasis without improving trend identification."
+                },
+                {
+                  "type": "scatter",
+                  "score": 0.6,
+                  "reason": "Shows real observations but obscures continuity."
+                }
+              ],
+              "derived": true,
+              "missing_count": 1,
+              "manual_override": null,
+              "compatible_types": [
+                "line",
+                "area",
+                "scatter"
+              ]
+            },
+            "rectangle": {
+              "index": 3,
+              "row": 1,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.33333333,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          },
+          {
+            "index": 5,
+            "panel": "e",
+            "chart_id": "case_17:stress_time",
+            "title": "名义应力–机械时间",
+            "basis": "Frame-aligned native mechanical time and derived nominal stress.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.91,
+              "reason": "At least three finite frame-aligned mechanical-time samples preserve the temporal trend without interpolation.",
+              "alternatives": [
+                {
+                  "type": "area",
+                  "score": 0.73,
+                  "reason": "Adds magnitude emphasis without improving trend identification."
+                },
+                {
+                  "type": "scatter",
+                  "score": 0.6,
+                  "reason": "Shows real observations but obscures continuity."
+                }
+              ],
+              "derived": true,
+              "missing_count": 0,
+              "manual_override": null,
+              "compatible_types": [
+                "line",
+                "area",
+                "scatter"
+              ]
+            },
+            "rectangle": {
+              "index": 4,
+              "row": 2,
+              "column": 0,
+              "x": 0.0,
+              "y": 0.66666667,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          },
+          {
+            "index": 6,
+            "panel": "f",
+            "chart_id": "case_17:displacement_hist",
+            "title": "末帧颗粒累计位移分布",
+            "basis": "Distribution of real final-frame particle displacements.",
+            "decision": {
+              "status": "GENERATED",
+              "score": 0.9,
+              "reason": "The final real frame provides a finite particle distribution. The P05-P95 interior is displayed continuously while all lower and upper tail observations remain in explicit overflow bins.",
+              "alternatives": [
+                {
+                  "type": "boxplot",
+                  "score": 0.74,
+                  "reason": "Compact for summary comparison but hides multimodality."
+                }
+              ],
+              "derived": true,
+              "missing_count": 0,
+              "manual_override": null,
+              "compatible_types": [
+                "histogram",
+                "boxplot"
+              ]
+            },
+            "rectangle": {
+              "index": 5,
+              "row": 2,
+              "column": 1,
+              "x": 0.5,
+              "y": 0.66666667,
+              "width": 0.5,
+              "height": 0.33333333,
+              "weight": 1.0,
+              "role": "supporting"
+            }
+          }
+        ],
+        "plan_path": "figure_plans/case_17.json",
+        "specs_path": "figure_plans/case_17.specs.json"
+      }
+    ],
+    "export_strategy": "Compose each figure from its selected specs and identity-matched SVG exports."
+  },
+  "output_contract": {
+    "status": "GENERATED",
+    "verification": "NOT_VERIFIED",
+    "items": [
+      {
+        "id": "source_standardized_contract",
+        "status": "VERIFIED_READ_ONLY",
+        "path": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\deliveries\\run_case17_confined_break_6k_r1",
+        "owner": "pfc-headless",
+        "manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b"
+      },
+      {
+        "id": "analysis_data",
+        "status": "GENERATED",
+        "path": "03_analysis/"
+      },
+      {
+        "id": "offline_viewer",
+        "status": "GENERATED",
+        "path": "04_viewer/scientific_viewer.html",
+        "verification": "NOT_VERIFIED"
+      },
+      {
+        "id": "charts",
+        "status": "GENERATED",
+        "path": "03_analysis/chart_specs.json",
+        "rejected": [
+          {
+            "id": "case_17:line_load_time",
+            "case_id": 17,
+            "chart_name": "line_load_time",
+            "status": "NOT_CAPTURED",
+            "reason": "No valid PFC2D line-load channel exists; the temporal line-load chart is omitted.",
+            "chart_id": "case_17:line_load_time",
+            "chart_type": "line",
+            "source_variables": [
+              "mechanical_time_total",
+              "sample.axial_load_per_unit_thickness"
+            ],
+            "source_data": {
+              "channels": [
+                "mechanical_time_total",
+                "sample.axial_load_per_unit_thickness"
+              ],
+              "status": "NOT_CAPTURED"
+            },
+            "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+            "unit": "kN/m",
+            "selection_reason": null,
+            "omission_reason": "No valid PFC2D line-load channel exists; the temporal line-load chart is omitted.",
+            "data_quality": {
+              "status": "NOT_CAPTURED",
+              "missing_values_treated_as_zero": false,
+              "constant_channel_rejected": false
+            },
+            "publication_priority": "EXCLUDED"
+          },
+          {
+            "id": "case_17:line_load_strain",
+            "case_id": 17,
+            "chart_name": "line_load_strain",
+            "status": "NOT_CAPTURED",
+            "reason": "Both valid PFC2D line load and strain are required for the mechanical-response path.",
+            "chart_id": "case_17:line_load_strain",
+            "chart_type": "line",
+            "source_variables": [
+              "sample.axial_strain",
+              "sample.axial_load_per_unit_thickness"
+            ],
+            "source_data": {
+              "channels": [
+                "sample.axial_strain",
+                "sample.axial_load_per_unit_thickness"
+              ],
+              "status": "NOT_CAPTURED"
+            },
+            "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+            "unit": "kN/m",
+            "selection_reason": null,
+            "omission_reason": "Both valid PFC2D line load and strain are required for the mechanical-response path.",
+            "data_quality": {
+              "status": "NOT_CAPTURED",
+              "missing_values_treated_as_zero": false,
+              "constant_channel_rejected": false
+            },
+            "publication_priority": "EXCLUDED"
+          },
+          {
+            "id": "experiment:case_comparison",
+            "case_id": null,
+            "chart_name": "case_comparison",
+            "status": "NOT_GENERATED",
+            "reason": "A comparison requires at least two cases.",
+            "chart_id": "experiment:case_comparison",
+            "chart_type": "not-generated",
+            "source_variables": [],
+            "source_data": {
+              "channels": [],
+              "status": "NOT_GENERATED"
+            },
+            "physical_meaning": "The candidate is recorded so a scientifically unsupported omission remains traceable.",
+            "unit": null,
+            "selection_reason": null,
+            "omission_reason": "A comparison requires at least two cases.",
+            "data_quality": {
+              "status": "NOT_GENERATED",
+              "missing_values_treated_as_zero": false,
+              "constant_channel_rejected": false
+            },
+            "publication_priority": "EXCLUDED"
+          }
+        ]
+      },
+      {
+        "id": "publication_figure_plan",
+        "status": "GENERATED",
+        "path": "06_publication_figures/figure_plan.json",
+        "verification": "NOT_VERIFIED"
+      },
+      {
+        "id": "publication_composed_svg",
+        "status": "NOT_GENERATED",
+        "reason": "Viewer SVG exports are required."
+      },
+      {
+        "id": "publication_pdf",
+        "status": "NOT_SUPPORTED",
+        "reason": "Use a local vector converter on composed SVG; no PDF backend is bundled."
+      },
+      {
+        "id": "experiment_report",
+        "status": "GENERATED",
+        "path": "report/experiment_report.md",
+        "verification": "NOT_VERIFIED"
+      }
+    ],
+    "unverified": [
+      "browser rendering and interaction",
+      "PNG/SVG export",
+      "test suite execution",
+      "performance measurement"
+    ]
+  }
+}

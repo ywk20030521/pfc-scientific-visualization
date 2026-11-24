@@ -1,0 +1,8 @@
+{
+  "transport": null,
+  "entry_script": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\entry\\capture_case.py",
+  "config": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\entry\\capture_config.json",
+  "data_dir": "D:\\Python\\itasca-mcp\\pfc10_practice\\headless\\runs\\run_case17_confined_break_6k_r1\\data",
+  "run_id": "run_case17_confined_break_6k_r1",
+  "case_id": 17
+}

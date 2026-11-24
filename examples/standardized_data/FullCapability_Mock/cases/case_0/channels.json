@@ -1,0 +1,359 @@
+[
+  {
+    "schema_version": "1.0.0",
+    "id": "cycle",
+    "entity_type": "history",
+    "variable": "cycle",
+    "unit": "cycle",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "MOCK frame Cycle.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "mechanical_time_total",
+    "entity_type": "history",
+    "variable": "mechanical_time_total",
+    "unit": "s",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "MOCK mechanical time.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "ball_id",
+    "entity_type": "ball",
+    "variable": "id",
+    "unit": null,
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "frame_variable_length"
+    ],
+    "description": "Stable MOCK Ball ID.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "ball_xyz",
+    "entity_type": "ball",
+    "variable": "position",
+    "unit": "m",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "xyz"
+    ],
+    "description": "MOCK Ball coordinates.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "ball_radius",
+    "entity_type": "ball",
+    "variable": "radius",
+    "unit": "m",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity"
+    ],
+    "description": "Synthetic particle size.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "ball_contact_force_n",
+    "entity_type": "ball",
+    "variable": "contact_force_magnitude",
+    "unit": "N",
+    "source": "DECLARED_MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity"
+    ],
+    "description": "MOCK per-Ball contact force.",
+    "provenance": {
+      "source": "DECLARED_MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "wall_position",
+    "entity_type": "wall",
+    "variable": "vertex_position",
+    "unit": "m",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "entity",
+      "xyz"
+    ],
+    "description": "MOCK solid wall plate corners.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "fracture_event",
+    "entity_type": "fracture",
+    "variable": "bond_break",
+    "unit": "event",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "event"
+    ],
+    "description": "MOCK fracture events with endpoint Ball IDs.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "contact_network",
+    "entity_type": "contact",
+    "variable": "endpoint_ids",
+    "unit": null,
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame",
+      "contact"
+    ],
+    "description": "MOCK contact endpoints.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "contact_force",
+    "entity_type": "contact",
+    "variable": "force_magnitude",
+    "unit": "N",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame",
+      "contact"
+    ],
+    "description": "MOCK contact force.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "bond_network",
+    "entity_type": "bond",
+    "variable": "endpoint_ids",
+    "unit": null,
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame",
+      "bond"
+    ],
+    "description": "MOCK bond endpoints.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "bond_force",
+    "entity_type": "bond",
+    "variable": "force_magnitude",
+    "unit": "N",
+    "source": "MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame",
+      "bond"
+    ],
+    "description": "MOCK bond force.",
+    "provenance": {
+      "source": "MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "axial_strain",
+    "entity_type": "sample",
+    "variable": "axial_strain",
+    "unit": "1",
+    "source": "DECLARED_MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "MOCK nominal axial strain.",
+    "provenance": {
+      "source": "DECLARED_MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  },
+  {
+    "schema_version": "1.0.0",
+    "id": "axial_stress_pa",
+    "entity_type": "sample",
+    "variable": "axial_stress",
+    "unit": "Pa",
+    "source": "DECLARED_MOCK",
+    "status": "GENERATED",
+    "dimensions": [
+      "frame"
+    ],
+    "description": "MOCK nominal axial stress.",
+    "provenance": {
+      "source": "DECLARED_MOCK",
+      "input_files": [],
+      "parent_results": [],
+      "formula": null,
+      "method": "MOCK full-capability synthetic capture",
+      "applicability": "MOCK / DEMO only",
+      "notes": [
+        "Synthetic values; not a real PFC solve."
+      ],
+      "generated_utc": "2026-11-23T00:00:00+00:00"
+    }
+  }
+]

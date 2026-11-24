@@ -1,0 +1,11 @@
+{
+  "charts": {
+    "case_0:stress_strain": {
+      "type": "scatter",
+      "options": {
+        "show_symbol": true,
+        "symbol_size": 4
+      }
+    }
+  }
+}

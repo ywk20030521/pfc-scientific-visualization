@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/experiment.schema.json",
+  "title": "PFC Scientific Experiment",
+  "type": "object",
+  "required": ["schema_version", "experiment_id", "title", "execution_mode", "dimensions", "data_boundary", "cases", "provenance"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "pfc_version": {"type": ["string", "null"]},
+    "execution_mode": {"enum": ["CONSOLE", "OFFLINE", "UNKNOWN"]},
+    "dimensions": {"type": "array", "minItems": 1, "items": {"enum": [2, 3]}},
+    "data_boundary": {"enum": ["REAL_PFC", "MOCK", "MIXED", "UNKNOWN"]},
+    "cases": {"type": "array", "minItems": 1, "items": {"$ref": "case.schema.json"}},
+    "metadata": {"type": "object"},
+    "provenance": {"type": "object"},
+    "generated_utc": {"type": "string"}
+  },
+  "additionalProperties": true
+}

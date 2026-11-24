@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pfc-scientific-visualization/data_layer.schema.json",
+  "title": "PFC Data Layer",
+  "type": "object",
+  "required": ["layer", "layer_id", "case_id", "status", "parent_layers", "artifacts", "operations", "provenance", "generated_utc"],
+  "properties": {
+    "layer": {"enum": ["RAW_DATA", "ANALYSIS_DATA", "DISPLAY_DATA"]},
+    "layer_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "integer", "minimum": 0},
+    "status": {"enum": ["GENERATED", "NOT_GENERATED", "NOT_CAPTURED", "NOT_SUPPORTED", "INVALID", "NOT_VERIFIED"]},
+    "parent_layers": {"type": "array", "items": {"type": "string"}},
+    "artifacts": {"type": "array", "items": {"type": "object"}},
+    "operations": {"type": "array", "items": {"type": "object"}},
+    "display": {"type": ["object", "null"]},
+    "provenance": {"type": "object"},
+    "generated_utc": {"type": "string"}
+  },
+  "additionalProperties": false
+}

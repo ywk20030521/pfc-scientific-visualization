@@ -1,0 +1,218 @@
+[
+  {
+    "frame_id": 0,
+    "cycle": 1,
+    "mechanical_time_total": 0.0,
+    "ball_offset": 0,
+    "ball_count": 240,
+    "wall_offset": 0,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 1,
+    "cycle": 501,
+    "mechanical_time_total": 0.013043478260869565,
+    "ball_offset": 240,
+    "ball_count": 240,
+    "wall_offset": 8,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 2,
+    "cycle": 1001,
+    "mechanical_time_total": 0.02608695652173913,
+    "ball_offset": 480,
+    "ball_count": 240,
+    "wall_offset": 16,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 3,
+    "cycle": 1501,
+    "mechanical_time_total": 0.03913043478260869,
+    "ball_offset": 720,
+    "ball_count": 240,
+    "wall_offset": 24,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 4,
+    "cycle": 2001,
+    "mechanical_time_total": 0.05217391304347826,
+    "ball_offset": 960,
+    "ball_count": 240,
+    "wall_offset": 32,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 5,
+    "cycle": 2501,
+    "mechanical_time_total": 0.06521739130434782,
+    "ball_offset": 1200,
+    "ball_count": 240,
+    "wall_offset": 40,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 6,
+    "cycle": 3001,
+    "mechanical_time_total": 0.07826086956521738,
+    "ball_offset": 1440,
+    "ball_count": 240,
+    "wall_offset": 48,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 7,
+    "cycle": 3501,
+    "mechanical_time_total": 0.09130434782608696,
+    "ball_offset": 1680,
+    "ball_count": 240,
+    "wall_offset": 56,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 8,
+    "cycle": 4001,
+    "mechanical_time_total": 0.10434782608695652,
+    "ball_offset": 1920,
+    "ball_count": 240,
+    "wall_offset": 64,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 9,
+    "cycle": 4501,
+    "mechanical_time_total": 0.11739130434782608,
+    "ball_offset": 2160,
+    "ball_count": 240,
+    "wall_offset": 72,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 10,
+    "cycle": 5001,
+    "mechanical_time_total": 0.13043478260869565,
+    "ball_offset": 2400,
+    "ball_count": 240,
+    "wall_offset": 80,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 11,
+    "cycle": 5501,
+    "mechanical_time_total": 0.14347826086956522,
+    "ball_offset": 2640,
+    "ball_count": 240,
+    "wall_offset": 88,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 12,
+    "cycle": 6001,
+    "mechanical_time_total": 0.15652173913043477,
+    "ball_offset": 2880,
+    "ball_count": 240,
+    "wall_offset": 96,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 13,
+    "cycle": 6501,
+    "mechanical_time_total": 0.16956521739130434,
+    "ball_offset": 3120,
+    "ball_count": 240,
+    "wall_offset": 104,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 14,
+    "cycle": 7001,
+    "mechanical_time_total": 0.1826086956521739,
+    "ball_offset": 3360,
+    "ball_count": 240,
+    "wall_offset": 112,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 15,
+    "cycle": 7501,
+    "mechanical_time_total": 0.19565217391304346,
+    "ball_offset": 3600,
+    "ball_count": 240,
+    "wall_offset": 120,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 16,
+    "cycle": 8001,
+    "mechanical_time_total": 0.20869565217391303,
+    "ball_offset": 3840,
+    "ball_count": 240,
+    "wall_offset": 128,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 17,
+    "cycle": 8501,
+    "mechanical_time_total": 0.2217391304347826,
+    "ball_offset": 4080,
+    "ball_count": 240,
+    "wall_offset": 136,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 18,
+    "cycle": 9001,
+    "mechanical_time_total": 0.23478260869565215,
+    "ball_offset": 4320,
+    "ball_count": 240,
+    "wall_offset": 144,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 19,
+    "cycle": 9501,
+    "mechanical_time_total": 0.24782608695652172,
+    "ball_offset": 4560,
+    "ball_count": 240,
+    "wall_offset": 152,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 20,
+    "cycle": 10001,
+    "mechanical_time_total": 0.2608695652173913,
+    "ball_offset": 4800,
+    "ball_count": 240,
+    "wall_offset": 160,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 21,
+    "cycle": 10501,
+    "mechanical_time_total": 0.27391304347826084,
+    "ball_offset": 5040,
+    "ball_count": 240,
+    "wall_offset": 168,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 22,
+    "cycle": 11001,
+    "mechanical_time_total": 0.28695652173913044,
+    "ball_offset": 5280,
+    "ball_count": 240,
+    "wall_offset": 176,
+    "wall_vertex_count": 8
+  },
+  {
+    "frame_id": 23,
+    "cycle": 11501,
+    "mechanical_time_total": 0.3,
+    "ball_offset": 5520,
+    "ball_count": 240,
+    "wall_offset": 184,
+    "wall_vertex_count": 8
+  }
+]
