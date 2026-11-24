@@ -103,6 +103,31 @@ def _files(path: Path) -> list[dict[str, Any]]:
     return result
 
 
+def _indexed_files(root: Path) -> set[str]:
+    """Files claimed by an existing output index are in use, never disposable."""
+    index_path = root / "07_metadata" / "output_index.json"
+    if not index_path.is_file():
+        return set()
+    try:
+        index = json.loads(index_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return set()
+    return {
+        str(item.get("path"))
+        for item in index.get("files", [])
+        if isinstance(item, dict) and item.get("path")
+    }
+
+
+def _candidate_in_use(candidate: Path, root: Path, indexed: set[str]) -> bool:
+    if not indexed:
+        return False
+    for item in candidate.rglob("*"):
+        if item.is_file() and item.relative_to(root).as_posix() in indexed:
+            return True
+    return False
+
+
 def plan_cleanup(root: Path) -> dict[str, Any]:
     root = root.resolve()
     if not root.is_dir():
@@ -116,12 +141,21 @@ def plan_cleanup(root: Path) -> dict[str, Any]:
         raise CleanupError("Root does not look like a scientific analysis output")
     accepted = []
     skipped = []
+    indexed = _indexed_files(root)
     for candidate in _candidate_directories(root):
         if _contains_protected(candidate):
             skipped.append(
                 {
                     "path": candidate.relative_to(root).as_posix(),
                     "reason": "contains raw/standardized/delivery evidence or a protected file suffix",
+                }
+            )
+            continue
+        if _candidate_in_use(candidate, root, indexed):
+            skipped.append(
+                {
+                    "path": candidate.relative_to(root).as_posix(),
+                    "reason": "contains a file claimed by output_index.json (in use)",
                 }
             )
             continue
@@ -161,6 +195,8 @@ def apply_cleanup(root: Path, plan: dict[str, Any], confirmation: str) -> dict[s
             raise CleanupError(f"Refusing protected or symlink target: {target}")
         if _contains_protected(target):
             raise CleanupError(f"Protected evidence appeared during cleanup: {target}")
+        if _candidate_in_use(target, root, _indexed_files(root)):
+            raise CleanupError(f"Indexed evidence appeared during cleanup: {target}")
         shutil.rmtree(target)
     result = {
         **plan,

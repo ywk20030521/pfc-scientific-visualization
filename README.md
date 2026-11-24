@@ -81,3 +81,25 @@ unmeasured, real endpoint-array network rendering and clump membership have no
 captured evidence, and PDF output needs a local vector converter. The
 [IMPLEMENTATION_REPORT.md](IMPLEMENTATION_REPORT.md) describes the earlier
 integrated build and is not the current acceptance record.
+
+## Observability, packaging and feedback verification (2026-11-24)
+
+All additions are opt-in or additive; standardized inputs and analysis outputs
+are unchanged. See `reports/UPGRADE_V0_V3_2026-11-24.md` for the full record.
+
+- `run_pipeline.py --measure [--warm]` writes
+  `07_metadata/stage_timings.json`: 7 stage durations, RSS (ctypes/psapi,
+  no new dependency), tracemalloc, and input/output bytes. The report is itself
+  included in `output_index.json` hashes.
+- `performance_baseline.py freeze|check` records environment-tagged baselines
+  and detects regressions (+20% warning, +50% failure, RSS budget, input hash).
+- `package_experiment.py --package scientific|display` builds a hash-verified
+  package in a temp file and publishes atomically. `display` contains only
+  `04_viewer` and `05_charts`, no raw or standardized scientific data.
+- `verify_feedback_loop.py` proves findings → headless ingest/approve/
+  prepare-run on an isolated project copy: new Run differs from source Run and
+  the source Run files remain byte-identical.
+- Cleanup refuses directories whose files are claimed by `output_index.json`.
+
+RSS and tracemalloc measure different scopes; they are reported side by side and
+must not be added together.

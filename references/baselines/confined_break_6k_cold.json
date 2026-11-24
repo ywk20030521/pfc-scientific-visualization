@@ -1,0 +1,48 @@
+{
+  "status": "FROZEN",
+  "label": "confined_break_6k_cold",
+  "frozen_utc": "2026-11-24T13:52:02+00:00",
+  "environment": {
+    "python": "3.13.14",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64"
+  },
+  "mode": "cold",
+  "input_manifest_sha256": "fed3575072f9820818670f43cdeb80b79bf294606f91edaacb08e0fd6402375b",
+  "stages": {
+    "input_validation": {
+      "duration_seconds": 0.1148,
+      "output_bytes": 19656
+    },
+    "analysis": {
+      "duration_seconds": 16.8576,
+      "output_bytes": 17701496
+    },
+    "data_layers": {
+      "duration_seconds": 0.092,
+      "output_bytes": 5370
+    },
+    "capabilities": {
+      "duration_seconds": 0.0534,
+      "output_bytes": 1631
+    },
+    "viewer_payload": {
+      "duration_seconds": 6.4765,
+      "output_bytes": 14871531
+    },
+    "publication_plan": {
+      "duration_seconds": 0.0374,
+      "output_bytes": 63235
+    },
+    "packaging": {
+      "duration_seconds": 3.9137,
+      "output_bytes": 32941181
+    }
+  },
+  "process_peak_rss_mb": 108.746,
+  "thresholds": {
+    "warn_ratio": 0.2,
+    "fail_ratio": 0.5,
+    "rss_budget_factor": 2.0
+  }
+}

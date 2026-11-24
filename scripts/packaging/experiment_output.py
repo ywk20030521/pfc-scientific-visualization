@@ -3,6 +3,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
+import tempfile
 import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -16,6 +18,23 @@ OUTPUT_DIRS = (
     "07_metadata",
     "report",
 )
+
+REQUIRED_DIRS = frozenset({"03_analysis", "04_viewer", "07_metadata"})
+DISPLAY_DIRS = frozenset({"04_viewer", "05_charts"})
+
+
+def _file_role(relative: str) -> str:
+    top = relative.split("/", 1)[0]
+    if top.startswith("0") or top == "report":
+        return "scientific_delivery"
+    return "auxiliary"
+
+
+def _required_for(relative: str, package: str) -> bool:
+    top = relative.split("/", 1)[0]
+    if package == "display":
+        return top in DISPLAY_DIRS
+    return top in REQUIRED_DIRS or top in {"05_charts", "06_publication_figures", "report"}
 
 
 def _json_dump(path: Path, value: Any) -> None:
@@ -57,6 +76,10 @@ def materialize_output_contract(
             "path": rel,
             "size_bytes": path.stat().st_size,
             "sha256": _sha256(path),
+            "file_role": _file_role(rel),
+            "required_for_scientific_package": _required_for(rel, "scientific"),
+            "required_for_display_package": _required_for(rel, "display"),
+            "run_id": None,
         }
         files.append(record)
         generated.append(rel)
@@ -87,6 +110,85 @@ def materialize_output_contract(
     }
     _json_dump(output_root / "07_metadata" / "output_index.json", index)
     return index
+
+
+def package_experiment(
+    output_root: Path,
+    destination: Path,
+    *,
+    package: str = "scientific",
+    run_id: str | None = None,
+) -> dict[str, Any]:
+    """Build a verified package in a temp file, then publish atomically.
+
+    package='scientific' includes the full analysis output tree;
+    package='display' includes only 04_viewer + 05_charts (no raw/standardized
+    scientific data is copied into the archive).
+    """
+    if package not in {"scientific", "display"}:
+        raise ValueError(f"Unsupported package type: {package}")
+    output_root = output_root.resolve()
+    destination = destination.resolve()
+    index_path = output_root / "07_metadata" / "output_index.json"
+    if not index_path.is_file():
+        raise FileNotFoundError(f"output_index.json missing: {index_path}")
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    included = [
+        item for item in index.get("files", [])
+        if _required_for(str(item.get("path", "")), package)
+    ]
+    if not included:
+        raise ValueError(f"No files selected for {package} package")
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    fd, temp_name = tempfile.mkstemp(
+        prefix=f".{destination.name}.", suffix=".tmp", dir=str(destination.parent)
+    )
+    os.close(fd)
+    temp_path = Path(temp_name)
+    try:
+        with zipfile.ZipFile(temp_path, "w", zipfile.ZIP_DEFLATED) as archive:
+            for item in included:
+                relative = str(item["path"])
+                source = output_root / relative
+                if not source.is_file():
+                    raise FileNotFoundError(f"Indexed file missing: {source}")
+                digest = _sha256(source)
+                if digest != item.get("sha256"):
+                    raise ValueError(f"Indexed hash mismatch: {relative}")
+                archive.write(source, relative)
+            archive.writestr(
+                "package_manifest.json",
+                json.dumps(
+                    {
+                        "status": "GENERATED",
+                        "package": package,
+                        "run_id": run_id,
+                        "source_index_sha256": _sha256(index_path),
+                        "files": included,
+                    },
+                    ensure_ascii=False,
+                    indent=2,
+                ) + "\n",
+            )
+        with zipfile.ZipFile(temp_path) as archive:
+            bad = archive.testzip()
+            if bad is not None:
+                raise ValueError(f"Corrupt archive member: {bad}")
+        os.replace(temp_path, destination)
+    finally:
+        if temp_path.exists():
+            temp_path.unlink()
+    return {
+        "status": "GENERATED",
+        "package": package,
+        "run_id": run_id,
+        "path": str(destination),
+        "file_count": len(included),
+        "size_bytes": destination.stat().st_size,
+        "sha256": _sha256(destination),
+        "integrity": "PASS",
+    }
 
 
 def package_skill_zip(skill_root: Path, output_zip: Path) -> dict[str, Any]:

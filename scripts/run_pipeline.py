@@ -30,6 +30,7 @@ from schema import (
 from standard_contract import verify_standard_contract
 from viewer import build_viewer
 from viewer.linkage import evaluate_linkage_decisions
+from observability import StageRecorder, write_report as write_stage_report
 
 
 def _dump(path: Path, value: Any) -> None:
@@ -280,6 +281,8 @@ def run_pipeline(
     title: str | None = None,
     max_frames: int = 0,
     chart_overrides: dict[str, Any] | None = None,
+    measure: bool = False,
+    warm: bool = False,
 ) -> dict[str, Any]:
     input_root = input_root.resolve()
     output_root = output_root.resolve()
@@ -291,7 +294,14 @@ def run_pipeline(
         raise ValueError(
             "Analysis output must be separate from the standardized input contract"
         )
+    recorder = StageRecorder(warm=warm) if measure else None
+    if recorder is not None:
+        recorder.__enter__()
+        recorder.begin("input_validation", [input_root / "delivery_manifest.json"])
+
     source_contract = verify_standard_contract(input_root)
+    if recorder is not None:
+        recorder.end([input_root / "experiment.json"], status="success")
     experiment = source_contract["experiment"]
     title = title or str(experiment["title"])
     materialize_output_contract(
@@ -304,11 +314,17 @@ def run_pipeline(
     chart_root = output_root / "05_charts"
     publication_root = output_root / "06_publication_figures"
 
+    if recorder is not None:
+        recorder.begin("analysis", [input_root])
     analysis = analyze_experiment(
         input_root,
         analysis_root,
         chart_overrides=chart_overrides,
     )
+    if recorder is not None:
+        recorder.end([analysis_root], status="success")
+        recorder.begin("data_layers", [analysis_root])
+
     _write_source_contract(output_root, source_contract)
     data_layers = _write_data_layers(
         output_root,
@@ -316,10 +332,16 @@ def run_pipeline(
         experiment,
         analysis,
     )
+    if recorder is not None:
+        recorder.end([analysis_root / "data_layers.json"], status="success")
+        recorder.begin("capabilities", [analysis_root])
+
     capabilities = inspect_experiment_capabilities(
         input_root,
         analysis_root,
     )
+    if recorder is not None:
+        recorder.end([output_root / "07_metadata"], status="success")
     supported_metrics = tuple(
         metric
         for metric, key in (
@@ -334,6 +356,8 @@ def run_pipeline(
         ),
         particle_metrics=supported_metrics,
     )
+    if recorder is not None:
+        recorder.begin("viewer_payload", [analysis_root])
     viewer_manifest = build_viewer(
         input_root,
         viewer_root / "scientific_viewer.html",
@@ -342,15 +366,21 @@ def run_pipeline(
         title=title,
         linkage=linkage,
     )
+    if recorder is not None:
+        recorder.end([viewer_root], status="success")
     _dump(
         chart_root / "chart_specs.json",
         json.loads((analysis_root / "chart_specs.json").read_text(encoding="utf-8")),
     )
+    if recorder is not None:
+        recorder.begin("publication_plan", [analysis_root])
     figure_plan = write_publication_plan(
         analysis["charts"],
         publication_root / "figure_plan.json",
         max_panels_per_figure=6,
     )
+    if recorder is not None:
+        recorder.end([publication_root], status="success")
     chart_decisions = json.loads(
         (analysis_root / "chart_decisions.json").read_text(encoding="utf-8")
     )
@@ -508,11 +538,25 @@ def run_pipeline(
         ],
     }
     _report(output_root, pipeline)
+    if recorder is not None:
+        recorder.begin("packaging", [output_root])
+
     materialize_output_contract(
         output_root,
         title=title,
         data_boundary=experiment["data_boundary"],
     )
+    if recorder is not None:
+        recorder.end([output_root], status="success")
+        report = recorder.report(input_hash=source_contract["manifest_sha256"])
+        write_stage_report(output_root / "07_metadata" / "stage_timings.json", report)
+        recorder.__exit__(None, None, None)
+        # Rebuild the index so stage_timings.json is itself hashed and listed.
+        materialize_output_contract(
+            output_root,
+            title=title,
+            data_boundary=experiment["data_boundary"],
+        )
     return pipeline
 
 
@@ -539,6 +583,16 @@ def main() -> int:
         "--chart-overrides",
         help="Optional JSON object keyed by chart ID; overrides are validated against data structure.",
     )
+    parser.add_argument(
+        "--measure",
+        action="store_true",
+        help="Record per-stage timing and dual-memory measurements in 07_metadata/stage_timings.json.",
+    )
+    parser.add_argument(
+        "--warm",
+        action="store_true",
+        help="Label the measurement as a warm/cached run (cold by default).",
+    )
     args = parser.parse_args()
     chart_overrides = (
         json.loads(Path(args.chart_overrides).read_text(encoding="utf-8"))
@@ -551,6 +605,8 @@ def main() -> int:
         title=args.title,
         max_frames=args.max_frames,
         chart_overrides=chart_overrides,
+        measure=args.measure,
+        warm=args.warm,
     )
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return 0

@@ -131,6 +131,20 @@ def build_findings(
             _display_path(path, project_root) for path in artifact_paths
         ]
     findings = []
+    seen_finding_ids: set[str] = set()
+
+    def _add_finding(item: dict[str, Any]) -> None:
+        """Append a finding once per finding_id (incremental re-runs are safe)."""
+        fid = str(item.get("finding_id", ""))
+        if not fid or fid in seen_finding_ids:
+            return
+        item.setdefault("severity", "warning")
+        item.setdefault("category", "data_availability")
+        item.setdefault("source_module", "analysis")
+        item.setdefault("status", "OPEN")
+        seen_finding_ids.add(fid)
+        findings.append(item)
+
     for case in analysis.get("cases", []):
         case_id = int(case.get("case_id", -1))
         generated = [
@@ -138,7 +152,7 @@ def build_findings(
             for item in case.get("channels", [])
             if item.get("status") == "GENERATED"
         ]
-        findings.append(
+        _add_finding(
             {
                 "finding_id": f"analysis_case_{case_id}",
                 "statement": (
@@ -146,10 +160,12 @@ def build_findings(
                     "documented channels without fabricating unavailable data."
                 ),
                 "evidence": referenced,
+                "severity": "info",
+                "category": "analysis_summary",
             }
         )
     if unavailable:
-        findings.append(
+        _add_finding(
             {
                 "finding_id": "missing_channel_evidence",
                 "statement": (
@@ -157,6 +173,9 @@ def build_findings(
                     "are not substituted with inferred values."
                 ),
                 "evidence": referenced,
+                "severity": "warning",
+                "category": "data_availability",
+                "source_module": "chart_intelligence",
             }
         )
 
