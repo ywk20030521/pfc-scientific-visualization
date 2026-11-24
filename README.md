@@ -3,12 +3,16 @@
 Offline scientific Viewer and analysis for real PFC2D/PFC3D data (light theme,
 local assets, no raw-data copying):
 
-| PFC2D — rock UCS | PFC3D — balls in box |
+| PFC2D — dynamic cracks | PFC3D — real wall facets |
 |---|---|
 | ![PFC2D light-theme viewer](assets/showcase/viewer_2d_light.png) | ![PFC3D light-theme viewer](assets/showcase/viewer_3d_light.png) |
 
-Both images are exports from real standardized Runs processed by this Skill,
-not mock renders.
+Both images are canvas-only exports from real standardized Runs processed by
+this Skill (`run_case06_fullcap_r4`: 198 cracks with endpoint Ball IDs, so
+breaks follow the grains; `run_case06_3dfacet_r2`: 4 real wall facets / 24
+triangles). Not mock renders. **Data-version note**: older standardized
+packages without `fracture_ball_id_a/b` or wall `facet.vertex_ids` render
+static cracks and wall rods (backward-compatible fallback), not a viewer bug.
 
 An installable scientific post-processing Skill for verified PFC2D/PFC3D
 standardized data. It consumes the immutable
