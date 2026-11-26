@@ -271,14 +271,18 @@
   runtime.lastHistogramUpdate = 0;
 
   let activePalette = "nature";
+  // High-contrast sequential ramp (viridis, 6 stops). Chosen because it is
+  // perceptually uniform and strictly monotonic in luminance, passes grayscale
+  // printing and all three Machado CVD simulations (verified 2026-11-25).
   const CONTRAST_RAMP = [
-    { at: 0, color: "#27356b" },
-    { at: 0.2, color: "#3b82b8" },
-    { at: 0.45, color: "#4bb3a6" },
-    { at: 0.7, color: "#d8c85a" },
-    { at: 1, color: "#d96a3a" }
+    { at: 0, color: "#440154" },
+    { at: 0.2, color: "#3B528B" },
+    { at: 0.4, color: "#21918C" },
+    { at: 0.6, color: "#5EC962" },
+    { at: 0.8, color: "#A6D824" },
+    { at: 1, color: "#FDE725" }
   ];
-  const CONTRAST_CSS = "linear-gradient(90deg, #27356b, #3b82b8, #4bb3a6, #d8c85a, #d96a3a)";
+  const CONTRAST_CSS = "linear-gradient(90deg, #440154, #3B528B, #21918C, #5EC962, #A6D824, #FDE725)";
 
   function buildColorRamp() {
     const sourceRamp = activePalette === "contrast" ? CONTRAST_RAMP : COLORS.ramp;
@@ -797,10 +801,13 @@
     wallSolids.visible = false;
     scene.add(wallSolids);
     // Real wall platen: a CLOSED thin slab rebuilt every frame from the PFC
-    // wall vertex coordinates. Its thickness equals the existing wall-rod
-    // diameter, so it reads as the same physical wall rather than an enormous
-    // filled plane. Translucent blue with depthWrite off keeps every grain and
-    // contact visible through it; no geometry is scaled or invented.
+    // wall vertex coordinates. The slab thickness is a PURE DISPLAY parameter
+    // (derived from the wall-rod radius for a consistent visual language). It
+    // is NOT a physical wall thickness and MUST NOT be used in any physical
+    // quantity calculation. Translucent blue with depthWrite off keeps every
+    // grain and contact visible through it. Vertex positions and facet
+    // topology come from captured PFC data; only the extrusion depth is
+    // visual.
     wallFaces = new THREE.Mesh(
       new THREE.BufferGeometry(),
       new THREE.MeshPhysicalMaterial({
@@ -1125,10 +1132,14 @@
       else color = colorRamp[Math.max(0, Math.min(255, Math.round(
         ((value - colorLow) / (colorHigh - colorLow)) * 255
       )))];
-      const glint = 1.0 + ((index * 37) % 13) / 100;
-      colorBuffer[index * 3] = (color.r != null ? color.r : color[0]) * glint;
-      colorBuffer[index * 3 + 1] = (color.g != null ? color.g : color[1]) * glint;
-      colorBuffer[index * 3 + 2] = (color.b != null ? color.b : color[2]) * glint;
+      // Data colors are encoded strictly from the physical value and the
+      // active ramp. No per-instance brightness jitter is applied here: any
+      // modulation of instanceColor would break the value->color contract and
+      // make one physical value map to different legend colors. Depth cues
+      // come only from lighting / normals / material response.
+      colorBuffer[index * 3] = color.r != null ? color.r : color[0];
+      colorBuffer[index * 3 + 1] = color.g != null ? color.g : color[1];
+      colorBuffer[index * 3 + 2] = color.b != null ? color.b : color[2];
       if (selected.has(ballId)) {
         particleDummy.scale.setScalar(radius * 1.045);
         particleDummy.updateMatrix();
@@ -1220,9 +1231,11 @@
   // Rebuild a CLOSED thin wall shell from the PFC wall point coordinates.
   // PFC gives wall vertices, not a ready-made mesh: we order those real corner
   // points into a closed loop (using the captured facet edge topology when
-  // available), then extrude the loop by the wall-rod diameter along the real
-  // facet normal. Every corner comes from THIS frame's captured wall vertices,
-  // so the platen follows compression without any scaling or fabrication.
+  // available), then extrude the loop by a small display-only depth along the
+  // real facet normal. Every corner comes from THIS frame's captured wall
+  // vertices, so the platen follows compression without any scaling or
+  // fabrication. Extrusion depth is a display parameter, not a physical wall
+  // thickness, and is never used for physical calculations.
   // Falls back to the rod/line rendering when facet topology is absent
   // (PFC2D or old deliveries).
   function updateWallFaces(wallIds, vertexIds, xyz) {
@@ -1260,13 +1273,17 @@
       const facets = (wall && wall.facets) || [];
       if (!facets.length || group.ids.length < 3) continue;
       // Boundary edges appear once in the facet list; interior diagonals
-      // appear twice. Chaining the boundary edges gives the ordered loop.
+      // appear twice. Chain boundary edges into ordered loops. Degenerate
+      // edges (repeated vertex ids) are skipped, and every disconnected
+      // boundary component becomes its own loop (fix for wall multi-topology).
       const edgeKey = (a, b) => (a < b ? a + ":" + b : b + ":" + a);
       const counts = new Map();
       for (const facet of facets) {
-        const ids = facet.vertex_ids || [];
+        const ids = (facet.vertex_ids || []).filter((v) => Number.isFinite(v));
         for (let k = 0; k < ids.length; k += 1) {
-          const key = edgeKey(ids[k], ids[(k + 1) % ids.length]);
+          const a = ids[k], b = ids[(k + 1) % ids.length];
+          if (a === b || b == null) continue; // skip degenerate edges
+          const key = edgeKey(a, b);
           counts.set(key, (counts.get(key) || 0) + 1);
         }
       }
@@ -1274,19 +1291,27 @@
       for (const [key, count] of counts) {
         if (count === 1) boundary.push(key.split(":").map(Number));
       }
-      const loop = [];
-      if (boundary.length) {
-        loop.push(boundary[0][0], boundary[0][1]);
+      const loops = [];
+      const used = new Set();
+      for (let seed = 0; seed < boundary.length; seed += 1) {
+        if (used.has(seed)) continue;
+        const first = boundary[seed];
+        const loop = [first[0], first[1]];
+        used.add(seed);
         for (let guard = 0; guard < boundary.length + 2; guard += 1) {
           const cur = loop[loop.length - 1];
           if (cur === loop[0]) break;
-          const next = boundary.find(([a, b]) =>
-            (a === cur && loop.indexOf(b) === -1) || (b === cur && loop.indexOf(a) === -1));
-          if (!next) break;
+          const idx = boundary.findIndex(([a, b], i) => !used.has(i) &&
+            ((a === cur && loop.indexOf(b) === -1) || (b === cur && loop.indexOf(a) === -1)));
+          if (idx < 0) break;
+          const next = boundary[idx];
+          used.add(idx);
           loop.push(next[0] === cur ? next[1] : next[0]);
         }
         if (loop.length > 1 && loop[loop.length - 1] === loop[0]) loop.pop();
+        if (loop.length >= 3 && new Set(loop).size === loop.length) loops.push(loop);
       }
+      for (const loop of loops) {
       const pts = loop.map((vid) => idToVertex.get(vid));
       if (pts.length < 3 || pts.some((p) => !p)) continue;
       let n = facets[0].normal;
@@ -1314,6 +1339,7 @@
         pushTri(plus[k], minus[k], minus[j], n);
         pushTri(plus[k], minus[j], plus[j], n);
       }
+      } // end for (const loop of loops)
     }
     if (!positions.length) {
       wallFaces.visible = false;

@@ -46,10 +46,27 @@ class ViewerUpgradeContractTests(unittest.TestCase):
         self.assertIn('choice === "both" || choice === "section"', js)
 
     def test_light_ramp_is_the_validated_palette(self) -> None:
+        """The Nature ramp must be the 2026-11-25 luminance-monotonic palette.
+
+        The previous ramp (#5B9BD5 -> ... -> #E46A3C) was rejected because the
+        high end was darker than the low end, breaking grayscale printing and
+        CVD luminance order. See color_ramp_acceptance.py for the quantitative
+        check that validated this replacement.
+        """
         semantics = SEMANTICS.read_text(encoding="utf-8")
-        self.assertIn('"#5B9BD5"', semantics)
-        self.assertIn('"#E46A3C"', semantics)
+        js = JS.read_text(encoding="utf-8")
+        for validated_stop in ("#24486E", "#366F9E", "#4A9BB0", "#7FBFA0", "#C4D97E", "#F2E06B"):
+            self.assertIn('"' + validated_stop + '"', semantics)
+        self.assertIn('"#440154"', js)  # viridis high-contrast ramp, 6 stops
+        self.assertIn('"#FDE725"', js)
+        self.assertNotIn('"#E46A3C"', semantics)
         self.assertNotIn('"#2b3a63"', semantics)
+
+    def test_particle_colors_are_not_brightness_jittered(self) -> None:
+        """P0-C1: instanceColor must encode data color strictly, no glint."""
+        js = JS.read_text(encoding="utf-8")
+        self.assertNotIn("glint", js)
+        self.assertIn("No per-instance brightness jitter is applied here", js)
 
 
 class BugFixContractTests(unittest.TestCase):

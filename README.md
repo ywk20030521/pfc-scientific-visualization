@@ -77,11 +77,15 @@ were removed. All colors are centralized in
 `assets/styles/scientific-visual-semantics.json` under `themes.light`. The
 scene uses ACES tone mapping with quantitative instance colors opted out of
 tone mapping, a physical-material particle preset, rim light and a local
-equirectangular environment map. The default Nature ramp is bright and
-publication-friendly; a high-contrast ramp is selectable in the bottom control
-dock but is not the default. All Three.js controls live in a collapsed-by-default
-bottom dock, and the right rail contains charts only. The render:chart split is
-the golden ratio (1.618:1). Export backgrounds remain white or transparent.
+equirectangular environment map. The default Nature ramp is the 2026-11-25
+validated six-stop sequential palette (`#24486E → #366F9E → #4A9BB0 →
+#7FBFA0 → #C4D97E → #F2E06B`), verified strictly monotonic in WCAG relative
+luminance, sRGB grayscale and all three Machado CVD simulations; data colors
+are never brightness-jittered. A high-contrast viridis ramp is selectable in
+the bottom control dock but is not the default. All Three.js controls live in
+a collapsed-by-default bottom dock, and the right rail contains charts only.
+The render:chart split is the golden ratio (1.618:1). Export backgrounds
+remain white or transparent.
 
 The split was reaccepted on 2026-11-16 against a pfc-headless standardized
 contract: the unit/contract suite reports 61 PASS and real PFC2D/PFC3D browser
@@ -114,3 +118,30 @@ are unchanged. See `reports/UPGRADE_V0_V3_2026-11-24.md` for the full record.
 
 RSS and tracemalloc measure different scopes; they are reported side by side and
 must not be added together.
+
+## Standalone Viewer delivery (2026-11-25)
+
+For offline sharing, package the whole generated viewer directory — the HTML
+must stay next to `viewer/` and `data/` because vendor scripts and frame data
+are loaded as relative files:
+
+```
+python scripts/viewer/package_viewer.py <viewer_root> <out.zip>
+```
+
+The ZIP preserves relative paths and is fully offline after extraction. A
+2026-11-25 check on the 6,379-particle `case_17` viewer produced 151 files,
+14.87 MB uncompressed → 7.95 MB ZIP (53.5%), `testzip()` clean, and headless
+browser network interception confirmed 13 local `file://` requests, **zero
+external requests and zero failures**, with all 6,379 grains rendered. The
+`http://` strings inside vendored `three.min.js`/`echarts.min.js` are library
+comments, not runtime requests.
+
+Keep three delivery concepts distinct: **offline runnable** (no CDN/network),
+**independently shareable** (ZIP + README opens on a clean machine), and
+**publicly deployable** (static-site link). Only the first two were verified in
+the development environment; a genuinely independent machine and static hosting
+remain `NOT_VERIFIED`. ZIP compression size is not runtime memory: the runtime
+also allocates decoded arrays, JSON objects, Float32Array buffers, GPU buffers,
+frame caches and chart copies. Record file/download/extracted size, JS heap,
+GPU estimate and peak memory separately.
