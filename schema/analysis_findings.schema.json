@@ -6,6 +6,8 @@
   "required": [
     "schema_version",
     "contract",
+    "classification",
+    "finding_authority",
     "feedback_id",
     "run_id",
     "source",
@@ -24,6 +26,8 @@
   "properties": {
     "schema_version": {"const": "1.0.0"},
     "contract": {"const": "pfc.analysis-findings@1.0.0"},
+    "classification": {"const": "ANALYSIS_FEEDBACK_NOT_SCIENTIFIC_FINDING"},
+    "finding_authority": {"const": "NOT_RE_FINDING"},
     "feedback_id": {"type": "string", "minLength": 1},
     "run_id": {"type": "string", "minLength": 1},
     "source": {"const": "pfc-scientific-visualization"},
