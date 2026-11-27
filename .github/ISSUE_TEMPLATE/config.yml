@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: README and capability matrix
+    url: https://github.com/ywk20030521/pfc-scientific-visualization#readme
+    about: Check README, CAPABILITY_MATRIX.md and TEST_REPORT.md first.
+  - name: Security vulnerability
+    url: https://github.com/ywk20030521/pfc-scientific-visualization/security/advisories/new
+    about: Report exploitable defects privately, not as a public issue.
