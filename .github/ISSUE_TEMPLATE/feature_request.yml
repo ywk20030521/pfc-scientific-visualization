@@ -1,0 +1,45 @@
+name: Feature request
+description: Propose an analysis, visualization or publication capability
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the scope boundary in `CONTRIBUTING.md`. PFC execution, user
+        decisions and formal scientific validation belong to other Skills.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or research question
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed capability
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
+  - type: dropdown
+    id: contract_impact
+    attributes:
+      label: Output contract impact
+      options:
+        - "No"
+        - "Yes - additive only"
+        - "Yes - breaking (requires Headless/RE coordination)"
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: How should this be verified?
+      description: Name the tests, real-data review and browser checks. Do not claim scientific validity.
+    validations:
+      required: true

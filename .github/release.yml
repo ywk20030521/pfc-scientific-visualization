@@ -1,0 +1,29 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+  categories:
+    - title: Analysis and derived quantities
+      labels:
+        - analysis
+        - statistics
+    - title: Charts, Viewer and publication output
+      labels:
+        - charts
+        - viewer
+        - publication
+    - title: Data contract and provenance
+      labels:
+        - contract
+        - provenance
+    - title: Performance and security
+      labels:
+        - performance
+        - security
+    - title: Documentation and repository configuration
+      labels:
+        - documentation
+        - repository-config
+    - title: Other changes
+      labels:
+        - "*"

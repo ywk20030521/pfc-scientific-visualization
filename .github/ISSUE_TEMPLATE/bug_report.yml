@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a reproducible analysis, chart or Viewer defect
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not report security vulnerabilities here; see `SECURITY.md`.
+        Do not attach proprietary datasets.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened
+      description: Include the exact command and the observed output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Python 3.13 / Windows 11 / PFC3D data / dataset size / commit <sha>"
+    validations:
+      required: true
+  - type: dropdown
+    id: data_source
+    attributes:
+      label: Data source
+      options:
+        - Real PFC standardized dataset
+        - Existing repository example
+        - Synthetic / mock data
+        - Unknown
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Analysis / derived quantities
+        - ECharts / Chart Intelligence
+        - Three.js Viewer
+        - Publication figure
+        - Input contract / schema
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or artifact paths
+    validations:
+      required: false

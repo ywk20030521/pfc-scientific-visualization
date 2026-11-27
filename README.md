@@ -145,3 +145,13 @@ remain `NOT_VERIFIED`. ZIP compression size is not runtime memory: the runtime
 also allocates decoded arrays, JSON objects, Float32Array buffers, GPU buffers,
 frame caches and chart copies. Record file/download/extracted size, JS heap,
 GPU estimate and peak memory separately.
+
+## Contributing and release
+
+- [CONTRIBUTING.md](CONTRIBUTING.md) — development and scientific-integrity rules
+- [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) — community standards
+- [SECURITY.md](SECURITY.md) — private vulnerability reporting
+- [docs/VERSIONING.md](docs/VERSIONING.md) — tags and release process
+- [docs/RELEASE_NOTES_DRAFT.md](docs/RELEASE_NOTES_DRAFT.md) — draft, not published
+- [docs/OPEN_SOURCE_READINESS.md](docs/OPEN_SOURCE_READINESS.md) — three-Skill alignment
+- [LICENSE](LICENSE) — MIT
