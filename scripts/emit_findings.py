@@ -217,6 +217,8 @@ def build_findings(
     payload = {
         "schema_version": "1.0.0",
         "contract": CONTRACT,
+        "classification": "ANALYSIS_FEEDBACK_NOT_SCIENTIFIC_FINDING",
+        "finding_authority": "NOT_RE_FINDING",
         "feedback_id": f"feedback_{experiment_id}",
         "run_id": experiment_id,
         "source": "pfc-scientific-visualization",
